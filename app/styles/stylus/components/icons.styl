@@ -1,0 +1,946 @@
+/*
+	stylus-boilerplate
+
+	icons.styl
+
+	Author: Sean Goresht
+
+	Icomoon variable and placeholder $icomoon generator.  Sets up and provides useful variables for all default icomoon variables
+	@example
+		.module
+			&--star
+				&:after
+					@extend $icomoon
+					content $icon-star
+*/
+
+@font-face
+	font-family "icomoon"
+	src url("fonts/icomoon.eot?3c6f2l")
+	src url("fonts/icomoon.eot?#iefix3c6f2l") format("embedded-opentype"), url("fonts/icomoon.woff?3c6f2l") format("woff"), url("fonts/icomoon.ttf?3c6f2l") format("truetype"), url("fonts/icomoon.svg?3c6f2l#icomoon") format("svg")
+	font-weight normal
+	font-style normal
+
+$icomoon
+	font-family "icomoon"
+	speak none
+	font-style normal
+	font-weight normal
+	font-variant normal
+	text-transform none
+	line-height 1
+	-webkit-font-smoothing antialiased
+	-moz-osx-font-smoothing grayscale
+
+$icon-home2 = "\e66c"
+
+$icon-home3 = "\e66d"
+
+$icon-home4 = "\e66e"
+
+$icon-office = "\e66f"
+
+$icon-newspaper = "\e670"
+
+$icon-pencil2 = "\e671"
+
+$icon-pencil3 = "\e672"
+
+$icon-quill = "\e673"
+
+$icon-pen = "\e674"
+
+$icon-blog = "\e675"
+
+$icon-droplet2 = "\e676"
+
+$icon-paint-format = "\e677"
+
+$icon-image = "\e678"
+
+$icon-image2 = "\e679"
+
+$icon-images = "\e67a"
+
+$icon-camera3 = "\e67b"
+
+$icon-music2 = "\e67c"
+
+$icon-headphones2 = "\e67d"
+
+$icon-play2 = "\e67e"
+
+$icon-film2 = "\e67f"
+
+$icon-camera4 = "\e680"
+
+$icon-dice = "\e681"
+
+$icon-pacman = "\e682"
+
+$icon-spades = "\e683"
+
+$icon-clubs = "\e684"
+
+$icon-diamonds = "\e685"
+
+$icon-pawn = "\e686"
+
+$icon-bullhorn = "\e687"
+
+$icon-connection = "\e688"
+
+$icon-podcast = "\e689"
+
+$icon-feed2 = "\e68a"
+
+$icon-book = "\e68b"
+
+$icon-books = "\e68c"
+
+$icon-library = "\e68d"
+
+$icon-file2 = "\e68e"
+
+$icon-profile = "\e68f"
+
+$icon-file3 = "\e690"
+
+$icon-file4 = "\e691"
+
+$icon-file5 = "\e692"
+
+$icon-copy = "\e693"
+
+$icon-copy2 = "\e694"
+
+$icon-copy3 = "\e695"
+
+$icon-paste = "\e696"
+
+$icon-paste2 = "\e697"
+
+$icon-paste3 = "\e698"
+
+$icon-stack = "\e699"
+
+$icon-folder2 = "\e69a"
+
+$icon-folder-open = "\e69b"
+
+$icon-tag2 = "\e69c"
+
+$icon-tags = "\e69d"
+
+$icon-barcode = "\e69e"
+
+$icon-qrcode = "\e69f"
+
+$icon-ticket = "\e6a0"
+
+$icon-cart2 = "\e6a1"
+
+$icon-cart3 = "\e6a2"
+
+$icon-cart4 = "\e6a3"
+
+$icon-coin = "\e6a4"
+
+$icon-credit = "\e6a5"
+
+$icon-calculate = "\e6a6"
+
+$icon-support = "\e6a7"
+
+$icon-phone2 = "\e6a8"
+
+$icon-phone-hang-up = "\e6a9"
+
+$icon-address-book = "\e6aa"
+
+$icon-notebook = "\e6ab"
+
+$icon-envelope2 = "\e6ac"
+
+$icon-pushpin = "\e6ad"
+
+$icon-location3 = "\e6ae"
+
+$icon-location4 = "\e6af"
+
+$icon-compass2 = "\e6b0"
+
+$icon-map = "\e6b1"
+
+$icon-map2 = "\e6b2"
+
+$icon-history = "\e6b3"
+
+$icon-clock2 = "\e6b4"
+
+$icon-clock3 = "\e6b5"
+
+$icon-alarm2 = "\e6b6"
+
+$icon-alarm3 = "\e6b7"
+
+$icon-bell = "\e6b8"
+
+$icon-stopwatch = "\e6b9"
+
+$icon-calendar2 = "\e6ba"
+
+$icon-calendar3 = "\e6bb"
+
+$icon-print = "\e6bc"
+
+$icon-keyboard2 = "\e6bd"
+
+$icon-screen = "\e6be"
+
+$icon-laptop = "\e6bf"
+
+$icon-mobile2 = "\e6c0"
+
+$icon-mobile3 = "\e6c1"
+
+$icon-tablet = "\e6c2"
+
+$icon-tv = "\e6c3"
+
+$icon-cabinet = "\e6c4"
+
+$icon-drawer = "\e6c5"
+
+$icon-drawer2 = "\e6c6"
+
+$icon-drawer3 = "\e6c7"
+
+$icon-box-add = "\e6c8"
+
+$icon-box-remove = "\e6c9"
+
+$icon-download = "\e6ca"
+
+$icon-upload = "\e6cb"
+
+$icon-disk2 = "\e6cc"
+
+$icon-storage = "\e6cd"
+
+$icon-undo = "\e6ce"
+
+$icon-redo = "\e6cf"
+
+$icon-flip = "\e6d0"
+
+$icon-flip2 = "\e6d1"
+
+$icon-undo2 = "\e6d2"
+
+$icon-redo2 = "\e6d3"
+
+$icon-forward2 = "\e6d4"
+
+$icon-reply = "\e6d5"
+
+$icon-bubble = "\e6d6"
+
+$icon-bubbles = "\e6d7"
+
+$icon-bubbles2 = "\e6d8"
+
+$icon-bubble2 = "\e6d9"
+
+$icon-bubbles3 = "\e6da"
+
+$icon-bubbles4 = "\e6db"
+
+$icon-user2 = "\e6dc"
+
+$icon-users = "\e6dd"
+
+$icon-user3 = "\e6de"
+
+$icon-users2 = "\e6df"
+
+$icon-user4 = "\e6e0"
+
+$icon-user5 = "\e6e1"
+
+$icon-quotes-left = "\e6e2"
+
+$icon-busy = "\e6e3"
+
+$icon-spinner = "\e6e4"
+
+$icon-spinner2 = "\e6e5"
+
+$icon-spinner3 = "\e6e6"
+
+$icon-spinner4 = "\e6e7"
+
+$icon-spinner5 = "\e6e8"
+
+$icon-spinner6 = "\e6e9"
+
+$icon-binoculars = "\e6ea"
+
+$icon-search2 = "\e6eb"
+
+$icon-zoomin = "\e6ec"
+
+$icon-zoomout = "\e6ed"
+
+$icon-expand = "\e6ee"
+
+$icon-contract = "\e6ef"
+
+$icon-expand2 = "\e6f0"
+
+$icon-contract2 = "\e6f1"
+
+$icon-key2 = "\e6f2"
+
+$icon-key3 = "\e6f3"
+
+$icon-lock = "\e6f4"
+
+$icon-lock2 = "\e6f5"
+
+$icon-unlocked = "\e6f6"
+
+$icon-wrench2 = "\e6f7"
+
+$icon-settings = "\e6f8"
+
+$icon-equalizer = "\e6f9"
+
+$icon-cog2 = "\e6fa"
+
+$icon-cogs = "\e6fb"
+
+$icon-cog3 = "\e6fc"
+
+$icon-hammer = "\e6fd"
+
+$icon-wand = "\e6fe"
+
+$icon-aid = "\e6ff"
+
+$icon-bug2 = "\e700"
+
+$icon-pie = "\e701"
+
+$icon-stats2 = "\e702"
+
+$icon-bars = "\e703"
+
+$icon-bars2 = "\e704"
+
+$icon-gift2 = "\e705"
+
+$icon-trophy2 = "\e706"
+
+$icon-glass = "\e707"
+
+$icon-mug = "\e708"
+
+$icon-food = "\e709"
+
+$icon-leaf = "\e70a"
+
+$icon-rocket = "\e70b"
+
+$icon-meter = "\e70c"
+
+$icon-meter2 = "\e70d"
+
+$icon-dashboard = "\e70e"
+
+$icon-hammer2 = "\e70f"
+
+$icon-fire = "\e710"
+
+$icon-lab = "\e711"
+
+$icon-magnet = "\e712"
+
+$icon-remove = "\e713"
+
+$icon-remove2 = "\e714"
+
+$icon-briefcase2 = "\e715"
+
+$icon-airplane = "\e716"
+
+$icon-truck = "\e717"
+
+$icon-road = "\e718"
+
+$icon-accessibility = "\e719"
+
+$icon-target4 = "\e71a"
+
+$icon-shield = "\e71b"
+
+$icon-lightning = "\e71c"
+
+$icon-switch2 = "\e71d"
+
+$icon-powercord = "\e71e"
+
+$icon-signup = "\e71f"
+
+$icon-list2 = "\e720"
+
+$icon-list3 = "\e721"
+
+$icon-numbered-list = "\e722"
+
+$icon-menu = "\e723"
+
+$icon-menu2 = "\e724"
+
+$icon-tree = "\e725"
+
+$icon-cloud2 = "\e726"
+
+$icon-cloud-download = "\e727"
+
+$icon-cloud-upload = "\e728"
+
+$icon-download2 = "\e729"
+
+$icon-upload2 = "\e72a"
+
+$icon-download3 = "\e72b"
+
+$icon-upload3 = "\e72c"
+
+$icon-globe = "\e72d"
+
+$icon-earth2 = "\e72e"
+
+$icon-link = "\e72f"
+
+$icon-flag2 = "\e730"
+
+$icon-attachment = "\e731"
+
+$icon-eye2 = "\e732"
+
+$icon-eye-blocked = "\e733"
+
+$icon-eye3 = "\e734"
+
+$icon-bookmark3 = "\e735"
+
+$icon-bookmarks = "\e736"
+
+$icon-brightness-medium = "\e737"
+
+$icon-brightness-contrast = "\e738"
+
+$icon-contrast2 = "\e739"
+
+$icon-star3 = "\e73a"
+
+$icon-star4 = "\e73b"
+
+$icon-star5 = "\e73c"
+
+$icon-heart2 = "\e73d"
+
+$icon-heart3 = "\e73e"
+
+$icon-heart-broken = "\e73f"
+
+$icon-thumbs-up = "\e740"
+
+$icon-thumbs-up2 = "\e741"
+
+$icon-happy = "\e742"
+
+$icon-happy2 = "\e743"
+
+$icon-smiley2 = "\e744"
+
+$icon-smiley3 = "\e745"
+
+$icon-tongue = "\e746"
+
+$icon-tongue2 = "\e747"
+
+$icon-sad = "\e748"
+
+$icon-sad2 = "\e749"
+
+$icon-wink = "\e74a"
+
+$icon-wink2 = "\e74b"
+
+$icon-grin = "\e74c"
+
+$icon-grin2 = "\e74d"
+
+$icon-cool = "\e74e"
+
+$icon-cool2 = "\e74f"
+
+$icon-angry = "\e750"
+
+$icon-angry2 = "\e751"
+
+$icon-evil = "\e752"
+
+$icon-evil2 = "\e753"
+
+$icon-shocked = "\e754"
+
+$icon-shocked2 = "\e755"
+
+$icon-confused = "\e756"
+
+$icon-confused2 = "\e757"
+
+$icon-neutral = "\e758"
+
+$icon-neutral2 = "\e759"
+
+$icon-wondering = "\e75a"
+
+$icon-wondering2 = "\e75b"
+
+$icon-point-up = "\e75c"
+
+$icon-point-right = "\e75d"
+
+$icon-point-down = "\e75e"
+
+$icon-point-left = "\e75f"
+
+$icon-warning2 = "\e760"
+
+$icon-notification = "\e761"
+
+$icon-question = "\e762"
+
+$icon-info2 = "\e763"
+
+$icon-info3 = "\e764"
+
+$icon-blocked2 = "\e765"
+
+$icon-cancel-circle = "\e766"
+
+$icon-checkmark-circle = "\e767"
+
+$icon-spam = "\e768"
+
+$icon-close = "\e769"
+
+$icon-checkmark2 = "\e76a"
+
+$icon-checkmark3 = "\e76b"
+
+$icon-spell-check = "\e76c"
+
+$icon-minus2 = "\e76d"
+
+$icon-plus2 = "\e76e"
+
+$icon-enter = "\e76f"
+
+$icon-exit = "\e770"
+
+$icon-play3 = "\e771"
+
+$icon-pause2 = "\e772"
+
+$icon-stop2 = "\e773"
+
+$icon-backward = "\e774"
+
+$icon-forward3 = "\e775"
+
+$icon-play4 = "\e776"
+
+$icon-pause3 = "\e777"
+
+$icon-stop3 = "\e778"
+
+$icon-backward2 = "\e779"
+
+$icon-forward4 = "\e77a"
+
+$icon-first = "\e77b"
+
+$icon-last = "\e77c"
+
+$icon-previous = "\e77d"
+
+$icon-next = "\e77e"
+
+$icon-eject = "\e77f"
+
+$icon-volume-high = "\e780"
+
+$icon-volume-medium = "\e781"
+
+$icon-volume-low = "\e782"
+
+$icon-volume-mute = "\e783"
+
+$icon-volume-mute2 = "\e784"
+
+$icon-volume-increase = "\e785"
+
+$icon-volume-decrease = "\e786"
+
+$icon-loop = "\e787"
+
+$icon-loop2 = "\e788"
+
+$icon-loop3 = "\e789"
+
+$icon-shuffle = "\e78a"
+
+$icon-arrow-up-left = "\e78b"
+
+$icon-arrow-up = "\e78c"
+
+$icon-arrow-up-right = "\e78d"
+
+$icon-arrow-right = "\e78e"
+
+$icon-arrow-down-right = "\e78f"
+
+$icon-arrow-down = "\e790"
+
+$icon-arrow-down-left = "\e791"
+
+$icon-arrow-left = "\e792"
+
+$icon-arrow-up-left2 = "\e793"
+
+$icon-arrow-up2 = "\e794"
+
+$icon-arrow-up-right2 = "\e795"
+
+$icon-arrow-right2 = "\e796"
+
+$icon-arrow-down-right2 = "\e797"
+
+$icon-arrow-down2 = "\e798"
+
+$icon-arrow-down-left2 = "\e799"
+
+$icon-arrow-left2 = "\e79a"
+
+$icon-arrow-up-left3 = "\e79b"
+
+$icon-arrow-up3 = "\e79c"
+
+$icon-arrow-up-right3 = "\e79d"
+
+$icon-arrow-right3 = "\e79e"
+
+$icon-arrow-down-right3 = "\e79f"
+
+$icon-arrow-down3 = "\e7a0"
+
+$icon-arrow-down-left3 = "\e7a1"
+
+$icon-arrow-left3 = "\e7a2"
+
+$icon-tab = "\e7a3"
+
+$icon-checkbox-checked = "\e7a4"
+
+$icon-checkbox-unchecked = "\e7a5"
+
+$icon-checkbox-partial = "\e7a6"
+
+$icon-radio-checked = "\e7a7"
+
+$icon-radio-unchecked = "\e7a8"
+
+$icon-crop2 = "\e7a9"
+
+$icon-scissors = "\e7aa"
+
+$icon-filter2 = "\e7ab"
+
+$icon-filter3 = "\e7ac"
+
+$icon-font = "\e7ad"
+
+$icon-text-height = "\e7ae"
+
+$icon-text-width = "\e7af"
+
+$icon-bold = "\e7b0"
+
+$icon-underline = "\e7b1"
+
+$icon-italic = "\e7b2"
+
+$icon-strikethrough = "\e7b3"
+
+$icon-omega = "\e7b4"
+
+$icon-sigma = "\e7b5"
+
+$icon-table = "\e7b6"
+
+$icon-table2 = "\e7b7"
+
+$icon-insert-template = "\e7b8"
+
+$icon-pilcrow = "\e7b9"
+
+$icon-lefttoright = "\e7ba"
+
+$icon-righttoleft = "\e7bb"
+
+$icon-paragraph-left = "\e7bc"
+
+$icon-paragraph-center = "\e7bd"
+
+$icon-paragraph-right = "\e7be"
+
+$icon-paragraph-justify = "\e7bf"
+
+$icon-paragraph-left2 = "\e7c0"
+
+$icon-paragraph-center2 = "\e7c1"
+
+$icon-paragraph-right2 = "\e7c2"
+
+$icon-paragraph-justify2 = "\e7c3"
+
+$icon-indent-increase = "\e7c4"
+
+$icon-indent-decrease = "\e7c5"
+
+$icon-newtab = "\e7c6"
+
+$icon-embed = "\e7c7"
+
+$icon-code2 = "\e7c8"
+
+$icon-console2 = "\e7c9"
+
+$icon-share = "\e7ca"
+
+$icon-mail = "\e7cb"
+
+$icon-mail2 = "\e7cc"
+
+$icon-mail3 = "\e7cd"
+
+$icon-mail4 = "\e7ce"
+
+$icon-google = "\e7cf"
+
+$icon-googleplus = "\e7d0"
+
+$icon-googleplus2 = "\e7d1"
+
+$icon-googleplus3 = "\e7d2"
+
+$icon-googleplus4 = "\e7d3"
+
+$icon-google-drive = "\e7d4"
+
+$icon-facebook = "\e7d5"
+
+$icon-facebook2 = "\e7d6"
+
+$icon-facebook3 = "\e7d7"
+
+$icon-instagram = "\e7d8"
+
+$icon-twitter2 = "\e7d9"
+
+$icon-twitter3 = "\e7da"
+
+$icon-twitter4 = "\e7db"
+
+$icon-feed3 = "\e7dc"
+
+$icon-feed4 = "\e7dd"
+
+$icon-feed5 = "\e7de"
+
+$icon-youtube = "\e7df"
+
+$icon-youtube2 = "\e7e0"
+
+$icon-vimeo = "\e7e1"
+
+$icon-vimeo2 = "\e7e2"
+
+$icon-vimeo3 = "\e7e3"
+
+$icon-lanyrd = "\e7e4"
+
+$icon-flickr = "\e7e5"
+
+$icon-flickr2 = "\e7e6"
+
+$icon-flickr3 = "\e7e7"
+
+$icon-flickr4 = "\e7e8"
+
+$icon-picassa = "\e7e9"
+
+$icon-picassa2 = "\e7ea"
+
+$icon-dribbble2 = "\e7eb"
+
+$icon-dribbble3 = "\e7ec"
+
+$icon-dribbble4 = "\e7ed"
+
+$icon-forrst2 = "\e7ee"
+
+$icon-forrst3 = "\e7ef"
+
+$icon-deviantart = "\e7f0"
+
+$icon-deviantart2 = "\e7f1"
+
+$icon-steam = "\e7f2"
+
+$icon-steam2 = "\e7f3"
+
+$icon-github = "\e7f4"
+
+$icon-github2 = "\e7f5"
+
+$icon-github3 = "\e7f6"
+
+$icon-github4 = "\e7f7"
+
+$icon-github5 = "\e7f8"
+
+$icon-wordpress = "\e7f9"
+
+$icon-wordpress2 = "\e7fa"
+
+$icon-joomla = "\e7fb"
+
+$icon-blogger = "\e7fc"
+
+$icon-blogger2 = "\e7fd"
+
+$icon-tumblr = "\e7fe"
+
+$icon-tumblr2 = "\e7ff"
+
+$icon-yahoo = "\e800"
+
+$icon-tux = "\e801"
+
+$icon-apple2 = "\e802"
+
+$icon-finder = "\e803"
+
+$icon-android = "\e804"
+
+$icon-windows = "\e805"
+
+$icon-windows8 = "\e806"
+
+$icon-soundcloud = "\e807"
+
+$icon-soundcloud2 = "\e808"
+
+$icon-skype2 = "\e809"
+
+$icon-reddit = "\e80a"
+
+$icon-linkedin = "\e80b"
+
+$icon-lastfm = "\e80c"
+
+$icon-lastfm2 = "\e80d"
+
+$icon-delicious = "\e80e"
+
+$icon-stumbleupon = "\e80f"
+
+$icon-stumbleupon2 = "\e810"
+
+$icon-stackoverflow = "\e811"
+
+$icon-pinterest = "\e812"
+
+$icon-pinterest2 = "\e813"
+
+$icon-xing = "\e814"
+
+$icon-xing2 = "\e815"
+
+$icon-flattr = "\e816"
+
+$icon-foursquare = "\e817"
+
+$icon-foursquare2 = "\e818"
+
+$icon-paypal = "\e819"
+
+$icon-paypal2 = "\e81a"
+
+$icon-paypal3 = "\e81b"
+
+$icon-yelp = "\e81c"
+
+$icon-libreoffice = "\e81d"
+
+$icon-file-pdf = "\e81e"
+
+$icon-file-openoffice = "\e81f"
+
+$icon-file-word = "\e820"
+
+$icon-file-excel = "\e821"
+
+$icon-file-zip = "\e822"
+
+$icon-file-powerpoint = "\e823"
+
+$icon-file-xml = "\e824"
+
+$icon-file-css = "\e825"
+
+$icon-html5 = "\e826"
+
+$icon-html52 = "\e827"
+
+$icon-css3 = "\e828"
+
+$icon-chrome = "\e829"
+
+$icon-firefox = "\e82a"
+
+$icon-IE = "\e82b"
+
+$icon-opera = "\e82c"
+
+$icon-safari = "\e82d"
+
+$icon-IcoMoon = "\e82e"
+
+/* =============================================================================
+Icons
+========================================================================== */
+$icons = home2, home3, home4, office, newspaper, pencil2, pencil3, quill, pen, blog, droplet2, paint-format, image, image2, images, camera3, music2, headphones2, play2, film2, camera4, dice, pacman, spades, clubs, diamonds, pawn, bullhorn, connection, podcast, feed2, book, books, library, file2, profile, file3, file4, file5, copy, copy2, copy3, paste, paste2, paste3, stack, folder2, folder-open, tag2, tags, barcode, qrcode, ticket, cart2, cart3, cart4, coin, credit, calculate, support, phone2, phone-hang-up, address-book, notebook, envelope2, pushpin, location3, location4, compass2, map, map2, history, clock2, clock3, alarm2, alarm3, bell, stopwatch, calendar2, calendar3, print, keyboard2, screen, laptop, mobile2, mobile3, tablet, tv, cabinet, drawer, drawer2, drawer3, box-add, box-remove, download, upload, disk2, storage, undo, redo, flip, flip2, undo2, redo2, forward2, reply, bubble, bubbles, bubbles2, bubble2, bubbles3, bubbles4, user2, users, user3, users2, user4, user5, quotes-left, busy, spinner, spinner2, spinner3, spinner4, spinner5, spinner6, binoculars, search2, zoomin, zoomout, expand, contract, expand2, contract2, key2, key3, lock, lock2, unlocked, wrench2, settings, equalizer, cog2, cogs, cog3, hammer, wand, aid, bug2, pie, stats2, bars, bars2, gift2, trophy2, glass, mug, food, leaf, rocket, meter, meter2, dashboard, hammer2, fire, lab, magnet, remove, remove2, briefcase2, airplane, truck, road, accessibility, target4, shield, lightning, switch2, powercord, signup, list2, list3, numbered-list, menu, menu2, tree, cloud2, cloud-download, cloud-upload, download2, upload2, download3, upload3, globe, earth2, link, flag2, attachment, eye2, eye-blocked, eye3, bookmark3, bookmarks, brightness-medium, brightness-contrast, contrast2, star3, star4, star5, heart2, heart3, heart-broken, thumbs-up, thumbs-up2, happy, happy2, smiley2, smiley3, tongue, tongue2, sad, sad2, wink, wink2, grin, grin2, cool, cool2, angry, angry2, evil, evil2, shocked, shocked2, confused, confused2, neutral, neutral2, wondering, wondering2, point-up, point-right, point-down, point-left, warning2, notification, question, info2, info3, blocked2, cancel-circle, checkmark-circle, spam, close, checkmark2, checkmark3, spell-check, minus2, plus2, enter, exit, play3, pause2, stop2, backward, forward3, play4, pause3, stop3, backward2, forward4, first, last, previous, next, eject, volume-high, volume-medium, volume-low, volume-mute, volume-mute2, volume-increase, volume-decrease, loop, loop2, loop3, shuffle, arrow-up-left, arrow-up, arrow-up-right, arrow-right, arrow-down-right, arrow-down, arrow-down-left, arrow-left, arrow-up-left2, arrow-up2, arrow-up-right2, arrow-right2, arrow-down-right2, arrow-down2, arrow-down-left2, arrow-left2, arrow-up-left3, arrow-up3, arrow-up-right3, arrow-right3, arrow-down-right3, arrow-down3, arrow-down-left3, arrow-left3, tab, checkbox-checked, checkbox-unchecked, checkbox-partial, radio-checked, radio-unchecked, crop2, scissors, filter2, filter3, font, text-height, text-width, bold, underline, italic, strikethrough, omega, sigma, table, table2, insert-template, pilcrow, lefttoright, righttoleft, paragraph-left, paragraph-center, paragraph-right, paragraph-justify, paragraph-left2, paragraph-center2, paragraph-right2, paragraph-justify2, indent-increase, indent-decrease, newtab, embed, code2, console2, share, mail, mail2, mail3, mail4, google, googleplus, googleplus2, googleplus3, googleplus4, google-drive, facebook, facebook2, facebook3, instagram, twitter2, twitter3, twitter4, feed3, feed4, feed5, youtube, youtube2, vimeo, vimeo2, vimeo3, lanyrd, flickr, flickr2, flickr3, flickr4, picassa, picassa2, dribbble2, dribbble3, dribbble4, forrst2, forrst3, deviantart, deviantart2, steam, steam2, github, github2, github3, github4, github5, wordpress, wordpress2, joomla, blogger, blogger2, tumblr, tumblr2, yahoo, tux, apple2, finder, android, windows, windows8, soundcloud, soundcloud2, skype2, reddit, linkedin, lastfm, lastfm2, delicious, stumbleupon, stumbleupon2, stackoverflow, pinterest, pinterest2, xing, xing2, flattr, foursquare, foursquare2, paypal, paypal2, paypal3, yelp, libreoffice, file-pdf, file-openoffice, file-word, file-excel, file-zip, file-powerpoint, file-xml, file-css, html5, html52, css3, chrome, firefox, IE, opera, safari, IcoMoon
+
+for icon, i in $icons
+	.icon-{icon}
+		@extend $icomoon
+		&:before
+			content lookup("$icon-" + icon)

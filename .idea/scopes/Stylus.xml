@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="Stylus" pattern="file:app/styles/stylus/stylus-boilerplate.styl" />
+</component>

@@ -1,0 +1,10 @@
+{
+  "name": "stylus-boilerplate",
+  "private": true,
+  "dependencies": {
+    "jquery": "~1.11.0"
+  },
+  "devDependencies": {
+    "kouto-swiss": "~0.10.0"
+  }
+}

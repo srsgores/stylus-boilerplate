@@ -1,0 +1,10 @@
+@keyframes rotateDown
+	0%
+		transform-origin: 0 0
+		transform: perspective(em(800px)) rotateX(0deg) translateZ(0px)
+	100%
+		opacity: 0
+		transform-origin: 50% 100%
+		transform: perspective(em(800px)) rotateX(-180deg) translateZ(em(300px))
+
+generateAnimationPlaceholder(rotateDown)
