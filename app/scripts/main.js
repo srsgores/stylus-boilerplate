@@ -15,7 +15,7 @@
 (function() {
   "use strict";
   jQuery(document).ready(function() {
-    return console.log("Ready");
+    return console.log("Ready for action");
   });
 
 }).call(this);

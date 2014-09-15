@@ -1,10 +1,30 @@
 {
   "name": "stylus-boilerplate",
-  "private": true,
   "dependencies": {
-    "jquery": "~1.11.0"
+    "jquery": "~1.11.1"
   },
-  "devDependencies": {
-    "kouto-swiss": "~0.10.0"
-  }
+  "version": "0.1.0",
+  "homepage": "https://github.com/srsgores/stylus-boilerplate",
+  "authors": [
+    "Sean <seangores@gmail.com>"
+  ],
+  "description": "Front-end framework for use with Kouto Swiss and Stylus",
+  "main": "app/index.html",
+  "keywords": [
+    "stylus",
+    "css",
+    "kouto-swiss",
+    "mixin",
+    "placeholder",
+    "front-end"
+  ],
+  "license": "DWTFYW",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ]
 }

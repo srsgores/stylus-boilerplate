@@ -18,7 +18,7 @@ gulp = require("gulp")
 $ = require("gulp-load-plugins")()
 
 gulp.task "styles", ->
-	gulp.src("app/styles/css/stylus-boilerplate.css").pipe($.stylus()).pipe(gulp.dest(".tmp/styles/css")).pipe $.size()
+	gulp.src("app/styles/stylus-boilerplate.css").pipe(gulp.dest(".tmp/styles")).pipe $.size()
 
 gulp.task "scripts", ->
 	gulp.src("app/scripts/**/*.js").pipe($.jshint()).pipe($.jshint.reporter(require("jshint-stylish"))).pipe $.size()
@@ -39,7 +39,7 @@ gulp.task "images", ->
 	))).pipe(gulp.dest("dist/assets/images")).pipe $.size()
 
 gulp.task "fonts", ->
-	$.bowerFiles().pipe($.filter("**/*.{eot,svg,ttf,woff}")).pipe($.flatten()).pipe(gulp.dest("dist/assets/fonts")).pipe $.size()
+	gulp.src("app/assets/fonts").pipe($.filter("**/*.{eot,svg,ttf,woff}")).pipe($.flatten()).pipe(gulp.dest("dist/assets/fonts")).pipe $.size()
 
 gulp.task "extras", ->
 	gulp.src([
@@ -59,7 +59,7 @@ gulp.task "clean", ->
 
 gulp.task "build", [
 	"html"
-	"images"
+	# TODO: fix this "images"
 	"fonts"
 	"extras"
 ]
@@ -91,7 +91,7 @@ gulp.task "watch", [
 	# watch for changes
 	gulp.watch([
 		"app/*.html"
-		".tmp/styles/css/**/*.css"
+		".tmp/styles/**/*.css"
 		"app/scripts/**/*.js"
 		"app/assets/images/**/*"
 	]).on "change", (file) ->

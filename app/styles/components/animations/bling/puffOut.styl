@@ -1,0 +1,12 @@
+@keyframes puffOut
+	0%
+		opacity: 1
+		transform-origin: 50% 50%
+		transform: scale(1.0, 1.0)
+	100%
+		opacity: 0
+		transform-origin: 50% 50%
+		transform: scale(2.0, 2.0)
+		filter: blur(em(2px))
+
+generateAnimationPlaceholder(puffOut)

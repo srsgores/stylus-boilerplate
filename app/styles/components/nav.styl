@@ -1,0 +1,32 @@
+/*
+	stylus-boilerplate
+
+	nav.styl
+
+	Author: Sean Goresht
+
+	Basic navigation component styles
+*/
+
+nav
+	padding $padding ($paddingLarge * 2)
+	ul
+		@extend $list-style-none, $margin-none, $padding-none
+	&[role="navigation"]
+		li
+			@extend $inline-block, $relative, $mini-margin-right
+			&:hover
+				> .dropdown
+					@extend $block
+			a
+				@extend $small-padding, $block, $text-decoration-none, $font-size-medium
+				white-space nowrap
+				&:hover, &:focus
+					@extend $text-decoration-underline
+					color $inverseTextColour
+				transition background, $transitionTime, $transitionFunction
+				font-size 1.3rem
+				&, &:visited
+					color $inverseTextColour
+				&:hover, &:focus
+					background rgba(0, 0, 0, 0.17)

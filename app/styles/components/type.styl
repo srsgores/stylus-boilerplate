@@ -1,0 +1,19 @@
+/*
+	stylus-boilerplate
+
+	type.styl
+
+	Author: Sean Goresht
+
+	Typography component; place your type styles here
+*/
+
+$heading
+	font-weight $headingFontWeight
+	font-family $headingFontFamily
+
+for num in (6..1)
+	h{num}
+		@extend $heading
+		@extend $normal-margin-bottom
+		font-size (1 + ($unit / num * $multiplier))

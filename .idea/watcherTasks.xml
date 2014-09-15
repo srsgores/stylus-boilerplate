@@ -22,7 +22,7 @@
       <envs />
     </TaskOptions>
     <TaskOptions isEnabled="true">
-      <option name="arguments" value="--compress $FileName$" />
+      <option name="arguments" value="--use $ProjectFileDir$/node_modules/kouto-swiss  stylus-boilerplate.styl" />
       <option name="checkSyntaxErrors" value="false" />
       <option name="description" value="Compiles .styl files into .css files" />
       <option name="exitCodeBehavior" value="ERROR" />
@@ -36,9 +36,9 @@
       <option name="outputFromStdout" value="false" />
       <option name="passParentEnvs" value="true" />
       <option name="program" value="$USER_HOME$/AppData/Roaming/npm/stylus.cmd" />
-      <option name="scopeName" value="Stylus" />
+      <option name="scopeName" value="Open Files" />
       <option name="trackOnlyRoot" value="true" />
-      <option name="workingDir" value="$FileDir$" />
+      <option name="workingDir" value="C:\Users\Sean\Documents\GitHub\stylus-boilerplate\app\styles\" />
       <envs />
     </TaskOptions>
   </component>

@@ -21,7 +21,7 @@
   $ = require("gulp-load-plugins")();
 
   gulp.task("styles", function() {
-    return gulp.src("app/styles/css/stylus-boilerplate.css").pipe($.stylus()).pipe(gulp.dest(".tmp/styles/css")).pipe($.size());
+    return gulp.src("app/styles/stylus-boilerplate.css").pipe(gulp.dest(".tmp/styles")).pipe($.size());
   });
 
   gulp.task("scripts", function() {
@@ -46,7 +46,7 @@
   });
 
   gulp.task("fonts", function() {
-    return $.bowerFiles().pipe($.filter("**/*.{eot,svg,ttf,woff}")).pipe($.flatten()).pipe(gulp.dest("dist/assets/fonts")).pipe($.size());
+    return gulp.src("app/assets/fonts").pipe($.filter("**/*.{eot,svg,ttf,woff}")).pipe($.flatten()).pipe(gulp.dest("dist/assets/fonts")).pipe($.size());
   });
 
   gulp.task("extras", function() {
@@ -61,7 +61,7 @@
     }).pipe($.clean());
   });
 
-  gulp.task("build", ["html", "images", "fonts", "extras"]);
+  gulp.task("build", ["html", "fonts", "extras"]);
 
   gulp.task("default", ["clean"], function() {
     return gulp.start("build");
@@ -93,7 +93,7 @@
   gulp.task("watch", ["connect", "serve"], function() {
     var server;
     server = $.livereload();
-    gulp.watch(["app/*.html", ".tmp/styles/css/**/*.css", "app/scripts/**/*.js", "app/assets/images/**/*"]).on("change", function(file) {
+    gulp.watch(["app/*.html", ".tmp/styles/**/*.css", "app/scripts/**/*.js", "app/assets/images/**/*"]).on("change", function(file) {
       return server.changed(file.path);
     });
     gulp.watch("app/styles/**/*.css", ["styles"]);
