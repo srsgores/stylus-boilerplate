@@ -23,23 +23,33 @@ $calloutTipColour = luminosity($calloutColour) > 0.5 ? $calloutColour - 90 : $ca
 $calloutTipSize = 0.5em
 $calloutTipXPositions = left middle right
 $calloutTipYPositions = top middle bottom
-$calloutTipPosition = left
 $calloutTipOffset = $calloutTipSize * -1
 
 calloutTipPosition(x, y = false)
-	if x is middle
-		left 50%
-	else if x is right
-		right 0
-	else if x is left
-		left 0
+	&:before, &:after
+		if x is middle
+			left 50%
+		else if x is right
+			right 0
+		else if x is left
+			left 0
 	if y
 		if y is bottom
-			bottom $calloutTipOffset
-			border-bottom-color transparent
-			border-top $calloutTipSize $calloutBorderStyle $calloutTipColour
+			&:before, &:after
+				bottom $calloutTipOffset
+				border-right $calloutTipSize $calloutBorderStyle transparent
+				border-left $calloutTipSize $calloutBorderStyle transparent
+				border-top $calloutTipSize $calloutBorderStyle $calloutTipColour
+			&:after
+				border-top $calloutTipSize $calloutBorderStyle $calloutColour
 		else
-			top $calloutTipOffset
+			&:before, &:after
+				top $calloutTipOffset
+				border-right $calloutTipSize $calloutBorderStyle transparent
+				border-bottom $calloutTipSize $calloutBorderStyle $calloutTipColour
+				border-left $calloutTipSize $calloutBorderStyle transparent
+			&:after
+				border-bottom $calloutTipSize $calloutBorderStyle $calloutColour
 	else
 		top $calloutTipOffset
 
@@ -54,18 +64,14 @@ $callout
 	for horizontalPosition in $calloutTipXPositions
 		for verticalPosition in $calloutTipYPositions
 			&--{verticalPosition}-{horizontalPosition}
-				&:before, &:after
-					calloutTipPosition(horizontalPosition, verticalPosition)
+				calloutTipPosition(horizontalPosition, verticalPosition)
 	&:before, &:after
 		display inline-block
 		position absolute
 		content ""
-		border-right $calloutTipSize $calloutBorderStyle transparent
-		border-bottom $calloutTipSize $calloutBorderStyle $calloutTipColour
-		border-left $calloutTipSize $calloutBorderStyle transparent
-	&:after
-		border-bottom $calloutTipSize $calloutBorderStyle $calloutColour
 
 .speech-bubble
 	@extend $callout
-	@extend $callout--bottom-left
+	@extend $callout--top-left
+	&-bottom
+		@extend $callout, $callout--bottom-right

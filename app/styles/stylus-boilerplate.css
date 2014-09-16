@@ -927,7 +927,8 @@ body {
     transform: translateY(0);
   }
 }
-.speech-bubble {
+.speech-bubble,
+.speech-bubble-bottom {
   color: #000;
   display: inline-block;
   position: relative;
@@ -936,69 +937,193 @@ body {
   border: 1px solid #e6e6e6;
 }
 .speech-bubble--top-left:before,
-.speech-bubble--top-left:after {
-  left: 0;
-  top: -0.5em;
-}
-.speech-bubble--middle-left:before,
-.speech-bubble--middle-left:after {
-  left: 0;
-  top: -0.5em;
-}
-.speech-bubble--bottom-left:before,
+.speech-bubble-bottom--top-left:before,
 .speech-bubble:before,
-.speech-bubble--bottom-left:after,
+.speech-bubble--top-left:after,
+.speech-bubble-bottom--top-left:after,
 .speech-bubble:after {
   left: 0;
-  bottom: -0.5em;
-  border-bottom-color: transparent;
-  border-top: 0.5em solid #a5a5a5;
 }
-.speech-bubble--top-middle:before,
-.speech-bubble--top-middle:after {
-  left: 50%;
-  top: -0.5em;
-}
-.speech-bubble--middle-middle:before,
-.speech-bubble--middle-middle:after {
-  left: 50%;
-  top: -0.5em;
-}
-.speech-bubble--bottom-middle:before,
-.speech-bubble--bottom-middle:after {
-  left: 50%;
-  bottom: -0.5em;
-  border-bottom-color: transparent;
-  border-top: 0.5em solid #a5a5a5;
-}
-.speech-bubble--top-right:before,
-.speech-bubble--top-right:after {
-  right: 0;
-  top: -0.5em;
-}
-.speech-bubble--middle-right:before,
-.speech-bubble--middle-right:after {
-  right: 0;
-  top: -0.5em;
-}
-.speech-bubble--bottom-right:before,
-.speech-bubble--bottom-right:after {
-  right: 0;
-  bottom: -0.5em;
-  border-bottom-color: transparent;
-  border-top: 0.5em solid #a5a5a5;
-}
+.speech-bubble--top-left:before,
+.speech-bubble-bottom--top-left:before,
 .speech-bubble:before,
+.speech-bubble--top-left:after,
+.speech-bubble-bottom--top-left:after,
 .speech-bubble:after {
-  display: inline-block;
-  position: absolute;
-  content: "";
+  top: -0.5em;
   border-right: 0.5em solid transparent;
   border-bottom: 0.5em solid #a5a5a5;
   border-left: 0.5em solid transparent;
 }
+.speech-bubble--top-left:after,
+.speech-bubble-bottom--top-left:after,
 .speech-bubble:after {
   border-bottom: 0.5em solid #fff;
+}
+.speech-bubble--middle-left:before,
+.speech-bubble-bottom--middle-left:before,
+.speech-bubble--middle-left:after,
+.speech-bubble-bottom--middle-left:after {
+  left: 0;
+}
+.speech-bubble--middle-left:before,
+.speech-bubble-bottom--middle-left:before,
+.speech-bubble--middle-left:after,
+.speech-bubble-bottom--middle-left:after {
+  top: -0.5em;
+  border-right: 0.5em solid transparent;
+  border-bottom: 0.5em solid #a5a5a5;
+  border-left: 0.5em solid transparent;
+}
+.speech-bubble--middle-left:after,
+.speech-bubble-bottom--middle-left:after {
+  border-bottom: 0.5em solid #fff;
+}
+.speech-bubble--bottom-left:before,
+.speech-bubble-bottom--bottom-left:before,
+.speech-bubble--bottom-left:after,
+.speech-bubble-bottom--bottom-left:after {
+  left: 0;
+}
+.speech-bubble--bottom-left:before,
+.speech-bubble-bottom--bottom-left:before,
+.speech-bubble--bottom-left:after,
+.speech-bubble-bottom--bottom-left:after {
+  bottom: -0.5em;
+  border-right: 0.5em solid transparent;
+  border-left: 0.5em solid transparent;
+  border-top: 0.5em solid #a5a5a5;
+}
+.speech-bubble--bottom-left:after,
+.speech-bubble-bottom--bottom-left:after {
+  border-top: 0.5em solid #fff;
+}
+.speech-bubble--top-middle:before,
+.speech-bubble-bottom--top-middle:before,
+.speech-bubble--top-middle:after,
+.speech-bubble-bottom--top-middle:after {
+  left: 50%;
+}
+.speech-bubble--top-middle:before,
+.speech-bubble-bottom--top-middle:before,
+.speech-bubble--top-middle:after,
+.speech-bubble-bottom--top-middle:after {
+  top: -0.5em;
+  border-right: 0.5em solid transparent;
+  border-bottom: 0.5em solid #a5a5a5;
+  border-left: 0.5em solid transparent;
+}
+.speech-bubble--top-middle:after,
+.speech-bubble-bottom--top-middle:after {
+  border-bottom: 0.5em solid #fff;
+}
+.speech-bubble--middle-middle:before,
+.speech-bubble-bottom--middle-middle:before,
+.speech-bubble--middle-middle:after,
+.speech-bubble-bottom--middle-middle:after {
+  left: 50%;
+}
+.speech-bubble--middle-middle:before,
+.speech-bubble-bottom--middle-middle:before,
+.speech-bubble--middle-middle:after,
+.speech-bubble-bottom--middle-middle:after {
+  top: -0.5em;
+  border-right: 0.5em solid transparent;
+  border-bottom: 0.5em solid #a5a5a5;
+  border-left: 0.5em solid transparent;
+}
+.speech-bubble--middle-middle:after,
+.speech-bubble-bottom--middle-middle:after {
+  border-bottom: 0.5em solid #fff;
+}
+.speech-bubble--bottom-middle:before,
+.speech-bubble-bottom--bottom-middle:before,
+.speech-bubble--bottom-middle:after,
+.speech-bubble-bottom--bottom-middle:after {
+  left: 50%;
+}
+.speech-bubble--bottom-middle:before,
+.speech-bubble-bottom--bottom-middle:before,
+.speech-bubble--bottom-middle:after,
+.speech-bubble-bottom--bottom-middle:after {
+  bottom: -0.5em;
+  border-right: 0.5em solid transparent;
+  border-left: 0.5em solid transparent;
+  border-top: 0.5em solid #a5a5a5;
+}
+.speech-bubble--bottom-middle:after,
+.speech-bubble-bottom--bottom-middle:after {
+  border-top: 0.5em solid #fff;
+}
+.speech-bubble--top-right:before,
+.speech-bubble-bottom--top-right:before,
+.speech-bubble--top-right:after,
+.speech-bubble-bottom--top-right:after {
+  right: 0;
+}
+.speech-bubble--top-right:before,
+.speech-bubble-bottom--top-right:before,
+.speech-bubble--top-right:after,
+.speech-bubble-bottom--top-right:after {
+  top: -0.5em;
+  border-right: 0.5em solid transparent;
+  border-bottom: 0.5em solid #a5a5a5;
+  border-left: 0.5em solid transparent;
+}
+.speech-bubble--top-right:after,
+.speech-bubble-bottom--top-right:after {
+  border-bottom: 0.5em solid #fff;
+}
+.speech-bubble--middle-right:before,
+.speech-bubble-bottom--middle-right:before,
+.speech-bubble--middle-right:after,
+.speech-bubble-bottom--middle-right:after {
+  right: 0;
+}
+.speech-bubble--middle-right:before,
+.speech-bubble-bottom--middle-right:before,
+.speech-bubble--middle-right:after,
+.speech-bubble-bottom--middle-right:after {
+  top: -0.5em;
+  border-right: 0.5em solid transparent;
+  border-bottom: 0.5em solid #a5a5a5;
+  border-left: 0.5em solid transparent;
+}
+.speech-bubble--middle-right:after,
+.speech-bubble-bottom--middle-right:after {
+  border-bottom: 0.5em solid #fff;
+}
+.speech-bubble--bottom-right:before,
+.speech-bubble-bottom--bottom-right:before,
+.speech-bubble-bottom:before,
+.speech-bubble--bottom-right:after,
+.speech-bubble-bottom--bottom-right:after,
+.speech-bubble-bottom:after {
+  right: 0;
+}
+.speech-bubble--bottom-right:before,
+.speech-bubble-bottom--bottom-right:before,
+.speech-bubble-bottom:before,
+.speech-bubble--bottom-right:after,
+.speech-bubble-bottom--bottom-right:after,
+.speech-bubble-bottom:after {
+  bottom: -0.5em;
+  border-right: 0.5em solid transparent;
+  border-left: 0.5em solid transparent;
+  border-top: 0.5em solid #a5a5a5;
+}
+.speech-bubble--bottom-right:after,
+.speech-bubble-bottom--bottom-right:after,
+.speech-bubble-bottom:after {
+  border-top: 0.5em solid #fff;
+}
+.speech-bubble:before,
+.speech-bubble-bottom:before,
+.speech-bubble:after,
+.speech-bubble-bottom:after {
+  display: inline-block;
+  position: absolute;
+  content: "";
 }
 .dropdown:hover .dropdown-menu {
   -ms-filter: none;

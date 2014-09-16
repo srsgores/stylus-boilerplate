@@ -22,7 +22,7 @@
       <envs />
     </TaskOptions>
     <TaskOptions isEnabled="true">
-      <option name="arguments" value="--use $ProjectFileDir$/node_modules/kouto-swiss  stylus-boilerplate.styl" />
+      <option name="arguments" value="stylus-boilerplate.styl" />
       <option name="checkSyntaxErrors" value="false" />
       <option name="description" value="Compiles .styl files into .css files" />
       <option name="exitCodeBehavior" value="ERROR" />
