@@ -10,6 +10,7 @@
 
 /* Dropdown */
 $dropdownColour = $textColour + 5
+$dropdownSize = 8rem
 
 /* Transitions */
 $dropdownTransitionTime = 0.5s
@@ -20,25 +21,25 @@ $dropdownTransitionFunction = ease
 	&:hover
 		.dropdown-menu
 			opacity 1
-.dropdown-menu
-	background $dropdownColour
-	border 1px solid $dropdownColour + 25
-	@extend $absolute
-	top 4rem
-	min-width 8rem
-	transition opacity $dropdownTransitionTime $dropdownTransitionFunction
-	opacity 0
-	li
-		@extend $block
-		a
-			@extend $block, $normal-padding, $margin-none
-	&:before, &:after
-		content ""
-		@extend $absolute, $inline-block
-		top -0.4em
-		left 50%
-		border-right 0.5em solid transparent
-		border-bottom 0.5em solid invert($dropdownColour)
-		border-left 0.5em solid transparent
-	&:after
-		border-bottom 0.5em solid $dropdownColour
+	&-menu
+		background $dropdownColour
+		border 1px solid $dropdownColour + 25
+		@extend $absolute
+		top $dropdownSize / 2
+		min-width $dropdownSize
+		transition opacity $dropdownTransitionTime $dropdownTransitionFunction
+		opacity 0
+		li
+			@extend $block
+			a
+				@extend $block, $normal-padding, $margin-none
+		&:before, &:after
+			content ""
+			@extend $absolute, $inline-block
+			top -0.4em
+			left 50%
+			border-right 0.5em solid transparent
+			border-bottom 0.5em solid invert($dropdownColour)
+			border-left 0.5em solid transparent
+		&:after
+			border-bottom 0.5em solid $dropdownColour

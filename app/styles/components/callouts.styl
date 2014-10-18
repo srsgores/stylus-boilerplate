@@ -11,7 +11,7 @@
 			@extend $callout, $callout--top-right
 */
 
-$calloutColour = white
+$calloutColour = #ffffff
 $calloutPadding = 0.5em
 $calloutTextColour = luminosity($calloutColour) > 0.5 ? black : white
 
@@ -42,6 +42,28 @@ calloutTipPosition(x, y = false)
 				border-top $calloutTipSize $calloutBorderStyle $calloutTipColour
 			&:after
 				border-top $calloutTipSize $calloutBorderStyle $calloutColour
+		else if y is middle
+			if x is right or x is left
+				if x is right
+					&:before, &:after
+						bottom 50%
+						right $calloutTipOffset
+						border-top $calloutTipSize $calloutBorderStyle transparent
+						border-bottom $calloutTipSize $calloutBorderStyle transparent
+						border-left $calloutTipSize $calloutBorderStyle $calloutTipColour
+					&:after
+						border-left $calloutTipSize $calloutBorderStyle $calloutColour
+				else if x is left
+					&:before, &:after
+						left $calloutTipOffset
+						bottom 50%
+						border-top $calloutTipSize $calloutBorderStyle transparent
+						border-bottom $calloutTipSize $calloutBorderStyle transparent
+						border-right $calloutTipSize $calloutBorderStyle $calloutTipColour
+					&:after
+						border-right $calloutTipSize $calloutBorderStyle $calloutColour
+			else
+				warn("Please provide a valid x position: left, middle, right")
 		else
 			&:before, &:after
 				top $calloutTipOffset
@@ -60,18 +82,13 @@ $callout
 	padding $calloutPadding
 	background $calloutColour
 	border $calloutBorderWidth $calloutBorderStyle $calloutBorderColour
-	// genearte all types
-	for horizontalPosition in $calloutTipXPositions
-		for verticalPosition in $calloutTipYPositions
-			&--{verticalPosition}-{horizontalPosition}
-				calloutTipPosition(horizontalPosition, verticalPosition)
 	&:before, &:after
 		display inline-block
 		position absolute
 		content ""
 
-.speech-bubble
-	@extend $callout
-	@extend $callout--top-left
-	&-bottom
-		@extend $callout, $callout--bottom-right
+for horizontalPosition in $calloutTipXPositions
+	for verticalPosition in $calloutTipYPositions
+		$callout--{verticalPosition}-{horizontalPosition}
+			@extend $callout
+			calloutTipPosition(horizontalPosition, verticalPosition)
