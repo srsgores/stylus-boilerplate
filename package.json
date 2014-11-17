@@ -1,6 +1,6 @@
 {
   "name": "stylus-boilerplate",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "dependencies": {},
   "devDependencies": {
     "connect": "^2.14.4",
@@ -28,5 +28,33 @@
   },
   "engines": {
     "node": ">=0.10.0"
-  }
+  },
+  "description": "Stylus Boilerplate is a no-bullshit UI framework that is built for performance and compatibility.",
+  "main": "scripts/main.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/srsgores/stylus-boilerplate.git"
+  },
+  "keywords": [
+    "stylus",
+    "boilerplate",
+    "css",
+    "html5",
+    "gulpjs",
+    "gulp",
+    "kouto-swiss",
+    "kouto"
+  ],
+  "author": "Sean Goresht",
+  "license": "DWTFYW License",
+  "bugs": {
+    "url": "https://github.com/srsgores/stylus-boilerplate/issues"
+  },
+  "homepage": "http://srsgores.github.io/stylus-boilerplate"
 }
