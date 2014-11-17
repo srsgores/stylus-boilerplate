@@ -11,19 +11,19 @@
 			@extend $callout, $callout--top-right
 */
 
-$calloutColour = #ffffff
-$calloutPadding = 0.5em
-$calloutTextColour = luminosity($calloutColour) > 0.5 ? black : white
+$calloutColour ?= #ffffff
+$calloutPadding ?= 0.5em
+$calloutTextColour ?= luminosity($calloutColour) > 0.5 ? black : white
 
-$calloutBorderWidth = 1px
-$calloutBorderStyle = solid
-$calloutBorderColour = luminosity($calloutColour) > 0.5 ? $calloutColour - 25 : $calloutColour + 25
+$calloutBorderWidth ?= 1px
+$calloutBorderStyle ?= solid
+$calloutBorderColour ?= luminosity($calloutColour) > 0.5 ? $calloutColour - 25 : $calloutColour + 25
 
-$calloutTipColour = luminosity($calloutColour) > 0.5 ? $calloutColour - 90 : $calloutColour + 90
-$calloutTipSize = 0.5em
-$calloutTipXPositions = left middle right
-$calloutTipYPositions = top middle bottom
-$calloutTipOffset = $calloutTipSize * -1
+$calloutTipColour ?= luminosity($calloutColour) > 0.5 ? $calloutColour - 90 : $calloutColour + 90
+$calloutTipSize ?= 0.5em
+$calloutTipXPositions ?= left middle right
+$calloutTipYPositions ?= top middle bottom
+$calloutTipOffset ?= $calloutTipSize * -1
 
 calloutTipPosition(x, y = false)
 	&:before, &:after

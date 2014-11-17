@@ -12,13 +12,14 @@ Similar to [organic CSS](https://github.com/krasimir/organic-css), this project 
 
 Choose one of the following options:
 
-1. Clone the git repo — `git clone
-      https://github.com/srsgores/Stylus-boilerplate-boilerplate.git` - and checkout the [tagged
-      release](https://github.com/srsgores/Stylus-boilerplate/releases) you'd like to
-      use.
-2. (coming soon) Install using [bower](http://bower.io") - `bower install stylus-boilerplate`
+1. (NPM) Install using [npm](https://www.npmjs.org/") - `npm install stylus-boilerplate --save-dev`
+2. Clone the git repo — `git clone https://github.com/srsgores/Stylus-boilerplate-boilerplate.git` - and checkout the [taggedrelease](https://github.com/srsgores/Stylus-boilerplate/releases) you'd like to use.
 
-> **Note**: As of now, you must install ``kouto-swiss``'s js dependencies once you have pulled the repo.  Run ``npm install`` from ``bower_components/kouto-swiss`` to install them.
+Then bring in the styles to your project:
+
+```
+@require "../node_modules/stylus-boilerplate/app/styles/*"
+```
 
 ## Overview
 
@@ -93,6 +94,147 @@ Animations have been added to allow easy-to-use animations.  Only the ``$fadeIn`
 	@extend $fadeIn
 ```
 
+Here is a list of all the animations.  Animation names are simply *camelized*:
+
+* attention_seekers
+	* ``bounce``
+	* ``flash``
+	* ``pulse``
+	* ``rubberBand``
+	* ``shake``
+	* ``swing``
+	* ``tada``
+	* ``wobble``
+* bling
+	* ``puffIn``
+	* ``puffOut``
+	* ``vanishIn``
+	* ``vanishOut``
+* bomb
+	* ``bombLeftOut``
+	* ``bombRightOut``
+* bouncing_entrances
+	``bounceIn``
+	``bounceInDown``
+	``bounceInLeft``
+	``bounceInRight``
+	``bounceInUp``
+* bouncing_exits
+	``bounceOut``
+	``bounceOutDown``
+	``bounceOutLeft``
+	``bounceOutRight``
+	``bounceOutUp``
+* fading_entrances
+	``fadeIn``
+	``fadeInDown``
+	``fadeInDownBig``
+	``fadeInLeft``
+	``fadeInLeftBig``
+	``fadeInRight``
+	``fadeInRightBig``
+	``fadeInUp``
+	``fadeInUpBig``
+* fading_exits
+	``fadeOut``
+	``fadeOutDown``
+	``fadeOutDownBig``
+	``fadeOutLeft``
+	``fadeOutLeftBig``
+	``fadeOutRight``
+	``fadeOutRightBig``
+	``fadeOutUp``
+	``fadeOutUpBig``
+* flippers
+	``flip``
+	``flipInX``
+	``flipInY``
+	``flipOutX``
+	``flipOutY``
+* lightspeed
+	* ``lightSpeedIn``
+	* ``lightSpeedOut``
+* magic_effects
+	* ``magic``
+	* ``swap``
+	* ``twisterInDown``
+	* ``twisterInUp``
+* math
+	* ``foolishIn``
+	* ``foolishOut``
+	* ``holeOut``
+	* ``swashIn``
+	* ``swashOut``
+* perspective
+	* ``perspectiveDown``
+	* ``perspectiveDownReturn``
+	* ``perspectiveLeft``
+	* ``perspectiveLeftReturn``
+	* ``perspectiveRight``
+	* ``perspectiveRightReturn``
+	* ``perspectiveUp``
+	* ``perspectiveUpReturn``
+* rotate
+	* ``rotateDown``
+	* ``rotateLeft``
+	* ``rotateRight``
+	* ``rotateUp``
+* rotating_entrances
+	* ``rotateIn``
+	* ``rotateInDownLeft``
+	* ``rotateInDownRight``
+	* ``rotateInUpLeft``
+	* ``rotateInUpRight``
+* rotating_exits
+	* ``rotateOut``
+	* ``rotateOutDownLeft``
+	* ``rotateOutDownRight``
+	* ``rotateOutUpLeft``
+	* ``rotateOutUpRight``
+* sliders
+	* ``slideDown``
+	* ``slideDownReturn``
+	* ``slideInDown``
+	* ``slideInLeft``
+	* ``slideInRight``
+	* ``slideInUp``
+	* ``slideLeft``
+	* ``slideLeftReturn``
+	* ``slideOutDown``
+	* ``slideOutLeft``
+	* ``slideOutRight``
+	* ``slideOutUp``
+	* ``slideRight``
+	* ``slideRightReturn``
+	* ``slideUp``
+	* ``slideUpReturn``
+* specials
+	* ``hinge``
+	* ``rollIn``
+	* ``rollOut``
+* static_effects
+	* ``openDownLeft``
+	* ``openDownLeftOut``
+	* ``openDownLeftReturn``
+	* ``openDownRight``
+	* ``openDownRightOut``
+	* ``openDownRightReturn``
+	* ``openUpLeft``
+	* ``openUpLeftOut``
+	* ``openUpLeftReturn``
+	* ``openUpRight``
+	* ``openUpRightOut``
+	* ``openUpRightReturn``
+* tin
+	* ``tinDownIn``
+	* ``tinDownOut``
+	* ``tinLeftIn``
+	* ``tinLeftOut``
+	* ``tinRightIn``
+	* ``tinRightOut``
+	* ``tinUpIn``
+	* ``tinUpOut``
+
 ### Customizing Animations
 
 If you want to customize animations, you can change any of the following variables:
@@ -112,13 +254,15 @@ $fadeIn
 	animation-delay 4s
 ```
 
+> **By default, only the ``fadeIn`` animations are loaded**
+
 ## Features
 
 * Stylus-ready. Use the new elements with confidence.
 * Automatic vendor prefixing, with browser support configuration (all within ``helpers/kouto-config.styl``
 * Designed with progressive enhancement in mind.
 * Modularized component-based approach, with minimal coupling only to helpers, mixins,
-and compass.  Mix and match them as you wish
+and kouto.  Mix and match them as you wish
 * WAI-ARIA compliant, with roles.  [Start caring about accessibility today](http://seangoresht.com/index.php/blog/item/design-for-the-blind-wai-aria-explained).
 * [Icomoon](https://icomoon.io) icons included, with better, faster approach to loading icons
 * CSS3-animation-ready, with many placeholder animations to choose from, adapted from Dan Eden's animate.css

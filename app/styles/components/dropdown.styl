@@ -9,12 +9,12 @@
 */
 
 /* Dropdown */
-$dropdownColour = $textColour + 5
-$dropdownSize = 8rem
+$dropdownColour ?= $textColour + 5
+$dropdownSize ?= 8rem
 
 /* Transitions */
-$dropdownTransitionTime = 0.5s
-$dropdownTransitionFunction = ease
+$dropdownTransitionTime ?= 0.5s
+$dropdownTransitionFunction ?= ease
 
 .dropdown
 	@extend $relative
