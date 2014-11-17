@@ -15,17 +15,6 @@
 			@extend $callout, $callout--top-left, $shake
 */
 
-/* Default animation (can be overriden) */
-$defaultAnimation
-	animation-duration $animationDuration
-	backface-visibility visible !important
-	animation-fill-mode $animationFillMode
-
-generateAnimationPlaceholder(name)
-	${name}
-		@extend $defaultAnimation
-		animation-name: name
-
 //import the entire library
 
 @import "**/*"

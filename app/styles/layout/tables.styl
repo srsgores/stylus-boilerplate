@@ -17,7 +17,7 @@ table
 	thead
 		th
 			@extend $vertical-align-bottom, $bordered, $text-align-left
-			padding $paddingMini * 1.5
+			padding $paddingMini * $multiplier
 			font-weight bold
 	tbody
 		tr
@@ -35,8 +35,6 @@ table
 	td
 		padding $paddingMini * 1.5
 		@extend $vertical-align-middle, $bordered
-		&.status
-			@extend $text-align-center, $font-size-small
 	caption
 		@extend $text-align-right, $normal-margin
 		font-style italic

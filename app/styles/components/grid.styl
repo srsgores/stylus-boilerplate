@@ -16,6 +16,7 @@ $row
 for column in (1..$columns)
 	$col-{column}
 		col(column)
+		@extend $border-box
 		+media-query($breakpointMain)
 			display block
 			float none

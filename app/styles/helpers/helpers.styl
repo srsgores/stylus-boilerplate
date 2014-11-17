@@ -27,9 +27,11 @@ generatePlaceholder(property, values, prefixed = false)
 				{property} value
 
 rules = {
-	display: block inline-block inline table
+	display: block inline-block inline table flex
 	position: fixed absolute static relative
+	box-sizing: content-box padding-box border-box
 	prefixed: {
+		flex-direction: column column-reverse row row-reverse
 		text-align: center left right
 		vertical-align: top middle bottom
 		text-decoration: none underline
@@ -106,3 +108,19 @@ $visuallyhidden
 	position: absolute;
 	width: 1px;
 	left: -500%;
+
+/* Default animation (can be overriden) */
+$defaultAnimation
+	animation-duration $animationDuration
+	backface-visibility visible !important
+	animation-fill-mode $animationFillMode
+
+generateAnimationPlaceholder(name)
+	${name}
+		@extend $defaultAnimation
+		animation-name: name
+// animation delay helpers
+$delayed
+	for index in (1..$delayElemCount)
+		&:nth-child({index})
+			animation-delay (($animationDuration / 7) * index)

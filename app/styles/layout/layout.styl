@@ -1,0 +1,20 @@
+/*
+	stylus-boilerplate
+
+	layout.styl
+
+	Author: Sean
+
+	Created on 2014-11-17 by PhpStorm
+*/
+.container
+	@extend $flex, $flex-direction-column
+	min-height 100vh
+main
+	flex 1
+	@extend $flex, $flex-direction-column
+
+footer
+	&[role="contentinfo"]
+		@extend $text-align-center, $normal-padding
+		background $primaryColour

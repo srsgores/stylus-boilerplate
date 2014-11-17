@@ -22,7 +22,7 @@
     "gulp-uglify": "^0.2.1",
     "gulp-useref": "^0.4.2",
     "jshint-stylish": "^0.2.0",
-    "kouto-swiss": "^0.10.2",
+    "kouto-swiss": "^0.11.1",
     "opn": "^0.1.1",
     "wiredep": "^1.4.3"
   },
