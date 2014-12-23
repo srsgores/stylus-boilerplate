@@ -1,0 +1,65 @@
+/*
+	stylus-boilerplate
+
+	nav.styl
+
+	Author: Sean Goresht
+
+	Basic navigation component styles
+*/
+$navPadding ?= 1em
+
+$navItemDistribution ?= normal // flex, table, or flex-table (flexbox with fallback)
+
+$navItemPadding ?= 1em
+$navItemMargin ?= 0.3em
+$navItemLinkPadding ?= 0.7em
+
+$navItemPreventWrap = false // prevent nav items from flowing to the other side
+$navItemTransitionFunction ?= easing("in-quad")
+$navItemTransitionTime ?= 0.5s
+
+$navResponsive = true
+
+$nav
+	padding $navPadding
+	box-sizing border-box
+.nav
+	&-vertical
+		@extend $nav
+		.nav-item, .nav-item-link
+			display block
+			width 100%
+		.nav-items
+			if $navItemDistribution is flex
+				flex-direction column
+	&-horizontal
+		@extend $nav
+		.nav-item
+			if $navItemDistribution is normal
+				display inline-block
+			else if $navItemDistribution is table or $navItemDistribution is flex-table
+				display table-cell
+			margin-right $navItemMargin
+	&-items
+		list-style none
+		// reset for existing ul
+		margin 0
+		padding 0
+		if $navItemDistribution is flex or $navItemDistribution is flex-table
+			display flex
+		else if $navItemDistribution is table or $navItemDistribution is flex-table
+			display table
+			width 100%
+		if $navItemPreventWrap
+			white-space nowrap
+	&-item
+		if $navItemDistribution is flex
+			flex 1
+		position relative
+		&-link
+			box-sizing border-box
+			padding $navItemLinkPadding
+			display block
+			text-decoration none
+			transition background, $navItemTransitionTime, $navItemTransitionFunction

@@ -1,0 +1,69 @@
+//
+	stylus-boilerplate
+	File Name: mixins
+	Author: _admin
+	Date: 2014-12-23
+	Description: Utilities for rendering demos
+
+mixin getIcon(icon, title)
+	span(class="icon-#{icon}", title="#{title}", role="presentation")
+		span.icon-description= title
+
+mixin getNavItem(link, title, icon)
+	- defaultClassName = "nav-item-link"
+	if attributes.class
+		- classNames = defaultClassName + "-" + attributes.class
+	else
+		- classNames = defaultClassName
+	a(href=link, title=title, class=classNames)
+		+getIcon(icon, title)
+		| &nbsp;#{title}
+
+mixin renderNavBar(items, layout)
+	- className = "nav-" + layout
+	nav(class=className, role="navigation")
+		ul.nav-items
+			+renderNavItems(items)
+
+mixin renderNavItems(navItems)
+	each item in navItems
+		if item.nestedMenu
+			li(class="nav-item dropdown")
+				+getNavItem("#", item.title, item.icon)
+				ul.dropdown-menu
+					+renderNavItems(item.nestedMenu)
+		else
+			li.nav-item
+				+getNavItem("#", item.title, item.icon)
+
+mixin getFormSection(title, layout, icon)
+	fieldset(class="form-section #{layout}")
+		legend.form-section-title
+			+getIcon(icon, title)
+			| #{title}
+		if block
+			block
+
+mixin getFormField(name)
+	if attributes.class
+		- classNames = "form-field-" + attributes.class
+	else
+		- classNames = "form-field"
+	section(class=classNames)
+		label.form-section-label(for=labelID) #{name}
+		div.form-section-controls
+			if block
+				block
+
+mixin getFormAction(name, title, icon)
+	button(type="submit", title=title class!=attributes.class) #{name}
+		if icon
+			+getIcon(icon, title)
+
+mixin demoSection(name)
+	section.demo
+		header
+			h1= name
+		if block
+			div.demo-content
+				block
