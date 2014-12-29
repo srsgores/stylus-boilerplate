@@ -38,6 +38,7 @@ getButton(colour)
 	&:hover, &:focus
 		background luminosity(colour) > 0.5 ? colour + 30 : colour - 30
 $button
+	cursor pointer
 	if $buttonTransition
 		transition $buttonTransition
 	display inline-block
