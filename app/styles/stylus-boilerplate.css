@@ -2986,19 +2986,25 @@ body {
 }
 .table-striped tbody tr {
   background: #fff;
-  -webkit-transition: ease-in("quad") 0.1s background;
-  -o-transition: ease-in("quad") 0.1s background;
-  transition: ease-in("quad") 0.1s background;
+  -webkit-transition: cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.1s background;
+  -o-transition: cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.1s background;
+  transition: cubic-bezier(0.55, 0.085, 0.68, 0.53) 0.1s background;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+  background: #f2f2f2;
+}
+.table-striped tbody tr:hover {
+  background: #ededed;
 }
 .table-bordered th {
-  border: 1px solid rgba(255,255,255,0.6);
+  border: 1px solid rgba(222,222,222,0.6);
 }
 .table-bordered tbody + tbody {
-  border: 1px solid rgba(255,255,255,0.6);
+  border: 1px solid rgba(222,222,222,0.6);
   border-width: 2px;
 }
 .table-bordered td {
-  border: 1px solid rgba(255,255,255,0.6);
+  border: 1px solid rgba(222,222,222,0.6);
 }
 .table-bordered caption + thead:first-child th,
 .table-bordered caption + thead:first-child td {

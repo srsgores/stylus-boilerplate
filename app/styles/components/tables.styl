@@ -15,10 +15,11 @@ $tableWidth ?= 100%
 
 $tableBorderWidth ?= 1px
 $tableBorderStyle ?= solid
-$tableBorderColour ?= transparentify($tableBackground, 0.6)
+$tableBorderColour ?= transparentify((luminosity($tableBackground) > 0.5 ? $tableBackground - 20 : $tableBackground + 20), 0.6)
+
 $tableBorder ?= $tableBorderWidth $tableBorderStyle $tableBorderColour
 
-$tableTransition ?= ease-in("quad") 0.1s background
+$tableTransition ?= easing("in-quad") 0.1s background
 
 $table
 	background $tableBackground
@@ -45,9 +46,9 @@ $table
 				background $tableBackground
 				transition $tableTransition
 				&:nth-of-type(odd)
-					luminosity($tableBackground) > 0.5 ? $tableBackground + 13 : $tableBackground - 13
+					background luminosity($tableBackground) > 0.5 ? $tableBackground - 13 : $tableBackground + 13
 				&:hover
-					luminosity($tableBackground) > 0.5 ? $tableBackground + 18 : $tableBackground - 18
+					background luminosity($tableBackground) > 0.5 ? $tableBackground - 18 : $tableBackground + 18
 	&-bordered
 		th
 			border $tableBorder
