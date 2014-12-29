@@ -7,13 +7,16 @@
 
 	Basic navigation component styles
 */
-$navPadding ?= 1em
+$navPadding ?= 0
+$navBackground ?= #3B7EA8
+$navItemLinkColour ?= #fff
 
-$navItemDistribution ?= normal // flex, table, or flex-table (flexbox with fallback)
+$navItemDistribution ?= flex // flex, table, or flex-table (flexbox with fallback)
 
 $navItemPadding ?= 1em
-$navItemMargin ?= 0.3em
+$navItemMargin ?= 0
 $navItemLinkPadding ?= 0.7em
+$navItemBorderColour ?= transparentify($navItemLinkColour, 0.3)
 
 $navItemPreventWrap = false // prevent nav items from flowing to the other side
 $navItemTransitionFunction ?= easing("in-quad")
@@ -23,10 +26,13 @@ $navResponsive = true
 
 $nav
 	padding $navPadding
+	background $navBackground
 	box-sizing border-box
 .nav
 	&-vertical
 		@extend $nav
+		.nav-item
+			border-bottom 1px solid $navItemBorderColour
 		.nav-item, .nav-item-link
 			display block
 			width 100%
@@ -36,6 +42,7 @@ $nav
 	&-horizontal
 		@extend $nav
 		.nav-item
+			border-right 1px solid $navItemBorderColour
 			if $navItemDistribution is normal
 				display inline-block
 			else if $navItemDistribution is table or $navItemDistribution is flex-table
@@ -54,12 +61,18 @@ $nav
 		if $navItemPreventWrap
 			white-space nowrap
 	&-item
+		&:last-child
+			border 0
 		if $navItemDistribution is flex
 			flex 1
+			text-align center
 		position relative
 		&-link
 			box-sizing border-box
 			padding $navItemLinkPadding
 			display block
 			text-decoration none
+			color $navItemLinkColour
 			transition background, $navItemTransitionTime, $navItemTransitionFunction
+			&:hover, &:focus
+				background transparentify($navBackground - 10, 0.1)

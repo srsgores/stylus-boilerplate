@@ -1,0 +1,61 @@
+/*
+	stylus-boilerplate
+
+	buttons.styl
+
+	Author: _admin
+
+	Created on 2014-12-23 by PhpStorm
+*/
+$buttonBackground ?= rgba(0, 0, 0, 0.25)
+$buttonPadding ?= 0.8em
+$buttonFontSize ?= 1em
+$buttonFontWeight ?= normal
+$buttonMargin ?= 1em
+$buttonBorder ?= 0
+
+$buttonColours ?= {
+	success: #00cc1c
+	warning: #edff36
+	info: #00abcc
+	error: #cc0d00
+}
+
+$buttonTransition ?= 0.1s easing("in-quad") background, border
+
+$buttonSizes ?= {
+	small: 0.8
+	medium: 1.2
+	large: 1.4
+	extra-large: 1.8
+}
+getButton(colour)
+	@extend $button
+	background colour
+	color luminosity(colour) > 0.5 ? black : white
+	&[disabled]
+		@extend $disabled
+	&:hover, &:focus
+		background luminosity(colour) > 0.5 ? colour + 30 : colour - 30
+$button
+	if $buttonTransition
+		transition $buttonTransition
+	display inline-block
+	border $buttonBorder
+	margin-right $buttonMargin
+	padding $buttonPadding ($buttonPadding * 1.65)
+	font-size $buttonFontSize
+	font-weight $buttonFontWeight
+	white-space nowrap
+$disabled
+	opacity 0.5
+	cursor not-allowed
+
+.button
+	getButton($buttonBackground)
+	for size, multiplier in $buttonSizes
+		&-{size}
+			font-size $buttonFontSize * multiplier
+	for type, colour in $buttonColours
+		&-{type}
+			getButton(colour)

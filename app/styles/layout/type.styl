@@ -23,7 +23,19 @@ p
 	@extend $normal-margin-bottom
 	&:only-child
 		@extend $margin-none
+a
+	color $textColour
+	@extend $text-decoration-none
+	transition $transitionTime border-width $transitionFunction
 
+main, footer
+	&[href]
+		@extend $bordered-bottom
+		&:hover
+			border-width $borderWidth * 2
+		font-weight bold
+		&:visited
+			opacity 0.9
 // include print styles, if required - adapted from https://github.com/zurb/foundation/blob/master/scss/foundation/components/_type.scss
 
 if $printStylesEnabled

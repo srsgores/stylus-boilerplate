@@ -43,6 +43,17 @@ mixin getFormSection(title, layout, icon)
 			| #{title}
 		if block
 			block
+mixin getButton(text, title, className, icon)
+	if className
+		- className = "button-" + className
+	else
+		- className = "button"
+	if !title
+		- title = text
+	button(type="button", title=title, class=className disabled!=attributes.disabled)= text
+		if icon
+			| &nbsp;
+			+getIcon(icon)
 
 mixin getFormField(name)
 	if attributes.class
