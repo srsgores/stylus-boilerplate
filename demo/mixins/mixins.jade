@@ -36,8 +36,8 @@ mixin renderNavItems(navItems)
 			li.nav-item
 				+getNavItem("#", item.title, item.icon)
 
-mixin getFormSection(title, layout, icon)
-	fieldset(class="form-section #{layout}")
+mixin getFormSection(title, icon)
+	fieldset(class="form-section")
 		legend.form-section-title
 			+getIcon(icon, title)
 			| #{title}
@@ -60,17 +60,29 @@ mixin getFormField(name)
 		- classNames = "form-field-" + attributes.class
 	else
 		- classNames = "form-field"
+	- var labelID = name.trim().replace(/([A-Z])/g, '-$1').replace(/[-_\s]+/g, '-').toLowerCase()
 	section(class=classNames)
-		label.form-section-label(for=labelID) #{name}
-		div.form-section-controls
+		label.form-field-label(for=labelID) #{name}
+		div.form-field-controls
 			if block
 				block
+mixin getFormInput(name, type, id, options)
+	- message = "Please enter " + name
+	if !id
+		- id = name.trim().replace(/([A-Z])/g, '-$1').replace(/[-_\s]+/g, '-').toLowerCase()
+	if type == "select"
+		select(class!=attributes.class, id=id)
+			for option in options
+				option(value=option.value, selected!=option.selected)= option.name
+	else if type == "textarea"
+		textarea(class!=attributes.class, id=id, rows="5", placeholder=name, pattern!=attributes.pattern, required!=attributes.required, autofocus!=attributes.autofocus, title=message)
+	else
+		input(class!=attributes.class, id=id, placeholder=name, pattern!=attributes.pattern, required!=attributes.required, autofocus!=attributes.autofocus, datalist!=attributes.datalist, title=message)
 
 mixin getFormAction(name, title, icon)
-	button(type="submit", title=title class!=attributes.class) #{name}
+	button.button(type="submit", title=title class!=attributes.class) #{name}
 		if icon
 			+getIcon(icon, title)
-
 mixin demoSection(name)
 	section.demo
 		header

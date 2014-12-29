@@ -152,12 +152,13 @@ p {
 footer[role="contentinfo"] {
   padding: 1em;
 }
+textarea,
 input {
-  border: 1px solid rgba(255,255,255,0.4);
+  border: 1px solid rgba(0,0,0,0.4);
 }
 main[href],
 footer[href] {
-  border-bottom: 1px solid rgba(255,255,255,0.4);
+  border-bottom: 1px solid rgba(0,0,0,0.4);
 }
 .table {
   display: table;
@@ -169,6 +170,7 @@ main {
   display: -ms-flexbox;
   display: flex;
 }
+textarea,
 input {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -1021,38 +1023,104 @@ body {
   border-bottom: 0.5em solid #050505;
 }
 .form-section {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   border: 1px solid #ccc;
   margin: 1em;
-  display: table;
-  width: 100%;
+}
+.form-field,
+.form-field-horizontal,
+.form-field-vertical {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0.3em 1em;
+}
+.form {
+  display: inline-block;
+}
+@media only screen and (max-width: 767px) {
+  .form {
+    display: inherit;
+  }
+}
+.form-section label,
+.form-section input {
+  display: inline-block;
 }
 .form-section-header {
   padding: 1em;
 }
-.form-section-label {
-  display: table-cell;
+.form-field-label,
+.form-field-controls {
+  display: inline-block;
   vertical-align: top;
 }
-.form-section-controls {
-  display: table-cell;
+.form-field-label {
+  min-width: 10em;
+  cursor: pointer;
 }
-.form-section-controls-appended {
+@media only screen and (max-width: 767px) {
+  .form-field-controls {
+    width: 100%;
+  }
+  .form-field-controls input,
+  .form-field-controls select,
+  .form-field-controls textarea {
+    width: 100%;
+  }
+}
+.form-field-controls-appended {
   display: table;
   width: 100%;
 }
-.form-section-controls-appended input,
-.form-section-controls-appended select,
-.form-section-controls-appended textarea,
-.form-section-controls-appended label {
+.form-field-controls-appended input,
+.form-field-controls-appended select,
+.form-field-controls-appended textarea,
+.form-field-controls-appended label {
   display: table-cell;
   vertical-align: middle;
 }
-.form-field {
-  padding: 0.333333333333333em 1em;
+.form-field-horizontal {
+  width: 100%;
+  display: table;
+  table-layout: auto;
+}
+.form-field-horizontal .form-field-label {
+  margin-right: 1em;
+  width: 10%;
+  min-width: 10em;
+}
+.form-field-horizontal .form-field-label,
+.form-field-horizontal .form-field-controls {
+  display: table-cell;
+  vertical-align: middle;
+}
+@media only screen and (max-width: 767px) {
+  .form-field-horizontal .form-field-label,
+  .form-field-horizontal .form-field-controls {
+    display: inherit;
+  }
+}
+.form-field-vertical .form-field-label {
+  min-width: 0;
+  width: auto;
+}
+.form-field-vertical .form-field-controls {
+  display: block;
+}
+.form-field-vertical .form-field-controls input,
+.form-field-vertical .form-field-controls select,
+.form-field-vertical .form-field-controls textarea {
+  width: 100%;
+}
+.form-action {
+  display: inline-block;
 }
 .form-actions {
-  margin: 1em 0;
   text-align: center;
+  border-top: 1px solid #ccc;
 }
 @media only screen and (max-width: 767px) {
 }
@@ -3010,26 +3078,30 @@ body {
 .table-bordered caption + thead:first-child td {
   border-top: 0;
 }
+textarea,
 input {
   padding: 0.333333333333333em 1em;
   font-size: 1em;
 }
+textarea::-webkit-input-placeholder,
 input::-webkit-input-placeholder {
+  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
   color: #dcdcdc;
 }
+textarea:-moz-placeholder,
 input:-moz-placeholder {
+  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
   color: #dcdcdc;
 }
+textarea::-moz-placeholder,
 input::-moz-placeholder {
+  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
   color: #dcdcdc;
 }
+textarea:-ms-input-placeholder,
 input:-ms-input-placeholder {
+  font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
   color: #dcdcdc;
-}
-button {
-  padding: 0.333333333333333em 1em;
-  cursor: pointer;
-  font-size: 1em;
 }
 .container {
   min-height: 100vh;

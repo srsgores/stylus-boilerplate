@@ -90,7 +90,7 @@ Borders
 ========================================================================== */
 $borderWidth ?= 1px
 $borderStyle ?= solid
-$borderColour ?= transparentify((luminosity($textColour) > 0.5 ? black:white), 0.4)
+$borderColour ?= transparentify((luminosity($textColour) > 0.5 ? white - 45:black + 45), 0.4)
 $border ?= $borderWidth $borderStyle $borderColour
 
 /* =============================================================================

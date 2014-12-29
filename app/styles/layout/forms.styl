@@ -7,14 +7,11 @@
 
 	Created on 2014-12-23 by PhpStorm
 */
-input
+
+textarea, input
 	padding $paddingMini $padding
 	@extend $bordered, $border-box
 	font-size $unit
 	+placeholder()
+		font-family $baseFontFamily
 		color luminosity($textColour) > 0.5 ? $inverseTextColour + 35 : $inverseTextColour - 35
-
-button
-	padding $paddingMini $padding
-	cursor pointer
-	font-size $unit

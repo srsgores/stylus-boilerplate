@@ -11,28 +11,77 @@
 $formSectionBorder ?= 1px solid #CCC
 $formSectionMargin ?= 1em
 $formSectionHeadingPadding ?= 1em
+$formSectionLabelWidth ?= 10em
+$formFieldPadding ?= 0.3em 1em
+
+$formResponsive ?= true
+
+$formSection
+	box-sizing border-box
+	border $formSectionBorder
+	margin $formSectionMargin
+
+$formField
+	box-sizing border-box
+	padding $formFieldPadding
 
 .form
+	display inline-block
+	if $formResponsive
+		+media-query($breakpointMain)
+			display inherit
 	&-section
-		border $formSectionBorder
-		margin $formSectionMargin
-		display table
-		width 100%
+		@extend $formSection
+		label, input
+			display inline-block
 		&-header
 			padding $formSectionHeadingPadding
-		&-label
-			display table-cell
+	&-field
+		@extend $formField
+		&-label, &-controls
+			display inline-block
 			vertical-align top
+		&-label
+			min-width $formSectionLabelWidth
+			cursor pointer
 		&-controls
-			display table-cell
+			if $formResponsive
+				+media-query($breakpointMain)
+					width 100%
+					input, select, textarea
+						width 100%
 			&-appended
 				display table
 				width 100%
 				input, select, textarea, label
 					display table-cell
 					vertical-align middle
-	&-field
-		padding $paddingMini $padding
-	&-actions
-		margin $margin 0
-		text-align center
+		&-horizontal
+			@extend $formField
+			width 100%
+			display table
+			table-layout auto
+			.form-field-label
+				margin-right $formSectionMargin
+				width 10%
+				min-width $formSectionLabelWidth
+			.form-field-label, .form-field-controls
+				if $formResponsive
+					+media-query($breakpointMain)
+						display inherit
+				display table-cell
+				vertical-align middle
+		&-vertical
+			@extend $formField
+			.form-field-label
+				min-width 0
+				width auto
+			.form-field-controls
+				display block
+				input, select, textarea
+					width 100%
+	&-action
+		display inline-block
+		&s
+			text-align center
+			border-top $formSectionBorder

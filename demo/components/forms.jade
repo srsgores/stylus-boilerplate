@@ -1,0 +1,32 @@
+include ../mixins/mixins.jade
+
+extends ../layout
+- title = "Form Demos"
+
+mixin renderFieldset(form)
+	+getFormSection(form.name)
+		if form.fields.length
+			for field in form.fields
+				if field.layout
+					+getFormField(field.name)(class=field.layout)
+						+getFormInput(field.name, field.type)(required="required")
+				else
+					+getFormField(field.name)
+						+getFormInput(field.name, field.type)(required="required")
+		if form.actions
+			footer.form-actions
+				for action in form.actions
+					+getFormAction(action.name, action.title, action.icon)
+block content
+	- profileForm = {name: "Profile Info", fields: [{type: "text", name: "Full Name"}, {type: "text", name: "Occupation"}, {type: "textarea", name: "Description"}], actions: [{name: "Update Profile", title: "Update your profile", icon: "disk"}]}
+	- profileFormHorizontal = {name: "Profile Info", fields: [{type: "text", name: "Full Name", layout: "horizontal"}, {type: "text", name: "Occupation", layout: "horizontal"}, {type: "textarea", name: "Description", layout: "horizontal"}], actions: [{name: "Update Profile", title: "Update your profile", icon: "disk"}]}
+	- registerForm = {name: "User Registration", fields: [{type: "email", name: "Email", layout: "vertical"}, {type: "password", name: "Password", layout: "vertical"}], actions: [{name: "Register", title: "Register for a new profile", icon: "out"}]}
+	+demoSection("Basic Form")
+		form.form(action="/", method="post")
+			+renderFieldset(profileForm)
+	+demoSection("Horizontal Form")
+		form.form(action="/", method="post")
+			+renderFieldset(profileFormHorizontal)
+	+demoSection("Login Form")
+		form.form(action="/", method="post")
+			+renderFieldset(registerForm)
