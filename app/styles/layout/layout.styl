@@ -7,18 +7,20 @@
 
 	Created on 2014-11-17 by PhpStorm
 */
+html, body, main
+	height 100%
 .container
-	@extend $flex, $flex-direction-column
-	min-height 100vh
-main
-	flex 1
-	@extend $flex, $flex-direction-column
-
+	width 100%
+	height 100%
+	display table
 header
 	for num in (6..1)
 		h{num}
 			@extend $margin-none
-footer
-	&[role="contentinfo"]
+.footer
+	height 1%
+	display table-row
+	background $primaryColour
+	&-container
 		@extend $text-align-center, $normal-padding
-		background $primaryColour
+

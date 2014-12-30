@@ -63,9 +63,14 @@ mixin getFormField(name)
 	- var labelID = name.trim().replace(/([A-Z])/g, '-$1').replace(/[-_\s]+/g, '-').toLowerCase()
 	section(class=classNames)
 		label.form-field-label(for=labelID) #{name}
-		div.form-field-controls
-			if block
-				block
+		.form-field-controls
+			if attributes.appended
+				.form-field-controls-group
+					if block
+						block
+			else
+				if block
+					block
 mixin getFormInput(name, type, id, options)
 	- message = "Please enter " + name
 	if !id
@@ -77,11 +82,12 @@ mixin getFormInput(name, type, id, options)
 	else if type == "textarea"
 		textarea(class!=attributes.class, id=id, rows="5", placeholder=name, pattern!=attributes.pattern, required!=attributes.required, autofocus!=attributes.autofocus, title=message)
 	else
-		input(class!=attributes.class, id=id, placeholder=name, pattern!=attributes.pattern, required!=attributes.required, autofocus!=attributes.autofocus, datalist!=attributes.datalist, title=message)
+		input(class!=attributes.class, type=type, id=id, placeholder=name, pattern!=attributes.pattern, required!=attributes.required, min!=attributes.min, max!=attributes.max, step!=attributes.step, autofocus!=attributes.autofocus, list!=attributes.list, title=message)
 
 mixin getFormAction(name, title, icon)
-	button.button(type="submit", title=title class!=attributes.class) #{name}
+	button.button.form-action(type="submit", title=title class!=attributes.class) #{name}
 		if icon
+			| &nbsp;
 			+getIcon(icon, title)
 mixin demoSection(name)
 	section.demo
@@ -90,3 +96,41 @@ mixin demoSection(name)
 		if block
 			div.demo-content
 				block
+
+mixin getAppendedControl(control, id)
+	- var classNames = ["form-field-controls-group-append"]
+	if control.classNames
+		- classNames.push(control.classNames)
+	label(for=id, class=classNames)
+		if control.text
+			| #{control.text}
+		if control.icon
+			+getIcon(control.icon)
+mixin getAppendedControls(field, id)
+	if field.appended
+		if field.appended.before
+			+getAppendedControl(field.appended.before, id)(class!=attributes.class)
+	if block
+		block
+	if field.appended
+		if field.appended.after
+			+getAppendedControl(field.appended.after, id)(class!=attributes.class)
+mixin renderFormInputs(field)
+mixin renderFieldset(form)
+	+getFormSection(form.name)
+		if form.fields.length
+			for field in form.fields
+				- id = field.name.trim().replace(/([A-Z])/g, '-$1').replace(/[-_\s]+/g, '-').toLowerCase()
+				if field.appended
+					- appended = true
+				+getFormField(field.name)(class!=field.layout, appended!=appended)
+					+getAppendedControls(field, id)
+						+getFormInput(field.name, field.type, null, field.options)(required="required", list=field.datalist, min!=field.min, max!=field.max, step!=field.step)
+		if form.actions
+			footer.form-actions
+				for action in form.actions
+					+getFormAction(action.name, action.title, action.icon)
+mixin getDatalist(list, id)
+	datalist(id=id)
+		each item in list
+			option(value=item)= item

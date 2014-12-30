@@ -7,11 +7,29 @@
 
 	Created on 2014-12-23 by PhpStorm
 */
+$inputSuccessColour ?= #00cc1c
+$inputErrorColour ?= #dc0000
 
-textarea, input
+$textInput
 	padding $paddingMini $padding
 	@extend $bordered, $border-box
+textarea
+	@extend $textInput
+textarea, input
+	&[type="text"], &[type="tel"], &[type="url"], &[type="number"], &[type="email"], &[type="date"], &[type="datetime-local"], &[type="week"], &[type="month"], &[type="password"], &[type="file"]
+		@extend $textInput
+	&[type="number"]
+		&[max="100"]
+			max-width 5em
+	transition $transitionTime $transitionFunction border-color, outline-color
 	font-size $unit
+	font-family $baseFontFamily
+	&:focus
+		&:valid
+			border-color $inputSuccessColour
+		&:invalid
+			border-color $inputErrorColour
+			outline-color $inputErrorColour
 	+placeholder()
 		font-family $baseFontFamily
 		color luminosity($textColour) > 0.5 ? $inverseTextColour + 35 : $inverseTextColour - 35

@@ -3,24 +3,11 @@ include ../mixins/mixins.jade
 extends ../layout
 - title = "Form Demos"
 
-mixin renderFieldset(form)
-	+getFormSection(form.name)
-		if form.fields.length
-			for field in form.fields
-				if field.layout
-					+getFormField(field.name)(class=field.layout)
-						+getFormInput(field.name, field.type)(required="required")
-				else
-					+getFormField(field.name)
-						+getFormInput(field.name, field.type)(required="required")
-		if form.actions
-			footer.form-actions
-				for action in form.actions
-					+getFormAction(action.name, action.title, action.icon)
 block content
-	- profileForm = {name: "Profile Info", fields: [{type: "text", name: "Full Name"}, {type: "text", name: "Occupation"}, {type: "textarea", name: "Description"}], actions: [{name: "Update Profile", title: "Update your profile", icon: "disk"}]}
-	- profileFormHorizontal = {name: "Profile Info", fields: [{type: "text", name: "Full Name", layout: "horizontal"}, {type: "text", name: "Occupation", layout: "horizontal"}, {type: "textarea", name: "Description", layout: "horizontal"}], actions: [{name: "Update Profile", title: "Update your profile", icon: "disk"}]}
-	- registerForm = {name: "User Registration", fields: [{type: "email", name: "Email", layout: "vertical"}, {type: "password", name: "Password", layout: "vertical"}], actions: [{name: "Register", title: "Register for a new profile", icon: "out"}]}
+	- profileForm = {name: "Profile Info", fields: [{type: "text", name: "Full Name"}, {type: "text", name: "Occupation"}, {type: "textarea", name: "Description"}], actions: [{name: "Update Profile", title: "Update your profile", icon: "disk2"}]}
+	- profileFormHorizontal = {name: "Profile Info", fields: [{type: "text", name: "Full Name", layout: "horizontal"}, {type: "text", name: "Occupation", layout: "horizontal"}, {type: "textarea", name: "Description", layout: "horizontal"}], actions: [{name: "Update Profile", title: "Update your profile", icon: "disk2"}]}
+	- registerForm = {name: "User Registration", fields: [{type: "email", name: "Email", layout: "vertical"}, {type: "password", name: "Password", layout: "vertical"}], actions: [{name: "Register", title: "Register for a new profile", icon: "forward2"}]}
+	- addressForm = {name: "Address Information", fields: [{type: "text", name: "City with Datalist auto-complete", datalist: "cities"}, {type: "select", name: "Country", options: [{name: "Canada", value: "canada"}, {name: "US", value: "us"}]}], actions: [{name: "Update Address", title: "Update Address", icon: "disk2"}]}
 	+demoSection("Basic Form")
 		form.form(action="/", method="post")
 			+renderFieldset(profileForm)
@@ -30,3 +17,14 @@ block content
 	+demoSection("Login Form")
 		form.form(action="/", method="post")
 			+renderFieldset(registerForm)
+	+demoSection("Address Form")
+		- var cities = ["Calgary", "Ottawa", "Windsor", "Toronto"]
+		+getDatalist(cities, "cities")
+		form.form(action="/", method="post")
+			+renderFieldset(addressForm)
+	+demoSection("Appended Controls")
+		- var currencyForm = {name: "Expenses", fields: [{type: "number", min: 0, step: "any", name: "Cash Flow", appended: {before: {icon: "coin"}}}, {type: "number", min: 0, max: 100, step: "any", name: "Balance", appended: {after: {icon: "coin"}}}, {type: "number", name: "Annual Interest (%)", min: 0, max: 100, step: "any", appended: {after: {text: "%"}}}, {type: "file", name: "Annual Report", appended: {after: {icon: "upload", classNames: "button"}}}], actions: [{name: "File Report", title: "Submit this report for analysis", icon: "disk2"}]}
+		- var socialForm = {name: "Share and Tell", fields: [{type: "text", name: "Twitter Username", appended: {before: {text: "@"}}}, {type: "text", name: "GitHub Username", appended: {before: {icon: "github"}}}]}
+		form.form(action="/", method="post")
+			+renderFieldset(currencyForm)
+			+renderFieldset(socialForm)

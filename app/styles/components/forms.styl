@@ -8,11 +8,12 @@
 	Created on 2014-08-23 by PhpStorm
 */
 
-$formSectionBorder ?= 1px solid #CCC
+$formSectionBorder ?= 1px solid rgba(0, 0, 0, 0.4)
 $formSectionMargin ?= 1em
 $formSectionHeadingPadding ?= 1em
 $formSectionLabelWidth ?= 10em
 $formFieldPadding ?= 0.3em 1em
+$formActionsMargin ?= 0.3em
 
 $formResponsive ?= true
 
@@ -43,6 +44,7 @@ $formField
 			vertical-align top
 		&-label
 			min-width $formSectionLabelWidth
+			width 10%
 			cursor pointer
 		&-controls
 			if $formResponsive
@@ -50,12 +52,20 @@ $formField
 					width 100%
 					input, select, textarea
 						width 100%
-			&-appended
+			&-group
 				display table
-				width 100%
 				input, select, textarea, label
 					display table-cell
 					vertical-align middle
+					white-space nowrap
+				&-append
+					padding 0 $padding
+					cursor pointer
+					border $formSectionBorder
+					&:first-child
+						border-right 0
+					&:last-child
+						border-left 0
 		&-horizontal
 			@extend $formField
 			width 100%
@@ -63,7 +73,6 @@ $formField
 			table-layout auto
 			.form-field-label
 				margin-right $formSectionMargin
-				width 10%
 				min-width $formSectionLabelWidth
 			.form-field-label, .form-field-controls
 				if $formResponsive
@@ -82,6 +91,8 @@ $formField
 					width 100%
 	&-action
 		display inline-block
+		margin ($formActionsMargin * 2.3)
 		&s
+			margin-top $formActionsMargin
 			text-align center
 			border-top $formSectionBorder
