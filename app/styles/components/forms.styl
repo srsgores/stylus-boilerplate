@@ -33,6 +33,10 @@ $formField
 			display inherit
 	&-section
 		@extend $formSection
+		&-inline
+			@extend $formSection
+			.form-field, .form-field-horizontal, .form-field-vertical
+				display inline-block
 		label, input
 			display inline-block
 		&-header

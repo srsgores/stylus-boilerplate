@@ -2,11 +2,9 @@
 
 Stylus Boilerplate is a no-bullshit UI framework that is built for performance and compatibility.
 
-It's meant for  designers and developers who care about the [bloat modern front-end frameworks like Bootstrap and Foundation are  introducing](http://yycjs.com/not-bootstrap/), and aims to solve these issues with a simplistic,
-modular approach.
+It's meant for  designers and developers who care about the [bloat modern front-end frameworks like Bootstrap and Foundation are  introducing](http://yycjs.com/not-bootstrap/), and aims to solve these issues with a simplistic, modular approach.
 
-Similar to [organic CSS](https://github.com/krasimir/organic-css), this project uses placeholders wherever possible, so as to reduce duplicate code.  As a result, your css parses **slightly** faster, and you have to maintain less code.
-
+Similar to [organic CSS](https://github.com/krasimir/organic-css), this project uses placeholders, so as to reduce duplicate code.  But you are not forced into this strategy.  As a result, your css can parse **slightly** faster, and you have to maintain less code.
 
 ## Quick start
 
@@ -23,7 +21,7 @@ Then bring in the styles to your project:
 
 ## Overview
 
-Everything uses ``@extend``, or at least anything you use a lot.  For example:
+This idea is to use ``@extend`` in the layout and main styles, or at least anything you use a lot.  For example:
 
 ```
 .myDiv
@@ -46,6 +44,8 @@ So you get something like:
 }
 ```
 
+But remember **not** to use this technique when building out your components.  You want to reduce coupling as much as possible.  For reference on components, [see the sample components included in this repository](https://github.com/srsgores/stylus-boilerplate/tree/master/app/styles/components), or the next section.
+
 ## Components
 
 *Stylus Boilerplate* currently ships with some starting components to get you started.  Unlike SASS boilerplate, this time I made sure to keep components more loosely coupled.  Now components are only dependent on ``helpers/index.styl``, and variables are encapsulated within each component.
@@ -53,13 +53,13 @@ So you get something like:
 The following components are included:
 
 * Callouts (speech bubbles)
+* (New) Buttons
 * Dropdown (menu)
 * Forms
 * Grid
 * Icons (icomoon)
 * Navigation
 * Tables
-* Typography
 
 You can easily bring in one component, or simply a subset, by either using stylus' file globbing, or using ``@require`` as you require:
 
@@ -68,6 +68,10 @@ You can easily bring in one component, or simply a subset, by either using stylu
 @require "../bower_components/stylus-boilerplate/helpers/index" // helpers is required first
 @require "../bower_components/stylus-boilerplate/components/callouts"
 ```
+
+### Previewing
+
+At the moment, I still have to set up the ``gh-pages`` branch.  In the meantime, you can download this repository, and [view the component demo static HTML files](https://github.com/srsgores/stylus-boilerplate/tree/master/app/demo) 
 
 ## Grid
 
@@ -83,9 +87,26 @@ article
 			@extend $col-4 // assuming $columns is 12, this is 1 / 3
 ```
 
+**TODO: add auto-generated utility grid classes rather than placeholders for those who are generating HTML**:
+
+Markup (jade):
+
+```
+.row
+	.column
+		.two-thirds
+		.other-div // takes the rest of the space
+```
+
+## Layout
+
+The [files under the layout directory](https://github.com/srsgores/stylus-boilerplate/tree/master/app/styles/layout) are there purely for example.  I definitely recommend you adapt the files to your needs.  This framework is by no means an "opinionated" standard; I simply find that having a layout folder with layout-specific styles helps to separate concerns.
+
+In this layout folder, you may wish to use the ``@extends`` approach.
+
 ## Animations
 
-Animations have been added to allow easy-to-use animations.  Only the ``$fadeIn`` animation is included by default.  It's super simple to bring them in; simply choose the animation, located in the ``components/animations`` folder, and use file globbing:
+Animation placeholders have been added to allow easy-to-use animations.  Only the ``$fadeIn`` animation is included by default.  It's super simple to bring them in; simply choose the animation, located in the ``components/animations`` folder, and use file globbing:
 
 ```
 @import "components/animations/fading_entrances/*"``

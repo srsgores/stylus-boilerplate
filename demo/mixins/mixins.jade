@@ -29,15 +29,18 @@ mixin renderNavItems(navItems)
 	each item in navItems
 		if item.nestedMenu
 			li(class="nav-item dropdown")
-				+getNavItem("#", item.title, item.icon)
+				+getNavItem(item.url || "#", item.title, item.icon)
 				ul.dropdown-menu
 					+renderNavItems(item.nestedMenu)
 		else
 			li.nav-item
-				+getNavItem("#", item.title, item.icon)
+				+getNavItem(item.url || "#", item.title, item.icon)
 
 mixin getFormSection(title, icon)
-	fieldset(class="form-section")
+	- var className = "form-section"
+	if attributes.class
+		- className += "-" + attributes.class
+	fieldset(class=className)
 		legend.form-section-title
 			+getIcon(icon, title)
 			| #{title}
@@ -115,9 +118,8 @@ mixin getAppendedControls(field, id)
 	if field.appended
 		if field.appended.after
 			+getAppendedControl(field.appended.after, id)(class!=attributes.class)
-mixin renderFormInputs(field)
 mixin renderFieldset(form)
-	+getFormSection(form.name)
+	+getFormSection(form.name)(class!=form.layout)
 		if form.fields.length
 			for field in form.fields
 				- id = field.name.trim().replace(/([A-Z])/g, '-$1').replace(/[-_\s]+/g, '-').toLowerCase()

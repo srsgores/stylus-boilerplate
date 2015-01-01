@@ -11,7 +11,7 @@ $navPadding ?= 0
 $navBackground ?= #3B7EA8
 $navItemLinkColour ?= #fff
 
-$navItemDistribution ?= flex // flex, table, or flex-table (flexbox with fallback)
+$navItemDistribution ?= table // flex, table, or flex-table (flexbox with fallback)
 
 $navItemPadding ?= 1em
 $navItemMargin ?= 0
@@ -42,11 +42,15 @@ $nav
 	&-horizontal
 		@extend $nav
 		.nav-item
+			text-align center
 			border-right 1px solid $navItemBorderColour
 			if $navItemDistribution is normal
 				display inline-block
 			else if $navItemDistribution is table or $navItemDistribution is flex-table
 				display table-cell
+				if $navResponsive
+					+media-query($breakpointMain)
+						display block
 			margin-right $navItemMargin
 	&-items
 		list-style none
@@ -55,17 +59,18 @@ $nav
 		padding 0
 		if $navItemDistribution is flex or $navItemDistribution is flex-table
 			display flex
+			flex-wrap wrap
 		else if $navItemDistribution is table or $navItemDistribution is flex-table
 			display table
 			width 100%
+			table-layout fixed
 		if $navItemPreventWrap
 			white-space nowrap
 	&-item
 		&:last-child
 			border 0
-		if $navItemDistribution is flex
+		if $navItemDistribution is flex or $navItemDistribution is flex-table
 			flex 1
-			text-align center
 		position relative
 		&-link
 			box-sizing border-box
