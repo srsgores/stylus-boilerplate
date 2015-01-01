@@ -1,0 +1,41 @@
+include ../../mixins/mixins.jade
+
+extends ../../layout
+- title = "Form Demos"
+
+block content
+	- profileForm = {name: "Profile Info", fields: [{type: "text", name: "Full Name"}, {type: "text", name: "Occupation"}, {type: "textarea", name: "Description"}], actions: [{name: "Update Profile", title: "Update your profile", icon: "disk2"}]}
+	- profileFormHorizontal = {name: "Profile Info", fields: [{type: "text", name: "Full Name", layout: "horizontal"}, {type: "text", name: "Occupation", layout: "horizontal"}, {type: "textarea", name: "Description", layout: "horizontal"}], actions: [{name: "Update Profile", title: "Update your profile", icon: "disk2"}]}
+	- profileFormInline = {name: "Profile Info", layout: "inline", fields: [{type: "text", name: "Full Name"}, {type: "text", name: "Occupation"}, {type: "textarea", name: "Description"}], actions: [{name: "Update Profile", title: "Update your profile", icon: "disk2"}]}
+
+	- registerForm = {name: "User Registration", fields: [{type: "email", name: "Email", layout: "vertical"}, {type: "password", name: "Password", layout: "vertical"}], actions: [{name: "Register", title: "Register for a new profile", icon: "forward2"}]}
+	- addressForm = {name: "Address Information", fields: [{type: "text", name: "City with Datalist auto-complete", datalist: "cities"}, {type: "select", name: "Country", options: [{name: "Canada", value: "canada"}, {name: "US", value: "us"}]}], actions: [{name: "Update Address", title: "Update Address", icon: "disk2"}]}
+	+demoSection("Forms")
+		p By default, inputs are horizontally-arranged; however, you can customize the layout of forms along both the X and Y axis
+		+demoSection("Basic Form")
+			p The basic form has the default horizontally-arranged inputs, 1 per line:
+			form.form(action="/", method="post")
+				+renderFieldset(profileForm)
+		+demoSection("Horizontal Inputs")
+			p The horizontal input class is useful if you need to have an input occupy the remainder of the row; otherwise, the default will work just as well:
+			form.form(action="/", method="post")
+				+renderFieldset(profileFormHorizontal)
+		+demoSection("Vertical Inputs")
+			p For inputs that should be displayed in their own row, simply use the vertical inputs class:
+			form.form(action="/", method="post")
+				+renderFieldset(registerForm)
+		+demoSection("Inline Form")
+			p Use this form for inline form elements.  They will fold over to the next page when the screen resizes beyond them:
+			form.form(action="/", method="post")
+				+renderFieldset(profileFormInline)
+		+demoSection("Address Form")
+			- var cities = ["Calgary", "Ottawa", "Windsor", "Toronto"]
+			+getDatalist(cities, "cities")
+			form.form(action="/", method="post")
+				+renderFieldset(addressForm)
+		+demoSection("Appended Controls")
+			- var currencyForm = {name: "Expenses", fields: [{type: "number", min: 0, step: "any", name: "Cash Flow", appended: {before: {icon: "coin"}}}, {type: "number", min: 0, max: 100, step: "any", name: "Balance", appended: {after: {icon: "coin"}}}, {type: "number", name: "Annual Interest (%)", min: 0, max: 100, step: "any", appended: {after: {text: "%"}}}, {type: "file", name: "Annual Report", appended: {after: {icon: "upload", classNames: "button"}}}], actions: [{name: "File Report", title: "Submit this report for analysis", icon: "disk2"}]}
+			- var socialForm = {name: "Share and Tell", fields: [{type: "text", name: "Twitter Username", appended: {before: {text: "@"}}}, {type: "text", name: "GitHub Username", appended: {before: {icon: "github"}}}]}
+			form.form(action="/", method="post")
+				+renderFieldset(currencyForm)
+				+renderFieldset(socialForm)

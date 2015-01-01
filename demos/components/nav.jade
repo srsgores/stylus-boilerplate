@@ -1,0 +1,16 @@
+include ../../mixins/mixins.jade
+
+extends ../../layout
+- title = "Navigation Demos"
+
+block content
+	+demoSection("Basic Horizontal Navigation")
+		- navItems = [{title: "Store", icon: "cart2"},{title: "Settings", icon: "cogs"},{title: "Profile", icon: "user2"},{title: "Messages", icon: "bubble"},{title: "Logout", icon: "exit"}]
+		+renderNavBar(navItems, "horizontal")
+
+	+demoSection("Basic Horizontal Navigation with Dropdowns")
+		- navItems = [{title: "Home", icon: "home2"},{title: "Docs", icon: "book"},{title: "Tutorials", icon: "books", nestedMenu: [{title: "Messages", icon: "bubble"},{title: "Logout", icon: "exit"}]}]
+		+renderNavBar(navItems, "horizontal")
+	+demoSection("Vertical Navigation", "vertical")
+		- navItems = [{title: "Store", icon: "cart2"},{title: "Settings", icon: "cogs"},{title: "Profile", icon: "user2"},{title: "Messages", icon: "bubble"},{title: "Logout", icon: "exit"}]
+		+renderNavBar(navItems, "vertical")

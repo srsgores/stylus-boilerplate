@@ -1,0 +1,47 @@
+/*
+	stylus-boilerplate
+
+	demo.styl
+
+	Author: Sean Goresht
+
+	Created on 2015-01-01 by PhpStorm
+*/
+
+$vertically-centred
+	text-align center
+	vertical-align middle
+	display table-cell
+.demo
+	padding 1em
+header[role="banner"]
+	display table
+	min-height 100%
+	width 100%
+.hero
+	padding 3em
+	@extend $vertically-centred
+	h1, h2, h3, h4, h5
+		margin-bottom 1em
+
+.share-options
+	li
+		display inline-block
+		margin-right 0.5em
+
+.description
+	width 100%
+	height 100%
+	display table
+	> section
+		@extend $vertically-centred
+		&:nth-of-type(odd)
+			background #69ABDA
+			color #FFF
+main
+	@extend $vertically-centred
+
+.header
+	&-icon
+		font-size 8em
+		margin-bottom 0.3em

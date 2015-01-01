@@ -1,0 +1,53 @@
+include mixins/mixins
+
+extends layout
+- title = "Demos"
+block header-styles
+	link(rel = "stylesheet", href = "styles/stylus-boilerplate.css")
+	link(rel = "stylesheet", href = "styles/demo.css")
+block header
+	article.hero
+		h1 Stylus Boilerplate
+		h2.subtitle A "bare-bones" starting framework for
+			a(href="#") &nbsp;Stylus
+			| &nbsp;projects
+		ul.share-options
+			li
+				iframe(src="http://ghbtns.com/github-btn.html?user=srsgores&repo=stylus-boilerplate&type=watch&count=true", allowtransparency="true", frameborder="0", scrolling="0", width="62", height="20")
+			li
+				iframe(src="http://ghbtns.com/github-btn.html?user=srsgores&repo=stylus-boilerplate&type=fork&count=true", allowtransparency="true", frameborder="0", scrolling="0", width="95", height="20")
+			li
+				a(href="https://twitter.com/share", class="twitter-share-button", data-url="http://srsgores.github.io/stylus-boilerplate" data-via="SGoresht") Tweet
+				script.
+					!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+			li
+				a.twitter-follow-button(href="https://twitter.com/SGoresht", title = "Follow Sean Goresht" data-show-count="false") Follow @SGoresht
+				script.
+					!function (d, s, id) {
+						var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https';
+						if (!d.getElementById(id)) {
+							js = d.createElement(s);
+							js.id = id;
+							js.src = p + '://platform.twitter.com/widgets.js';
+							fjs.parentNode.insertBefore(js, fjs);
+						}
+					}(document, 'script', 'twitter-wjs');
+			li
+				.g-plusone(data-annotation="inline", data-width="100", data-href="http://srsgores.github.io/stylus-boilerplate")
+				script.
+					(function() {
+						var po = document.createElement("script"); po.type = "text/javascript"; po.async = true;
+						po.src = "https://apis.google.com/js/platform.js";
+						var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(po, s);
+					})();
+mixin getHeaderIcon(icon)
+	.header-icon
+		+getIcon(icon)
+
+block content
+	article.description
+		section.intro
+			.header
+				+getHeaderIcon("switch2")
+				h2 Kickstart your next project.  See the demos for yourself.
+			a.button(href="demos/index.html", title="View the Demos") View the Demos
