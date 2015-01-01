@@ -1191,50 +1191,6 @@ body {
 }
 @media only screen and (max-width: 767px) {
 }
-.row {
-  display: table;
-  width: 100%;
-  table-layout: fixed;
-}
-.column {
-  display: table-cell;
-}
-. {
-  width: 8.3333333333333%;
-}
-. {
-  width: 16.6666666666667%;
-}
-. {
-  width: 25%;
-}
-. {
-  width: 33.3333333333333%;
-}
-. {
-  width: 41.6666666666667%;
-}
-. {
-  width: 50%;
-}
-. {
-  width: 58.3333333333333%;
-}
-. {
-  width: 66.6666666666667%;
-}
-. {
-  width: 75%;
-}
-. {
-  width: 83.3333333333333%;
-}
-. {
-  width: 91.6666666666667%;
-}
-. {
-  width: 100%;
-}
 @font-face {
   font-family: "icomoon";
   font-weight: normal;
