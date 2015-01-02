@@ -47,7 +47,6 @@ $numberMap = {
 	}
 }
 use("integer-to-words.js")
-use("reduce-fraction.js")
 
 getEnglishDenominator(column, word)
 	if column > 1
@@ -66,4 +65,6 @@ for column in (1..$columns)
 	for nestedColumn in ($columns..1)
 		if column < nestedColumn
 			.{int-to-word(column)}-{getEnglishDenominator(column, int-to-word(nestedColumn))}
-				width percent(column, nestedColumn)
+				$width = percent(column, nestedColumn)
+				+cache("w" + $width)
+					width $width
