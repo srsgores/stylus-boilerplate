@@ -16,7 +16,7 @@
 	@example
 		to-uppercase("mystring") => "MYSTRING"
 ###
-module.exports = ->
+module?.exports = ->
 	(stylus) ->
 		stylus.define "to-upper-case", (node) ->
 			nodeName = node.nodeName

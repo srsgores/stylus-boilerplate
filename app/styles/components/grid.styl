@@ -22,3 +22,48 @@ for column in (1..$columns)
 			float none
 			width 100%
 			margin 0
+
+// table grid
+.row
+	display table
+	width 100%
+	table-layout fixed
+
+.column
+	display table-cell
+
+// grid sizes
+// for now, this will have to do; in the future, I think it would be nice to automatically generate the class names
+
+$numberMap = {
+	portions: {
+		two: half
+		three: third
+		four: fourth
+		five: fifth
+		six: sixth
+		eight: eigth
+		nine: ninth
+	}
+}
+use("integer-to-words.js")
+use("reduce-fraction.js")
+
+getEnglishDenominator(column, word)
+	if column > 1
+		$plural = ths
+	if word in $numberMap.portions
+		if column > 1
+			s("%s%s", $numberMap.portions[word], s)
+		else
+			s("%s", $numberMap.portions[word])
+	else
+		if column > 1
+			s("%s%s", unquote(word), $plural)
+		else
+			s("%s%s", unquote(word), th)
+for column in (1..$columns)
+	for nestedColumn in ($columns..1)
+		if column < nestedColumn
+			.{int-to-word(column)}-{getEnglishDenominator(column, int-to-word(nestedColumn))}
+				width percent(column, nestedColumn)
