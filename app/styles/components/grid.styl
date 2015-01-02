@@ -24,13 +24,29 @@ for column in (1..$columns)
 			margin 0
 
 // table grid
+$column
+	display table-cell
+	+media-query($breakpointMain)
+		display block
+
+.column
+	@extend $column
+	&-padded
+		@extend $column
+		margin-left $margin * -1
+		margin-right $margin * -1
+		.row
+			border-spacing $padding 0
+	&-align-middle
+		@extend $column
+		vertical-align middle
 .row
 	display table
 	width 100%
 	table-layout fixed
-
-.column
-	display table-cell
+	+media-query($breakpointMain)
+		display block
+		margin 0
 
 // grid sizes
 

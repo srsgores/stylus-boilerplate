@@ -1191,13 +1191,41 @@ body {
 }
 @media only screen and (max-width: 767px) {
 }
+.column,
+.column-padded,
+.column-align-middle {
+  display: table-cell;
+}
+@media only screen and (max-width: 767px) {
+  .column,
+  .column-padded,
+  .column-align-middle,
+.column,
+.column-padded,
+.column-align-middle {
+    display: block;
+  }
+}
+.column-padded {
+  margin-left: -1em;
+  margin-right: -1em;
+}
+.column-padded .row {
+  border-spacing: 1em 0;
+}
+.column-align-middle {
+  vertical-align: middle;
+}
 .row {
   display: table;
   width: 100%;
   table-layout: fixed;
 }
-.column {
-  display: table-cell;
+@media only screen and (max-width: 767px) {
+  .row {
+    display: block;
+    margin: 0;
+  }
 }
 .one-twelveth {
   width: 8.3333333333333%;
