@@ -33,9 +33,8 @@ for column in (1..$columns)
 	display table-cell
 
 // grid sizes
-// for now, this will have to do; in the future, I think it would be nice to automatically generate the class names
 
-$numberMap = {
+$numberMap = { // this is simply an object that fixes nuances in the generated class names in English
 	portions: {
 		two: half
 		three: third
@@ -46,9 +45,9 @@ $numberMap = {
 		nine: ninth
 	}
 }
-use("integer-to-words.js")
+use("integer-to-words.js") // helper for converting integers to English words
 
-getEnglishDenominator(column, word)
+getEnglishDenominator(column, word) // get the ratio for a given column and English-converted word
 	if column > 1
 		$plural = ths
 	if word in $numberMap.portions
@@ -61,6 +60,7 @@ getEnglishDenominator(column, word)
 			s("%s%s", unquote(word), $plural)
 		else
 			s("%s%s", unquote(word), th)
+
 for column in (1..$columns)
 	for nestedColumn in ($columns..1)
 		if column < nestedColumn
