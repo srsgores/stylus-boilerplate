@@ -10,7 +10,7 @@ mixin generateColumns(amount, classNames)
 		while i < amount
 			- columns.push({classNames: classNames})
 			- i++
-		+generateGrid(columns)
+		+generateGrid(columns)(class!=attributes.class)
 mixin generateGrid(columns)
 	if columns.length
 		.row(class!=attributes.class)
@@ -21,7 +21,7 @@ mixin generateGrid(columns)
 block header-styles
 	link(rel = "stylesheet", href = "../../app/styles/stylus-boilerplate.css")
 	style(type="text/css").
-		.demo {padding: 1em;}.demo .column, .demo .column-padded, .demo .column-align-middle {text-align: center; line-height: 3; color: #333; background-color: rgba(255, 0, 0, 0.15);} .demo .column:nth-child(odd), .demo .column-padded:nth-child(odd), .demo .column-align-middle:nth-child(odd) {background-color: rgba(255,0,0,0.3);} .demo .column sup {display: block;}
+		.demo {padding: 1em;}.demo .column, .demo .column-padded, .demo .column-align-middle {text-align: center; line-height: 3; color: #333; background-color: rgba(255, 0, 0, 0.15);} .demo .column:nth-child(odd), .demo .column-padded:nth-child(odd), .demo .column-align-middle:nth-child(odd) {background-color: rgba(255,0,0,0.3);} .demo .column sup {display: block;}.demo .row-padded {margin-bottom: 1em}
 
 block content
 	+demoSection("Grid Overview")
@@ -105,7 +105,11 @@ block content
 			p You can add spacing between the columns with the
 				code .row-padded
 				| class:
-			+generateColumns(3, "column-padded")
-			+generateColumns(2, "column-padded")
-
-
+			+generateColumns(3)(class="row-padded")
+			+generateColumns(2)(class="row-padded")
+		+demoSection("Vertically-Aligned Columns")
+			p Simply use the class
+				code .column-align-middle
+				|:
+			+generateColumns(5, "column-align-middle")(class="row-padded")
+			+generateColumns(2, "column-align-middle")(class="row-padded")

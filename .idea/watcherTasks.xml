@@ -43,7 +43,7 @@
     </TaskOptions>
     <TaskOptions isEnabled="true">
       <option name="arguments" value="$FileName$" />
-      <option name="checkSyntaxErrors" value="true" />
+      <option name="checkSyntaxErrors" value="false" />
       <option name="description" value="Compiles .jade files into .html files" />
       <option name="exitCodeBehavior" value="ERROR" />
       <option name="fileExtension" value="jade" />

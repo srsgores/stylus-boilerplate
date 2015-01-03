@@ -32,22 +32,26 @@ $column
 
 .column
 	@extend $column
-	&-padded
-		@extend $column
-		margin-left $margin * -1
-		margin-right $margin * -1
-		.row
-			border-spacing $padding 0
 	&-align-middle
 		@extend $column
 		vertical-align middle
-.row
+
+$grid-row
 	display table
 	width 100%
 	table-layout fixed
 	+media-query($breakpointMain)
 		display block
 		margin 0
+.row
+	@extend $grid-row
+	&-padded
+		@extend $grid-row
+		margin-left $margin * -1
+		margin-right $margin * -1
+		&, .row
+			border-spacing $padding 0
+
 
 // grid sizes
 
