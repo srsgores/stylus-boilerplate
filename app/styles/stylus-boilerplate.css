@@ -1204,6 +1204,7 @@ body {
 .column-padded,
 .column-align-middle {
     display: block;
+    width: 100% !important;
   }
 }
 .column-padded {

@@ -1,0 +1,111 @@
+include ../mixins/mixins.jade
+
+extends ../layout
+- title = "Grid Demos"
+
+mixin generateColumns(amount, classNames)
+	if amount > 0
+		- var i = 0
+		- var columns = []
+		while i < amount
+			- columns.push({classNames: classNames})
+			- i++
+		+generateGrid(columns)
+mixin generateGrid(columns)
+	if columns.length
+		.row(class!=attributes.class)
+			for column, index in columns
+				.column(class!=column.classNames)
+					sup #{index+1}
+
+block header-styles
+	link(rel = "stylesheet", href = "../../app/styles/stylus-boilerplate.css")
+	style(type="text/css").
+		.demo {padding: 1em;}.demo .column, .demo .column-padded, .demo .column-align-middle {text-align: center; line-height: 3; color: #333; background-color: rgba(255, 0, 0, 0.15);} .demo .column:nth-child(odd), .demo .column-padded:nth-child(odd), .demo .column-align-middle:nth-child(odd) {background-color: rgba(255,0,0,0.3);} .demo .column sup {display: block;}
+
+block content
+	+demoSection("Grid Overview")
+		p Stylus Boilerplate ships with two types of grid systems:
+		ol
+			li Traditional float-style grid on fixed columns
+			li Flexible, flex-box/table-based grid with unlimited columns
+	+demoSection("Flexible Grid")
+		p Because flexbox isn't yet supported in older browsers, and is less performant than table layouts, I adapted a grid based off of mdo's
+			a(href="http://mdo.github.io/table-grid/") table grid
+			|.
+		p To use the grid system, simply wrap your elements in a
+			code .row
+			| class, followed by any column elements within a
+			code .column
+			| class.
+		+demoSection("Column Sizes")
+			p You can set column sizes in normal English, as you might expect:
+			table.table.table-bordered
+				thead
+					tr
+						th Class
+						th Width
+				tbody
+					tr
+						td
+							code .column
+						td 100%
+					tr
+						td
+							code .column .one-half
+						td 50%
+					tr
+						td
+							code .column .one-fourth
+						td 25%
+					tr
+						td
+							code .column .one-third
+						td 33%
+					tr
+						td(colspan="2") ... etc.
+			article.row
+				section.column.three-fourths
+					code .three-fourths
+				section.column-align-middle
+					p (Doesn't need a class.  This will fold over.)
+			article.row
+				section.column.one-third
+					code .one-third
+				section.column-align-middle
+					p (Doesn't need a class.  This will fold over.)
+			article.row
+				section.column-align-middle
+					p (Doesn't need a class.  This will fold over.)
+				section.column.one-fourth
+					code .one-fourth
+
+			+demoSection("Auto-distributed column widths")
+				+generateColumns(16, "")
+				+generateColumns(12, "")
+				+generateColumns(8, "")
+				+generateColumns(4, "")
+				+generateColumns(2, "")
+				+generateColumns(1, "")
+			+demoSection("Nested Grids")
+				p You can nest grids, using the same markup as a normal grid:
+				article.row
+					section.column
+						article.row
+							section.column
+								p Single Column that's nested
+						article.row
+							section.column
+								p Nested column 1
+							section.column
+								p Nested column 2
+					section.column-align-middle
+						p Unnested column
+		+demoSection("Grids with Gutters")
+			p You can add spacing between the columns with the
+				code .row-padded
+				| class:
+			+generateColumns(3, "column-padded")
+			+generateColumns(2, "column-padded")
+
+
