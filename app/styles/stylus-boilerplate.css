@@ -1195,15 +1195,6 @@ body {
 .column-align-middle {
   display: table-cell;
 }
-@media only screen and (max-width: 767px) {
-  .column,
-  .column-align-middle,
-.column,
-.column-align-middle {
-    display: block;
-    width: 100% !important;
-  }
-}
 .column-align-middle {
   vertical-align: middle;
 }
@@ -1219,7 +1210,13 @@ body {
 .row,
 .row-padded {
     display: block;
-    margin: 0;
+  }
+  .row .column,
+  .row-padded .column,
+  .row .column-align-middle,
+  .row-padded .column-align-middle {
+    width: 100%;
+    display: block;
   }
 }
 .row-padded {

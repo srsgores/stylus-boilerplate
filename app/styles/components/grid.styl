@@ -26,9 +26,6 @@ for column in (1..$columns)
 // table grid
 $column
 	display table-cell
-	+media-query($breakpointMain)
-		display block
-		width 100% !important
 
 .column
 	@extend $column
@@ -42,7 +39,9 @@ $grid-row
 	table-layout fixed
 	+media-query($breakpointMain)
 		display block
-		margin 0
+		.column, .column-align-middle
+			width 100%
+			display block
 .row
 	@extend $grid-row
 	&-padded
