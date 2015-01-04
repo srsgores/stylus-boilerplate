@@ -10,6 +10,9 @@
 		@extend $col-4 (assuming 12 columns -- default) => width 33%
 */
 
+$rowMargin ?= 1em
+$rowPadding ?= 1em
+
 $row
 	gs($gridStyle) // default: fluid
 
@@ -46,10 +49,10 @@ $grid-row
 	@extend $grid-row
 	&-padded
 		@extend $grid-row
-		margin-left $margin * -1
-		margin-right $margin * -1
+		margin-left $rowMargin * -1
+		margin-right $rowMargin * -1
 		&, .row
-			border-spacing $padding 0
+			border-spacing $rowPadding 0
 
 
 // grid sizes
