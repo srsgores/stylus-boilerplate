@@ -12,6 +12,7 @@
 
 $rowMargin ?= 1em
 $rowPadding ?= 1em
+$gridResponsive ?= true
 
 $row
 	gs($gridStyle) // default: fluid
@@ -20,11 +21,12 @@ for column in (1..$columns)
 	$col-{column}
 		col(column)
 		@extend $border-box
-		+media-query($breakpointMain)
-			display block
-			float none
-			width 100%
-			margin 0
+		if $gridResponsive
+			+media-query($breakpointMain)
+				display block
+				float none
+				width 100%
+				margin 0
 
 // table grid
 $column
@@ -40,11 +42,12 @@ $grid-row
 	display table
 	width 100%
 	table-layout fixed
-	+media-query($breakpointMain)
-		display block
-		.column, .column-align-middle
-			width 100%
+	if $gridResponsive
+		+media-query($breakpointMain)
 			display block
+			.column, .column-align-middle
+				width 100%
+				display block
 .row
 	@extend $grid-row
 	&-padded
