@@ -17,7 +17,8 @@ $tableBorderWidth ?= 1px
 $tableBorderStyle ?= solid
 $tableBorderColour ?= transparentify((luminosity($tableBackground) > 0.5 ? $tableBackground - 20 : $tableBackground + 20), 0.6)
 
-$tableBorder ?= $tableBorderWidth $tableBorderStyle $tableBorderColour
+$tableBorder
+	border $tableBorderWidth $tableBorderStyle color-fallback($tableBorderColour)
 
 $tableTransition ?= easing("in-quad") 0.1s background
 
@@ -51,13 +52,13 @@ $table
 					background luminosity($tableBackground) > 0.5 ? $tableBackground - 18 : $tableBackground + 18
 	&-bordered
 		th
-			border $tableBorder
+			@extend $tableBorder
 		tbody
 			& + tbody
-				border $tableBorder
+				@extend $tableBorder
 				border-width $tableBorderWidth * 2
 		td
-			border $tableBorder
+			@extend $tableBorder
 		caption
 			& + thead:first-child
 				th, td

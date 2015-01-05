@@ -8,11 +8,13 @@ html.no-js(lang = "en")
 				title Stylus Boilerplate Demos and Styleguide - #{title}
 				meta(name = "description", content = description)
 				meta(name = "viewport", content = "width=device-width, initial-scale=1")
-			block header-scripts
 			block header-styles
-				link(rel = "stylesheet", href = "../../app/styles/stylus-boilerplate.css")
-				style(type="text/css").
-					.demo {padding: 1em;}
+				link(rel = "stylesheet", href = "../../demo/styles/demo.css")
+			block header-scripts
+				<!--[if lt IE 9]>
+				script(src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js")
+				script(src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js")
+				<![endif]-->
 	body(role="document")
 		header(role="banner")
 			block navigation

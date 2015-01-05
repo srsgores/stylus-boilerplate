@@ -13,6 +13,7 @@
 $rowMargin ?= 1em
 $rowPadding ?= 1em
 $gridResponsive ?= true
+$flexGrid ?= false
 
 $row
 	gs($gridStyle) // default: fluid
@@ -31,15 +32,28 @@ for column in (1..$columns)
 // table grid
 $column
 	display table-cell
+	if $flexGrid
+		// default flex is 1 for fill up all space
+		flex 1
+		display flex //fix for IE and FF not allowing display table-cell
 
 .column
 	@extend $column
 	&-align-middle
 		@extend $column
 		vertical-align middle
+		if $flexGrid
+			align-items center
+			justify-content center
+			display flex
 
 $grid-row
 	display table
+	if $flexGrid
+		display flex
+		flex-wrap wrap
+		justify-content space-between
+		margin 0 auto // centre content
 	width 100%
 	table-layout fixed
 	if $gridResponsive
@@ -52,6 +66,9 @@ $grid-row
 	@extend $grid-row
 	&-padded
 		@extend $grid-row
+		if $flexGrid
+			.column, .column-align-middle
+				margin 0 $rowMargin
 		margin-left $rowMargin * -1
 		margin-right $rowMargin * -1
 		&, .row
@@ -91,6 +108,8 @@ for column in (1..$columns)
 	for nestedColumn in ($columns..1)
 		if column < nestedColumn
 			.{int-to-word(column)}-{getEnglishDenominator(column, int-to-word(nestedColumn))}
+				if $flexGrid
+					flex inherit
 				$width = percent(column, nestedColumn)
 				+cache("w" + $width)
 					width $width

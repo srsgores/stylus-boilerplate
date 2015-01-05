@@ -1,0 +1,28 @@
+/*
+	stylus-boilerplate
+
+	demo.styl
+
+	Author: Sean Goresht
+
+	Created on 2015-01-04 by PhpStorm
+*/
+
+$fontPath = "../../app/assets/fonts/"
+@require "../../app/styles/stylus-boilerplate"
+
+.demo
+	padding 1em
+	.column
+		&, &-padded, &-align-middle
+			text-align center
+			line-height 3
+			color #333
+			background color-fallback(rgba(255, 0, 0, 0.15))
+			&:nth-child(odd)
+				background color-fallback(rgba(255,0,0,0.3))
+			justify-content center
+		sup
+			display block
+	.row-padded
+		margin-bottom 1em

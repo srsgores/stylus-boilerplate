@@ -60,7 +60,7 @@ for property in properties
 
 // generate border placeholders
 $bordered
-	border $border
+	border $borderWidth $borderStyle color-fallback($borderColour)
 $bordered-none
 	border 0
 for direction in directions

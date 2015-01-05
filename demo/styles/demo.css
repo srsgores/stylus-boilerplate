@@ -1,13 +1,12 @@
 /*
 	stylus-boilerplate
 
-	stylus-boilerplate.styl
+	demo.styl
 
 	Author: Sean Goresht
 
-	Created on 2014-08-23 by PhpStorm
+	Created on 2015-01-04 by PhpStorm
 */
-/* Imports */
 html,
 body,
 div,
@@ -1388,8 +1387,8 @@ body {
   font-family: "icomoon";
   font-weight: normal;
   font-style: normal;
-  src: url("../assets/fonts/icomoon/icomoon.eot");
-  src: url("../assets/fonts/icomoon/icomoon.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/icomoon/icomoon.woff") format("woff"), url("../assets/fonts/icomoon/icomoon.ttf") format("truetype"), url("../assets/fonts/icomoon/icomoon.svg#icomoon") format("svg");
+  src: url("../../app/assets/fonts/icomoon/icomoon.eot");
+  src: url("../../app/assets/fonts/icomoon/icomoon.eot?#iefix") format("embedded-opentype"), url("../../app/assets/fonts/icomoon/icomoon.woff") format("woff"), url("../../app/assets/fonts/icomoon/icomoon.ttf") format("truetype"), url("../../app/assets/fonts/icomoon/icomoon.svg#icomoon") format("svg");
 }
 .icon-home2,
 .icon-home3,
@@ -3392,8 +3391,8 @@ main {
 }
 @font-face {
   font-family: "Segoe UI Light";
-  src: url("../assets/fonts/Segoe UI Light/Segoe UI Light.eot");
-  src: url("../assets/fonts/Segoe UI Light/Segoe UI Light.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/Segoe UI Light/Segoe UI Light.woff") format("woff"), url("../assets/fonts/Segoe UI Light/Segoe UI Light.ttf") format("truetype");
+  src: url("../../app/assets/fonts/Segoe UI Light/Segoe UI Light.eot");
+  src: url("../../app/assets/fonts/Segoe UI Light/Segoe UI Light.eot?#iefix") format("embedded-opentype"), url("../../app/assets/fonts/Segoe UI Light/Segoe UI Light.woff") format("woff"), url("../../app/assets/fonts/Segoe UI Light/Segoe UI Light.ttf") format("truetype");
 }
 h6,
 h5,
@@ -3491,4 +3490,32 @@ footer[href]:visited {
   h3 {
     page-break-after: avoid;
   }
+}
+.demo {
+  padding: 1em;
+}
+.demo .column,
+.demo .column-padded,
+.demo .column-align-middle {
+  text-align: center;
+  line-height: 3;
+  color: #333;
+  background: #f00;
+  background: rgba(255,0,0,0.15);
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+}
+.demo .column:nth-child(odd),
+.demo .column-padded:nth-child(odd),
+.demo .column-align-middle:nth-child(odd) {
+  background: #f00;
+  background: rgba(255,0,0,0.3);
+}
+.demo .column sup {
+  display: block;
+}
+.demo .row-padded {
+  margin-bottom: 1em;
 }

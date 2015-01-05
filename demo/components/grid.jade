@@ -18,11 +18,6 @@ mixin generateGrid(columns)
 				.column(class!=column.classNames)
 					sup #{index+1}
 
-block header-styles
-	link(rel = "stylesheet", href = "../../app/styles/stylus-boilerplate.css")
-	style(type="text/css").
-		.demo {padding: 1em;}.demo .column, .demo .column-padded, .demo .column-align-middle {text-align: center; line-height: 3; color: #333; background-color: rgba(255, 0, 0, 0.15);} .demo .column:nth-child(odd), .demo .column-padded:nth-child(odd), .demo .column-align-middle:nth-child(odd) {background-color: rgba(255,0,0,0.3);} .demo .column sup {display: block;}.demo .row-padded {margin-bottom: 1em}
-
 block content
 	+demoSection("Grid Overview")
 		p Stylus Boilerplate ships with two types of grid systems:
