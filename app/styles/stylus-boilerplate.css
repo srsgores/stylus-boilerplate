@@ -1050,11 +1050,16 @@ body {
   border-bottom: 0.5em solid #050505;
 }
 .form-section,
+.form-section-inline,
+.form-field-controls-group-append {
+  border: 1px solid #000;
+  border: 1px solid rgba(0,0,0,0.4);
+}
+.form-section,
 .form-section-inline {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  border: 1px solid rgba(0,0,0,0.4);
   margin: 1em;
 }
 .form-field,
@@ -1119,7 +1124,6 @@ body {
 .form-field-controls-group-append {
   padding: 0 1em;
   cursor: pointer;
-  border: 1px solid rgba(0,0,0,0.4);
 }
 .form-field-controls-group-append:first-child {
   border-right: 0;
@@ -1166,6 +1170,7 @@ body {
 .form-actions {
   margin-top: 0.3em;
   text-align: center;
+  border-top: 1px solid #000;
   border-top: 1px solid rgba(0,0,0,0.4);
 }
 @media only screen and (max-width: 767px) {
@@ -1203,6 +1208,12 @@ body {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  -o-flex-direction: column;
+  flex-direction: column;
 }
 .column-align-middle {
   vertical-align: middle;
@@ -1231,10 +1242,6 @@ body {
   -ms-flex-wrap: wrap;
   -o-flex-wrap: wrap;
   flex-wrap: wrap;
-  -webkit-justify-content: space-between;
-  -ms-justify-content: space-between;
-  -o-justify-content: space-between;
-  justify-content: space-between;
   margin: 0 auto;
   width: 100%;
   table-layout: fixed;

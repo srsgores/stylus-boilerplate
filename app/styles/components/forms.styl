@@ -8,7 +8,12 @@
 	Created on 2014-08-23 by PhpStorm
 */
 
-$formSectionBorder ?= 1px solid rgba(0, 0, 0, 0.4)
+$formSectionBorderWidth ?= 1px
+$formSectionBorderType ?= solid
+$formSectionBorderColour ?= rgba(0, 0, 0, 0.4)
+
+$formBordered
+	border $formSectionBorderWidth $formSectionBorderType color-fallback($formSectionBorderColour)
 $formSectionMargin ?= 1em
 $formSectionHeadingPadding ?= 1em
 $formSectionLabelWidth ?= 10em
@@ -19,7 +24,7 @@ $formResponsive ?= true
 
 $formSection
 	box-sizing border-box
-	border $formSectionBorder
+	@extend $formBordered
 	margin $formSectionMargin
 
 $formField
@@ -49,6 +54,9 @@ $formField
 		&-label
 			min-width $formSectionLabelWidth
 			width 10%
+			if $formResponsive
+				+media-query($breakpointMain)
+					width 100%
 			cursor pointer
 		&-controls
 			if $formResponsive
@@ -65,7 +73,7 @@ $formField
 				&-append
 					padding 0 $padding
 					cursor pointer
-					border $formSectionBorder
+					@extend $formBordered
 					&:first-child
 						border-right 0
 					&:last-child
@@ -99,4 +107,4 @@ $formField
 		&s
 			margin-top $formActionsMargin
 			text-align center
-			border-top $formSectionBorder
+			border-top $formSectionBorderWidth $formSectionBorderType color-fallback($formSectionBorderColour)

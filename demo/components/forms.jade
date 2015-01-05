@@ -39,3 +39,38 @@ block content
 			form.form(action="/", method="post")
 				+renderFieldset(currencyForm)
 				+renderFieldset(socialForm)
+		+demoSection("Grid Form")
+			p You can use the
+				a(href="../grids.html") grid-system component
+				| to build any type of form layout.  Simply use the grid classes:
+			form(action="#", method="POST")
+				+getFormSection("Grid Form", "grid")
+					section.form-field.row
+						.column-align-middle.one-fourth
+							label.form-field-label(for="aName") Name
+						.column.form-field-controls
+							+getFormInput("Name", "text", "aName")(required=true)
+					section.form-field.row
+						.column-align-middle.one-fourth
+							label.form-field-label(for="address") Address
+						.column.form-field-controls
+							+getFormInput("Address", "text", "address")(required=true)
+					section.form-field.row
+						.column.one-fourth
+							label.form-field-label(for="message") Message
+						.column.form-field-controls
+							+getFormInput("Message", "textarea", "message")(required=true)
+					footer.form-actions
+						+getFormAction("Send Message", "Send us your message", "mail")
+			p Note: do not use the specific form classes to build the form (
+				code .form-field-horizontal
+				| ,
+				code .form-field-vertical
+				|)
+			+demoSection("Fieldset Grids")
+				p It may make sense to display sections of a form (fieldsets) beside each other.  Do this using the grid:
+				form.form.row(action="/", method="post")
+					section.column
+						+renderFieldset(registerForm)
+					section.column
+						+renderFieldset(addressForm)

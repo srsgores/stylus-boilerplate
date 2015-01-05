@@ -10,9 +10,9 @@
 
 $fontPath = "../../app/assets/fonts/"
 @require "../../app/styles/stylus-boilerplate"
-
 .demo
 	padding 1em
+.grid-demos
 	.column
 		&, &-padded, &-align-middle
 			text-align center
@@ -26,3 +26,5 @@ $fontPath = "../../app/assets/fonts/"
 			display block
 	.row-padded
 		margin-bottom 1em
+	.row, .row-padded
+		justify-content space-between

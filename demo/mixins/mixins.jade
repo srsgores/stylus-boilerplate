@@ -109,7 +109,7 @@ mixin getAppendedControl(control, id)
 			| #{control.text}
 		if control.icon
 			+getIcon(control.icon)
-mixin getAppendedControls(field, id)
+mixin getAppendedControls(field, id, hasAppended)
 	if field.appended
 		if field.appended.before
 			+getAppendedControl(field.appended.before, id)(class!=attributes.class)
@@ -125,8 +125,10 @@ mixin renderFieldset(form)
 				- id = field.name.trim().replace(/([A-Z])/g, '-$1').replace(/[-_\s]+/g, '-').toLowerCase()
 				if field.appended
 					- appended = true
+				else
+					- appended = false
 				+getFormField(field.name)(class!=field.layout, appended!=appended)
-					+getAppendedControls(field, id)
+					+getAppendedControls(field, id, appended)
 						+getFormInput(field.name, field.type, null, field.options)(required="required", list=field.datalist, min!=field.min, max!=field.max, step!=field.step)
 		if form.actions
 			footer.form-actions
