@@ -955,11 +955,13 @@ body {
   cursor: not-allowed;
 }
 .button {
+  background: #000;
   background: rgba(0,0,0,0.25);
   color: #fff;
 }
 .button:hover,
 .button:focus {
+  background: #000;
   background: rgba(0,0,0,0.25);
 }
 .button-small {
@@ -1015,8 +1017,8 @@ body {
   opacity: 1;
 }
 .dropdown-menu {
-  background: #050505;
-  border: 1px solid #1e1e1e;
+  background: #000;
+  border: 1px solid #191919;
   position: absolute;
   left: 0;
   min-width: 8rem;
@@ -1029,6 +1031,8 @@ body {
 }
 .dropdown-menu-item {
   display: block;
+  width: 100%;
+  border: 1px solid #232323;
 }
 .dropdown-menu-item-link {
   display: block;
@@ -1043,11 +1047,11 @@ body {
   top: -0.4em;
   left: 50%;
   border-right: 0.5em solid transparent;
-  border-bottom: 0.5em solid #fafafa;
+  border-bottom: 0.5em solid #fff;
   border-left: 0.5em solid transparent;
 }
 .dropdown-menu:after {
-  border-bottom: 0.5em solid #050505;
+  border-bottom: 0.5em solid #000;
 }
 .form-section,
 .form-section-inline,
@@ -1099,6 +1103,11 @@ body {
   min-width: 10em;
   width: 10%;
   cursor: pointer;
+}
+@media only screen and (max-width: 767px) {
+  .form-field-label {
+    width: 100%;
+  }
 }
 @media only screen and (max-width: 767px) {
   .form-field-controls {
@@ -1217,11 +1226,6 @@ body {
 }
 .column-align-middle {
   vertical-align: middle;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-align-items: center;
-  -o-align-items: center;
-  align-items: center;
   -webkit-justify-content: center;
   -ms-justify-content: center;
   -o-justify-content: center;
@@ -3655,7 +3659,7 @@ body {
   box-sizing: border-box;
 }
 .nav-vertical .nav-item {
-  border-bottom: 1px solid rgba(255,255,255,0.3);
+  border-width: 0 0 1px 0;
 }
 .nav-vertical .nav-item,
 .nav-vertical .nav-item-link {
@@ -3663,25 +3667,24 @@ body {
   width: 100%;
 }
 .nav-horizontal .nav-item {
-  text-align: center;
-  border-right: 1px solid rgba(255,255,255,0.3);
-  display: table-cell;
+  border-width: 0 1px 0 0;
+  display: inline-block;
   margin-right: 0;
 }
 @media only screen and (max-width: 767px) {
   .nav-horizontal .nav-item {
     display: block;
+    border-width: 0 0 1px 0;
   }
 }
 .nav-items {
   list-style: none;
   margin: 0;
   padding: 0;
-  display: table;
-  width: 100%;
-  table-layout: fixed;
 }
 .nav-item {
+  border: 1px solid #fff;
+  border: 1px solid rgba(255,255,255,0.3);
   position: relative;
 }
 .nav-item:last-child {

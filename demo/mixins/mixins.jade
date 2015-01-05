@@ -52,7 +52,8 @@ mixin getFormSection(title, icon)
 			block
 mixin getButton(text, title, className, icon)
 	if className
-		- className = "button-" + className
+		if className!=="button"
+			- className = "button-" + className
 	else
 		- className = "button"
 	if !title

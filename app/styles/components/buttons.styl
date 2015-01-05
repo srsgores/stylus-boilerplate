@@ -31,12 +31,12 @@ $buttonSizes ?= {
 }
 getButton(colour)
 	@extend $button
-	background colour
+	background color-fallback(colour)
 	color luminosity(colour) > 0.5 ? black : white
 	&[disabled]
 		@extend $disabled
 	&:hover, &:focus
-		background luminosity(colour) > 0.5 ? colour + 30 : colour - 30
+		background color-fallback(luminosity(colour) > 0.5 ? colour + 30 : colour - 30)
 $button
 	cursor pointer
 	if $buttonTransition

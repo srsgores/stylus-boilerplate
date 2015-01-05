@@ -954,11 +954,13 @@ body {
   cursor: not-allowed;
 }
 .button {
+  background: #000;
   background: rgba(0,0,0,0.25);
   color: #fff;
 }
 .button:hover,
 .button:focus {
+  background: #000;
   background: rgba(0,0,0,0.25);
 }
 .button-small {
