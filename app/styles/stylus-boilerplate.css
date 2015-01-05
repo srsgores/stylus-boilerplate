@@ -1195,13 +1195,47 @@ body {
 .column,
 .column-align-middle {
   display: table-cell;
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  -o-flex: 1;
+  flex: 1;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 .column-align-middle {
   vertical-align: middle;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
 }
 .row,
 .row-padded {
   display: table;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  -o-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -o-justify-content: space-between;
+  justify-content: space-between;
+  margin: 0 auto;
   width: 100%;
   table-layout: fixed;
 }
@@ -1224,46 +1258,116 @@ body {
   margin-left: -1em;
   margin-right: -1em;
 }
+.row-padded .column,
+.row-padded .column-align-middle {
+  margin: 0 1em;
+}
 .row-padded,
 .row-padded .row {
   border-spacing: 1em 0;
 }
 .one-twelveth {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.one-twelveth {
   width: 8.3333333333333%;
+}
+.one-eleventh {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
 }
 .one-eleventh {
   width: 9.090909090909099%;
 }
 .one-tenth {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.one-tenth {
   width: 10%;
+}
+.one-ninth {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
 }
 .one-ninth {
   width: 11.1111111111111%;
 }
 .one-eigth {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.one-eigth {
   width: 12.5%;
 }
 .one-seventh {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.one-seventh {
   width: 14.285714285714299%;
+}
+.one-sixth {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
 }
 .one-sixth,
 .two-twelveths {
   width: 16.6666666666667%;
 }
+.one-fifth {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
 .one-fifth,
 .two-tenths {
   width: 20%;
+}
+.one-fourth {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
 }
 .one-fourth,
 .two-eigths,
 .three-twelveths {
   width: 25%;
 }
+.one-third {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
 .one-third,
 .two-sixths,
 .three-ninths,
 .four-twelveths {
   width: 33.3333333333333%;
+}
+.one-half {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
 }
 .one-half,
 .two-fourths,
@@ -1273,18 +1377,78 @@ body {
 .six-twelveths {
   width: 50%;
 }
+.two-twelveths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.two-elevenths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
 .two-elevenths {
   width: 18.181818181818198%;
+}
+.two-tenths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.two-ninths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
 }
 .two-ninths {
   width: 22.2222222222222%;
 }
+.two-eigths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.two-sevenths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
 .two-sevenths {
   width: 28.571428571428598%;
+}
+.two-sixths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.two-fifths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
 }
 .two-fifths,
 .four-tenths {
   width: 40%;
+}
+.two-fourths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.two-thirds {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
 }
 .two-thirds,
 .four-sixths,
@@ -1292,94 +1456,364 @@ body {
 .eight-twelveths {
   width: 66.6666666666667%;
 }
+.three-twelveths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.three-elevenths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
 .three-elevenths {
   width: 27.2727272727273%;
 }
 .three-tenths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.three-tenths {
   width: 30%;
+}
+.three-ninths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.three-eigths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
 }
 .three-eigths {
   width: 37.5%;
 }
 .three-sevenths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.three-sevenths {
   width: 42.8571428571429%;
+}
+.three-sixths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.three-fifths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
 }
 .three-fifths,
 .six-tenths {
   width: 60%;
+}
+.three-fourths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
 }
 .three-fourths,
 .six-eigths,
 .nine-twelveths {
   width: 75%;
 }
+.four-twelveths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.four-elevenths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
 .four-elevenths {
   width: 36.363636363636395%;
+}
+.four-tenths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.four-ninths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
 }
 .four-ninths {
   width: 44.4444444444444%;
 }
+.four-eigths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.four-sevenths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
 .four-sevenths {
   width: 57.142857142857096%;
+}
+.four-sixths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.four-fifths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
 }
 .four-fifths,
 .eight-tenths {
   width: 80%;
 }
 .five-twelveths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.five-twelveths {
   width: 41.6666666666667%;
 }
 .five-elevenths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.five-elevenths {
   width: 45.454545454545496%;
+}
+.five-tenths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.five-ninths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
 }
 .five-ninths {
   width: 55.5555555555556%;
 }
 .five-eigths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.five-eigths {
   width: 62.5%;
 }
 .five-sevenths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.five-sevenths {
   width: 71.4285714285714%;
+}
+.five-sixths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
 }
 .five-sixths,
 .ten-twelveths {
   width: 83.3333333333333%;
 }
+.six-twelveths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.six-elevenths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
 .six-elevenths {
   width: 54.5454545454545%;
+}
+.six-tenths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.six-ninths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.six-eigths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.six-sevenths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
 }
 .six-sevenths {
   width: 85.7142857142857%;
 }
 .seven-twelveths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.seven-twelveths {
   width: 58.3333333333333%;
+}
+.seven-elevenths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
 }
 .seven-elevenths {
   width: 63.636363636363605%;
 }
 .seven-tenths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.seven-tenths {
   width: 70%;
+}
+.seven-ninths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
 }
 .seven-ninths {
   width: 77.7777777777778%;
 }
 .seven-eigths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.seven-eigths {
   width: 87.5%;
+}
+.eight-twelveths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.eight-elevenths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
 }
 .eight-elevenths {
   width: 72.72727272727269%;
 }
+.eight-tenths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.eight-ninths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
 .eight-ninths {
   width: 88.8888888888889%;
+}
+.nine-twelveths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.nine-elevenths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
 }
 .nine-elevenths {
   width: 81.8181818181818%;
 }
 .nine-tenths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.nine-tenths {
   width: 90%;
+}
+.ten-twelveths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
+}
+.ten-elevenths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
 }
 .ten-elevenths {
   width: 90.90909090909089%;
+}
+.eleven-twelveths {
+  -webkit-flex: inherit;
+  -ms-flex: inherit;
+  -o-flex: inherit;
+  flex: inherit;
 }
 .eleven-twelveths {
   width: 91.6666666666667%;

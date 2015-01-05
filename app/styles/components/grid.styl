@@ -13,7 +13,7 @@
 $rowMargin ?= 1em
 $rowPadding ?= 1em
 $gridResponsive ?= true
-$flexGrid ?= false
+$flexGrid ?= true
 
 $row
 	gs($gridStyle) // default: fluid
@@ -36,6 +36,7 @@ $column
 		// default flex is 1 for fill up all space
 		flex 1
 		display flex //fix for IE and FF not allowing display table-cell
+		flex-direction column
 
 .column
 	@extend $column
