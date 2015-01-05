@@ -9,12 +9,15 @@
 */
 
 /* Dropdown */
-$dropdownColour ?= $textColour + 5
+$dropdownColour ?= black
 $dropdownSize ?= 8rem
 
 /* Dropdown Menu Items */
 $dropdownItemPadding ?= 1em
 $dropdownItemMargin ?= 1em
+$dropdownItemBorderColour ?= $dropdownColour + 35
+$dropdownItemBorderWidth ?= 1px
+$dropdownItemBorderStyle ?= solid
 
 /* Dropdown caret */
 $dropdownCaret ?= true
@@ -41,6 +44,8 @@ $dropdownTransitionFunction ?= ease
 		opacity 0
 		&-item
 			display block
+			width 100%
+			border $dropdownItemBorderWidth $dropdownItemBorderStyle color-fallback($dropdownItemBorderColour)
 			&-link
 				display block
 				padding $dropdownItemPadding

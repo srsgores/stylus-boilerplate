@@ -11,11 +11,14 @@ $navPadding ?= 0
 $navBackground ?= #3B7EA8
 $navItemLinkColour ?= #fff
 
-$navItemDistribution ?= table // flex, table, or flex-table (flexbox with fallback)
+$navItemDistribution ?= normal // normal, flex, table, or flex-table (flexbox with fallback)
 
 $navItemPadding ?= 1em
 $navItemMargin ?= 0
 $navItemLinkPadding ?= 0.7em
+
+$navBorderWidth ?= 1px
+$navBorderStyle ?= solid
 $navItemBorderColour ?= transparentify($navItemLinkColour, 0.3)
 
 $navItemPreventWrap = false // prevent nav items from flowing to the other side
@@ -32,7 +35,7 @@ $nav
 	&-vertical
 		@extend $nav
 		.nav-item
-			border-bottom 1px solid $navItemBorderColour
+			border-width 0 0 $navBorderWidth 0
 		.nav-item, .nav-item-link
 			display block
 			width 100%
@@ -42,15 +45,17 @@ $nav
 	&-horizontal
 		@extend $nav
 		.nav-item
-			text-align center
-			border-right 1px solid $navItemBorderColour
+			border-width 0 $borderWidth 0 0
+			if $navResponsive
+				+media-query($breakpointMain)
+					display block
+					border-width 0 0 $navBorderWidth 0
 			if $navItemDistribution is normal
 				display inline-block
 			else if $navItemDistribution is table or $navItemDistribution is flex-table
 				display table-cell
-				if $navResponsive
-					+media-query($breakpointMain)
-						display block
+			if $navItemDistribution is table or $navItemDistribution is flex or $navItemDistribution is flex-table
+				text-align center
 			margin-right $navItemMargin
 	&-items
 		list-style none
@@ -67,6 +72,7 @@ $nav
 		if $navItemPreventWrap
 			white-space nowrap
 	&-item
+		border $navBorderWidth $navBorderStyle color-fallback($navItemBorderColour)
 		&:last-child
 			border 0
 		if $navItemDistribution is flex or $navItemDistribution is flex-table

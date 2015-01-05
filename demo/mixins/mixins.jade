@@ -10,12 +10,7 @@ mixin getIcon(icon, title)
 		span.icon-description= title
 
 mixin getNavItem(link, title, icon)
-	- defaultClassName = "nav-item-link"
-	if attributes.class
-		- classNames = defaultClassName + "-" + attributes.class
-	else
-		- classNames = defaultClassName
-	a(href=link, title=title, class=classNames)
+	a(href=link, title=title, class!=attributes.class)
 		+getIcon(icon, title)
 		| &nbsp;#{title}
 
@@ -29,13 +24,22 @@ mixin renderNavItems(navItems)
 	each item in navItems
 		if item.nestedMenu
 			li(class="nav-item dropdown")
-				+getNavItem(item.url || "#", item.title, item.icon)
+				+getNavItem(item.url || "#", item.title, item.icon)(class="nav-item-link")
 				ul.dropdown-menu
-					+renderNavItems(item.nestedMenu)
+					+renderNestedNavItems(item.nestedMenu)
 		else
 			li.nav-item
-				+getNavItem(item.url || "#", item.title, item.icon)
-
+				+getNavItem(item.url || "#", item.title, item.icon)(class="nav-item-link")
+mixin renderNestedNavItems(navItems)
+	each item in navItems
+		if item.nestedMenu
+			li(class="nav-item dropdown")
+				+getNavItem(item.url || "#", item.title, item.icon)(class="nav-item-link")
+				ul.dropdown-menu
+					+renderNestedNavItems(item.nestedMenu)
+		else
+			li.nav-item.dropdown-menu-item
+				+getNavItem(item.url || "#", item.title, item.icon)(class="dropdown-menu-link nav-item-link")
 mixin getFormSection(title, icon)
 	- var className = "form-section"
 	if attributes.class
