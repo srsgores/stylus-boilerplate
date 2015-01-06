@@ -32,7 +32,11 @@ code, kbd, pre, samp
 	font-family font-stack("Consolas")
 pre
 	overflow auto
+	word-wrap break-word /* webkit */
+	white-space pre
+	white-space -moz-pre-wrap /* fennec */
 	white-space pre-wrap
+	white-space pre\9 /* IE7+ */
 	@extend $bordered, $small-padding, $normal-margin-bottom
 
 strong
