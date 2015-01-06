@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ProjectTasksOptions">
-    <TaskOptions isEnabled="false">
+    <TaskOptions isEnabled="true">
       <option name="arguments" value="stylus-boilerplate.styl" />
       <option name="checkSyntaxErrors" value="false" />
       <option name="description" value="Compiles .styl files into .css files" />
@@ -62,8 +62,8 @@
       <envs />
     </TaskOptions>
     <TaskOptions isEnabled="false">
-      <option name="arguments" value="$FileName$" />
-      <option name="checkSyntaxErrors" value="true" />
+      <option name="arguments" value="demo.styl" />
+      <option name="checkSyntaxErrors" value="false" />
       <option name="description" value="Compiles .styl files into .css files" />
       <option name="exitCodeBehavior" value="ERROR" />
       <option name="fileExtension" value="styl" />
@@ -78,7 +78,7 @@
       <option name="program" value="$USER_HOME$/AppData/Roaming/npm/stylus.cmd" />
       <option name="scopeName" value="Project Files" />
       <option name="trackOnlyRoot" value="true" />
-      <option name="workingDir" value="$FileDir$" />
+      <option name="workingDir" value="C:\Users\_admin\Documents\GitHub\stylus-boilerplate\demo\styles" />
       <envs />
     </TaskOptions>
   </component>

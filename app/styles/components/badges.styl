@@ -1,0 +1,43 @@
+/*
+	stylus-boilerplate
+
+	badges.styl
+
+	Author: Sean Goresht
+
+	Created on 2015-01-05 by PhpStorm
+*/
+
+$badgeBackground ?= rgba(0, 0, 0, 0.25)
+$badgePadding ?= 0.2em 0.8em
+$badgeFontSize ?= 0.8em
+$badgeFontWeight ?= normal
+$badgeMargin ?= 1em
+$badgeBorder ?= 0
+$badgeBorderRadius ?= 1em
+
+$badgeColours ?= {
+	success: #00cc1c
+	warning: #edff36
+	info: #00abcc
+	error: #cc0d00
+}
+
+$badge
+	padding $badgePadding
+	font-weight $badgeFontWeight
+	border $badgeBorder
+	border-radius $badgeBorderRadius
+	margin $badgeMargin
+	font-size $badgeFontSize
+
+getBadge(colour)
+	@extend $badge
+	background color-fallback(colour)
+	color luminosity(colour) > 0.5 ? black : white
+
+.badge
+	getBadge($badgeBackground)
+	for badgeType, colour in $badgeColours
+		&-{badgeType}
+			getBadge(colour)

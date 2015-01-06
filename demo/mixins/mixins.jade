@@ -143,3 +143,18 @@ mixin getDatalist(list, id)
 	datalist(id=id)
 		each item in list
 			option(value=item)= item
+
+// badges
+mixin getBadge(text, title, icon)
+	if !title
+		title = text
+	span.badge(class!=attributes.class, title=title)= text
+		if icon
+			+getIcon(icon, title)
+		if block
+			block
+
+// callouts
+mixin getCallout(text)
+	blockquote(class!=attributes.class)
+		q= text

@@ -89,6 +89,6 @@ $callout
 
 for horizontalPosition in $calloutTipXPositions
 	for verticalPosition in $calloutTipYPositions
-		$callout--{verticalPosition}-{horizontalPosition}
+		.callout-{verticalPosition}-{horizontalPosition}
 			@extend $callout
 			calloutTipPosition(horizontalPosition, verticalPosition)

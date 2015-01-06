@@ -927,6 +927,39 @@ body {
     transform: translateY(0);
   }
 }
+.badge,
+.badge-success,
+.badge-warning,
+.badge-info,
+.badge-error {
+  padding: 0.2em 0.8em;
+  font-weight: normal;
+  border: 0;
+  border-radius: 1em;
+  margin: 1em;
+  font-size: 0.8em;
+}
+.badge {
+  background: #000;
+  background: rgba(0,0,0,0.25);
+  color: #fff;
+}
+.badge-success {
+  background: #00cc1c;
+  color: #fff;
+}
+.badge-warning {
+  background: #edff36;
+  color: #000;
+}
+.badge-info {
+  background: #00abcc;
+  color: #fff;
+}
+.badge-error {
+  background: #cc0d00;
+  color: #fff;
+}
 .button,
 .button-success,
 .button-warning,
@@ -1007,6 +1040,162 @@ body {
 .button-error:hover,
 .button-error:focus {
   background: #ae0000;
+}
+.callout-top-left,
+.callout-middle-left,
+.callout-bottom-left,
+.callout-top-middle,
+.callout-middle-middle,
+.callout-bottom-middle,
+.callout-top-right,
+.callout-middle-right,
+.callout-bottom-right {
+  color: #000;
+  display: inline-block;
+  position: relative;
+  padding: 0.5em;
+  background: #fff;
+  border: 1px solid #e6e6e6;
+}
+.callout-top-left:before,
+.callout-middle-left:before,
+.callout-bottom-left:before,
+.callout-top-middle:before,
+.callout-middle-middle:before,
+.callout-bottom-middle:before,
+.callout-top-right:before,
+.callout-middle-right:before,
+.callout-bottom-right:before,
+.callout-top-left:after,
+.callout-middle-left:after,
+.callout-bottom-left:after,
+.callout-top-middle:after,
+.callout-middle-middle:after,
+.callout-bottom-middle:after,
+.callout-top-right:after,
+.callout-middle-right:after,
+.callout-bottom-right:after {
+  display: inline-block;
+  position: absolute;
+  content: "";
+}
+.callout-top-left:before,
+.callout-top-left:after {
+  left: 0;
+}
+.callout-top-left:before,
+.callout-top-left:after {
+  top: -0.5em;
+  border-right: 0.5em solid transparent;
+  border-bottom: 0.5em solid #a5a5a5;
+  border-left: 0.5em solid transparent;
+}
+.callout-top-left:after {
+  border-bottom: 0.5em solid #fff;
+}
+.callout-middle-left:before,
+.callout-middle-left:after {
+  left: 0;
+}
+.callout-middle-left:before,
+.callout-middle-left:after {
+  left: -0.5em;
+  bottom: 50%;
+  border-top: 0.5em solid transparent;
+  border-bottom: 0.5em solid transparent;
+  border-right: 0.5em solid #a5a5a5;
+}
+.callout-middle-left:after {
+  border-right: 0.5em solid #fff;
+}
+.callout-bottom-left:before,
+.callout-bottom-left:after {
+  left: 0;
+}
+.callout-bottom-left:before,
+.callout-bottom-left:after {
+  bottom: -0.5em;
+  border-right: 0.5em solid transparent;
+  border-left: 0.5em solid transparent;
+  border-top: 0.5em solid #a5a5a5;
+}
+.callout-bottom-left:after {
+  border-top: 0.5em solid #fff;
+}
+.callout-top-middle:before,
+.callout-top-middle:after {
+  left: 50%;
+}
+.callout-top-middle:before,
+.callout-top-middle:after {
+  top: -0.5em;
+  border-right: 0.5em solid transparent;
+  border-bottom: 0.5em solid #a5a5a5;
+  border-left: 0.5em solid transparent;
+}
+.callout-top-middle:after {
+  border-bottom: 0.5em solid #fff;
+}
+.callout-middle-middle:before,
+.callout-middle-middle:after {
+  left: 50%;
+}
+.callout-bottom-middle:before,
+.callout-bottom-middle:after {
+  left: 50%;
+}
+.callout-bottom-middle:before,
+.callout-bottom-middle:after {
+  bottom: -0.5em;
+  border-right: 0.5em solid transparent;
+  border-left: 0.5em solid transparent;
+  border-top: 0.5em solid #a5a5a5;
+}
+.callout-bottom-middle:after {
+  border-top: 0.5em solid #fff;
+}
+.callout-top-right:before,
+.callout-top-right:after {
+  right: 0;
+}
+.callout-top-right:before,
+.callout-top-right:after {
+  top: -0.5em;
+  border-right: 0.5em solid transparent;
+  border-bottom: 0.5em solid #a5a5a5;
+  border-left: 0.5em solid transparent;
+}
+.callout-top-right:after {
+  border-bottom: 0.5em solid #fff;
+}
+.callout-middle-right:before,
+.callout-middle-right:after {
+  right: 0;
+}
+.callout-middle-right:before,
+.callout-middle-right:after {
+  bottom: 50%;
+  right: -0.5em;
+  border-top: 0.5em solid transparent;
+  border-bottom: 0.5em solid transparent;
+  border-left: 0.5em solid #a5a5a5;
+}
+.callout-middle-right:after {
+  border-left: 0.5em solid #fff;
+}
+.callout-bottom-right:before,
+.callout-bottom-right:after {
+  right: 0;
+}
+.callout-bottom-right:before,
+.callout-bottom-right:after {
+  bottom: -0.5em;
+  border-right: 0.5em solid transparent;
+  border-left: 0.5em solid transparent;
+  border-top: 0.5em solid #a5a5a5;
+}
+.callout-bottom-right:after {
+  border-top: 0.5em solid #fff;
 }
 .dropdown {
   position: relative;
