@@ -25,15 +25,25 @@ block content
 			ol
 				li Traditional float-style grid on fixed columns
 				li Flexible, flex-box/table-based grid with unlimited columns
+			+demoSection("Traditional Float Grid")
+				p To use the traditional "float-style" grid, simply
+					code @extend
+					| the&nbsp;
+					code col-{number}
+					| &nbsp;class, where&nbsp;
+					code number
+					| &nbspcorresponds with the amount of columns to span.  For example, to achieve half a row on a grid with 12 columns, use the class&nbsp;
+					code @extend $col-6
+
 		+demoSection("Flexible Grid")
-			p Because flexbox isn't yet supported in older browsers, and is less performant than table layouts, I adapted a grid based off of mdo's
+			p Because flexbox isn't yet supported in older browsers, and is less performant than table layouts, I adapted a grid based off of mdo's&nbsp;
 				a(href="http://mdo.github.io/table-grid/") table grid
 				|.
-			p To use the grid system, simply wrap your elements in a
+			p To use the grid system, simply wrap your elements in a&nbsp;
 				code .row
-				| class, followed by any column elements within a
+				| &nbsp;class, followed by any column elements within a&nbsp;
 				code .column
-				| class.
+				| &nbsp;class.
 			+demoSection("Column Sizes")
 				p You can set column sizes in normal English, as you might expect:
 				table.table.table-bordered(summary="Stylus Boilerplate grid width classes")

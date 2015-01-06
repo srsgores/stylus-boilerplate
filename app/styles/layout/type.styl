@@ -24,10 +24,21 @@ p
 	&:only-child
 		@extend $margin-none
 a
-	color $textColour
+	color $linkColour
 	@extend $text-decoration-none
 	transition $transitionTime border-width $transitionFunction
 
+code, kbd, pre, samp
+	font-family font-stack("Consolas")
+pre
+	overflow auto
+	white-space pre-wrap
+	@extend $bordered, $small-padding, $normal-margin-bottom
+
+strong
+	font-weight bold
+em
+	font-style italic
 main, footer
 	&[href]
 		@extend $bordered-bottom

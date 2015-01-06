@@ -146,8 +146,12 @@ h4,
 h3,
 h2,
 h1,
-p {
+p,
+pre {
   margin-bottom: 1em;
+}
+pre {
+  padding: 0.666666666666667em;
 }
 .footer-container {
   padding: 1em;
@@ -174,7 +178,8 @@ input[type="month"],
 textarea[type="password"],
 input[type="password"],
 textarea[type="file"],
-input[type="file"] {
+input[type="file"],
+pre {
   border: 1px solid #000;
   border: 1px solid rgba(0,0,0,0.4);
 }
@@ -988,14 +993,12 @@ body {
   cursor: not-allowed;
 }
 .button {
-  background: #000;
-  background: rgba(0,0,0,0.25);
+  background: #00a0df;
   color: #fff;
 }
 .button:hover,
 .button:focus {
-  background: #000;
-  background: rgba(0,0,0,0.25);
+  background: #0082c1;
 }
 .button-small {
   font-size: 0.8em;
@@ -1206,14 +1209,14 @@ body {
   opacity: 1;
 }
 .dropdown-menu {
-  background: #000;
-  border: 1px solid #191919;
+  background: #00a0df;
+  border: 1px solid #19b9f8;
   position: absolute;
   left: 0;
   min-width: 8rem;
-  -webkit-transition: opacity 0.5s ease;
-  -o-transition: opacity 0.5s ease;
-  transition: opacity 0.5s ease;
+  -webkit-transition: opacity 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  -o-transition: opacity 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53);
+  transition: opacity 0.5s cubic-bezier(0.55, 0.085, 0.68, 0.53);
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
   opacity: 0;
@@ -1221,7 +1224,7 @@ body {
 .dropdown-menu-item {
   display: block;
   width: 100%;
-  border: 1px solid #232323;
+  border: 1px solid #23c3ff;
 }
 .dropdown-menu-item-link {
   display: block;
@@ -1236,11 +1239,11 @@ body {
   top: -0.4em;
   left: 50%;
   border-right: 0.5em solid transparent;
-  border-bottom: 0.5em solid #fff;
+  border-bottom: 0.5em solid #ff5f20;
   border-left: 0.5em solid transparent;
 }
 .dropdown-menu:after {
-  border-bottom: 0.5em solid #000;
+  border-bottom: 0.5em solid #00a0df;
 }
 .form-section,
 .form-section-inline,
@@ -3842,7 +3845,7 @@ body {
 .nav-vertical,
 .nav-horizontal {
   padding: 0;
-  background: #3b7ea8;
+  background: #00a0df;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -3893,6 +3896,7 @@ body {
 }
 .nav-item-link:hover,
 .nav-item-link:focus {
+  background: #000;
   background: rgba(0,0,0,0.1);
 }
 .table-bordered th,
@@ -4023,6 +4027,10 @@ main {
   display: table-row;
   background: #00a0df;
 }
+.footer,
+.footer a {
+  color: #fff;
+}
 @font-face {
   font-family: "Segoe UI Light";
   src: url("../assets/fonts/Segoe UI Light/Segoe UI Light.eot");
@@ -4056,10 +4064,26 @@ h1 {
   font-size: 2.618em;
 }
 a {
-  color: #000;
+  color: #007dbc;
   -webkit-transition: 0.5s border-width cubic-bezier(0.55, 0.085, 0.68, 0.53);
   -o-transition: 0.5s border-width cubic-bezier(0.55, 0.085, 0.68, 0.53);
   transition: 0.5s border-width cubic-bezier(0.55, 0.085, 0.68, 0.53);
+}
+code,
+kbd,
+pre,
+samp {
+  font-family: Consolas, monaco, monospace;
+}
+pre {
+  overflow: auto;
+  white-space: pre-wrap;
+}
+strong {
+  font-weight: bold;
+}
+em {
+  font-style: italic;
 }
 main[href],
 footer[href] {

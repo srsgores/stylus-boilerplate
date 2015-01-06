@@ -9,7 +9,7 @@
 */
 $navPadding ?= 0
 $navBackground ?= #3B7EA8
-$navItemLinkColour ?= #fff
+$navItemLinkColour ?= luminosity($navBackground) > 0.5 ? black : white
 
 $navItemDistribution ?= normal // normal, flex, table, or flex-table (flexbox with fallback)
 
@@ -86,4 +86,4 @@ $nav
 			color $navItemLinkColour
 			transition background, $navItemTransitionTime, $navItemTransitionFunction
 			&:hover, &:focus
-				background transparentify($navBackground - 10, 0.1)
+				background color-fallback(transparentify((luminosity($navBackground) > 0.5 ? $navBackground + 35 : $navBackground - 35), 0.1))

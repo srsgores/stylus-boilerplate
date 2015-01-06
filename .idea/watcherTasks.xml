@@ -61,7 +61,7 @@
       <option name="workingDir" value="$FileDir$" />
       <envs />
     </TaskOptions>
-    <TaskOptions isEnabled="false">
+    <TaskOptions isEnabled="true">
       <option name="arguments" value="demo.styl" />
       <option name="checkSyntaxErrors" value="false" />
       <option name="description" value="Compiles .styl files into .css files" />

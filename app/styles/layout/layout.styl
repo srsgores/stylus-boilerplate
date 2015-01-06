@@ -21,6 +21,7 @@ header
 	height 1%
 	display table-row
 	background $primaryColour
+	&, a
+		color luminosity($primaryColour) > 0.5 ? black : white
 	&-container
 		@extend $text-align-center, $normal-padding
-

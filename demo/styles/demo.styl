@@ -11,20 +11,28 @@
 $fontPath = "../../app/assets/fonts/"
 @require "../../app/styles/stylus-boilerplate"
 .demo
-	padding 1em
+	@extend $normal-padding
+	&-content
+		> ol, > ul
+			padding 0 $padding 0 ($padding * 2)
+			margin $margin 0
+		> ol
+			list-style-type decimal
+		> ul
+			list-style-type inherit
 .grid-demos
 	.column
 		&, &-padded, &-align-middle
-			text-align center
+			@extend $text-align-center
 			line-height 3
-			color #333
-			background color-fallback(rgba(255, 0, 0, 0.15))
+			color luminosity($textColour) > 0.5 ? black : white
+			background color-fallback(transparentify($primaryColour, 0.7))
 			&:nth-child(odd)
-				background color-fallback(rgba(255,0,0,0.3))
+				background color-fallback(transparentify($primaryColour, 0.55))
 			justify-content center
 		sup
-			display block
+			@extend $block
 	.row-padded
-		margin-bottom 1em
+		@extend $normal-margin-bottom
 	.row, .row-padded
 		justify-content space-between

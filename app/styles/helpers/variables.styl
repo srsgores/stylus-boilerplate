@@ -98,3 +98,70 @@ Media query variables
 ========================================================================== */
 $breakpointMain ?= only screen, max-width 767px
 $breakpoint1080p ?= only screen, min-width 1920px
+
+/* =============================================================================
+Components
+========================================================================== */
+
+// navigation
+$navPadding ?= 0
+$navBackground ?= $primaryColour
+$navItemLinkColour ?= luminosity($navBackground) > 0.5 ? black : white
+
+$navItemDistribution ?= normal // normal, flex, table, or flex-table (flexbox with fallback)
+
+$navItemPadding ?= $padding
+$navItemMargin ?= 0
+$navItemLinkPadding ?= $padding * 0.7
+
+$navBorderWidth ?= $borderWidth
+$navBorderStyle ?= $borderStyle
+$navItemBorderColour ?= transparentify($navItemLinkColour, 0.3)
+
+$navItemPreventWrap = false // prevent nav items from flowing to the other side
+$navItemTransitionFunction ?= $transitionFunction
+$navItemTransitionTime ?= $transitionTime
+
+$navResponsive = true
+
+
+// dropdowns
+
+/* Dropdown */
+$dropdownColour ?= $primaryColour
+$dropdownSize ?= 8rem
+
+/* Dropdown Menu Items */
+$dropdownItemPadding ?= 1em
+$dropdownItemMargin ?= 1em
+$dropdownItemBorderColour ?= $dropdownColour + 35
+$dropdownItemBorderWidth ?= 1px
+$dropdownItemBorderStyle ?= solid
+
+/* Dropdown caret */
+$dropdownCaret ?= true
+$dropdownCaretPosition ?= bottom
+$dropdownCaretSize ?= 0.5em
+$dropdownCaretColour ?= $dropdownColour
+
+/* Transitions */
+$dropdownTransitionTime ?= $transitionTime
+$dropdownTransitionFunction ?= $transitionFunction
+
+// buttons
+
+$buttonBackground ?= $primaryColour
+$buttonPadding ?= $padding * 0.8
+$buttonFontSize ?= $unit
+$buttonFontWeight ?= normal
+$buttonMargin ?= $margin
+$buttonBorder ?= 0
+
+$buttonColours ?= {
+	success: #00cc1c
+	warning: #edff36
+	info: #00abcc
+	error: #cc0d00
+}
+
+$buttonTransition ?= 0.1s easing("in-quad") background, border
