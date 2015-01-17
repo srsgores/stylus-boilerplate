@@ -1,6 +1,6 @@
-include ../../mixins/mixins.jade
+include ../mixins/mixins.jade
 
-extends ../../layout
+extends ../layout
 - title = "Form Demos"
 
 block content
@@ -34,8 +34,43 @@ block content
 			form.form(action="/", method="post")
 				+renderFieldset(addressForm)
 		+demoSection("Appended Controls")
-			- var currencyForm = {name: "Expenses", fields: [{type: "number", min: 0, step: "any", name: "Cash Flow", appended: {before: {icon: "coin"}}}, {type: "number", min: 0, max: 100, step: "any", name: "Balance", appended: {after: {icon: "coin"}}}, {type: "number", name: "Annual Interest (%)", min: 0, max: 100, step: "any", appended: {after: {text: "%"}}}, {type: "file", name: "Annual Report", appended: {after: {icon: "upload", classNames: "button"}}}], actions: [{name: "File Report", title: "Submit this report for analysis", icon: "disk2"}]}
-			- var socialForm = {name: "Share and Tell", fields: [{type: "text", name: "Twitter Username", appended: {before: {text: "@"}}}, {type: "text", name: "GitHub Username", appended: {before: {icon: "github"}}}]}
+			- var currencyForm = {name: "Expenses", fields: [{type: "number", min: 0, step: "any", name: "Cash Flow", appended: {before: {icon: "coin-dollar"}}}, {type: "number", min: 0, max: 100, step: "any", name: "Balance", appended: {after: {icon: "coin-dollar"}}}, {type: "number", name: "Annual Interest (%)", min: 0, max: 100, step: "any", appended: {after: {text: "%"}}}, {type: "file", name: "Annual Report", appended: {after: {icon: "upload", classNames: "button"}}}], actions: [{name: "File Report", title: "Submit this report for analysis", icon: "disk2"}]}
+			- var socialForm = {name: "Share and Tell", fields: [{type: "text", name: "Twitter Username", appended: {before: {text: "@"}}}, {type: "text", name: "github2 Username", appended: {before: {icon: "github2"}}}]}
 			form.form(action="/", method="post")
 				+renderFieldset(currencyForm)
 				+renderFieldset(socialForm)
+		+demoSection("Grid Form")
+			p You can use the&nbsp;
+				a(href="../grids.html") grid-system component
+				| &nbsp;to build any type of form layout.  Simply use the grid classes:
+			form(action="#", method="POST")
+				+getFormSection("Grid Form", "grid")
+					section.form-field.row
+						.column-align-middle.one-fourth
+							label.form-field-label(for="aName") Name
+						.column.form-field-controls
+							+getFormInput("Name", "text", "aName")(required=true)
+					section.form-field.row
+						.column-align-middle.one-fourth
+							label.form-field-label(for="address") Address
+						.column.form-field-controls
+							+getFormInput("Address", "text", "address")(required=true)
+					section.form-field.row
+						.column.one-fourth
+							label.form-field-label(for="message") Message
+						.column.form-field-controls
+							+getFormInput("Message", "textarea", "message")(required=true)
+					footer.form-actions
+						+getFormAction("Send Message", "Send us your message", "mail")
+			p Note: do not use the specific form classes to build the form (
+				code .form-field-horizontal
+				| ,
+				code .form-field-vertical
+				|)
+			+demoSection("Fieldset Grids")
+				p It may make sense to display sections of a form (fieldsets) beside each other.  Do this using the grid:
+				form.form.row(action="/", method="post")
+					section.column
+						+renderFieldset(registerForm)
+					section.column
+						+renderFieldset(addressForm)

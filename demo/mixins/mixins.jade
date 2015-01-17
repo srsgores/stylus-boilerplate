@@ -1,5 +1,5 @@
 //
-	stylus-boilerplate
+	axiom-template
 	File Name: mixins
 	Author: _admin
 	Date: 2014-12-23
@@ -10,12 +10,7 @@ mixin getIcon(icon, title)
 		span.icon-description= title
 
 mixin getNavItem(link, title, icon)
-	- defaultClassName = "nav-item-link"
-	if attributes.class
-		- classNames = defaultClassName + "-" + attributes.class
-	else
-		- classNames = defaultClassName
-	a(href=link, title=title, class=classNames)
+	a(href=link, title=title, class!=attributes.class)
 		+getIcon(icon, title)
 		| &nbsp;#{title}
 
@@ -29,13 +24,22 @@ mixin renderNavItems(navItems)
 	each item in navItems
 		if item.nestedMenu
 			li(class="nav-item dropdown")
-				+getNavItem(item.url || "#", item.title, item.icon)
+				+getNavItem(item.url || "#", item.title, item.icon)(class="nav-item-link")
 				ul.dropdown-menu
-					+renderNavItems(item.nestedMenu)
+					+renderNestedNavItems(item.nestedMenu)
 		else
 			li.nav-item
-				+getNavItem(item.url || "#", item.title, item.icon)
-
+				+getNavItem(item.url || "#", item.title, item.icon)(class="nav-item-link")
+mixin renderNestedNavItems(navItems)
+	each item in navItems
+		if item.nestedMenu
+			li(class="nav-item dropdown")
+				+getNavItem(item.url || "#", item.title, item.icon)(class="nav-item-link")
+				ul.dropdown-menu
+					+renderNestedNavItems(item.nestedMenu)
+		else
+			li.nav-item.dropdown-menu-item
+				+getNavItem(item.url || "#", item.title, item.icon)(class="dropdown-menu-link nav-item-link")
 mixin getFormSection(title, icon)
 	- var className = "form-section"
 	if attributes.class
@@ -48,7 +52,8 @@ mixin getFormSection(title, icon)
 			block
 mixin getButton(text, title, className, icon)
 	if className
-		- className = "button-" + className
+		if className!=="button"
+			- className = "button-" + className
 	else
 		- className = "button"
 	if !title
@@ -63,7 +68,7 @@ mixin getFormField(name)
 		- classNames = "form-field-" + attributes.class
 	else
 		- classNames = "form-field"
-	- var labelID = name.trim().replace(/([A-Z])/g, '-$1').replace(/[-_\s]+/g, '-').toLowerCase()
+	- var labelID = name.trim().replace(/([A-Z])/g, '$1').replace(/[-_\s]+/g, '-').toLowerCase()
 	section(class=classNames)
 		label.form-field-label(for=labelID) #{name}
 		.form-field-controls
@@ -77,7 +82,7 @@ mixin getFormField(name)
 mixin getFormInput(name, type, id, options)
 	- message = "Please enter " + name
 	if !id
-		- id = name.trim().replace(/([A-Z])/g, '-$1').replace(/[-_\s]+/g, '-').toLowerCase()
+		- id = name.trim().replace(/([A-Z])/g, '$1').replace(/[-_\s]+/g, '-').toLowerCase()
 	if type == "select"
 		select(class!=attributes.class, id=id)
 			for option in options
@@ -109,7 +114,7 @@ mixin getAppendedControl(control, id)
 			| #{control.text}
 		if control.icon
 			+getIcon(control.icon)
-mixin getAppendedControls(field, id)
+mixin getAppendedControls(field, id, hasAppended)
 	if field.appended
 		if field.appended.before
 			+getAppendedControl(field.appended.before, id)(class!=attributes.class)
@@ -118,15 +123,18 @@ mixin getAppendedControls(field, id)
 	if field.appended
 		if field.appended.after
 			+getAppendedControl(field.appended.after, id)(class!=attributes.class)
+
 mixin renderFieldset(form)
 	+getFormSection(form.name)(class!=form.layout)
 		if form.fields.length
 			for field in form.fields
-				- id = field.name.trim().replace(/([A-Z])/g, '-$1').replace(/[-_\s]+/g, '-').toLowerCase()
+				- id = field.name.trim().replace(/([A-Z])/g, '$1').replace(/[-_\s]+/g, '-').toLowerCase()
 				if field.appended
 					- appended = true
+				else
+					- appended = false
 				+getFormField(field.name)(class!=field.layout, appended!=appended)
-					+getAppendedControls(field, id)
+					+getAppendedControls(field, id, appended)
 						+getFormInput(field.name, field.type, null, field.options)(required="required", list=field.datalist, min!=field.min, max!=field.max, step!=field.step)
 		if form.actions
 			footer.form-actions
@@ -136,3 +144,78 @@ mixin getDatalist(list, id)
 	datalist(id=id)
 		each item in list
 			option(value=item)= item
+
+// badges
+mixin getBadge(text, title, icon)
+	if !title
+		title = text
+	span.badge(class!=attributes.class, title=title)= text
+		if icon
+			+getIcon(icon, title)
+		if block
+			block
+
+// callouts
+mixin getCallout(text)
+	blockquote(class!=attributes.class)
+		q= text
+
+// tabs
+mixin getTabs(tabData)
+	article.tab-container(class!=attributes.containerClass)
+		nav.tab-nav(class!=attributes.class)
+			each tab, index in tabData
+				- tab.index = index
+				+getTab(tab)
+		div.tab-panel-container
+			each tab in tabData
+				+getTabContentPane(tab.title, tab.url)
+					if tab.content
+						p= tab.content
+			if block
+				block
+
+mixin getTab(tab)
+	li.tab-nav-item
+		- var classNames = ["tab"]
+		if tab.index || tab.selected
+			if tab.index == 0 || tab.selected
+				- classNames.push("active")
+		if !tab.url
+			- tab.url = tab.title.trim().replace(/([A-Z])/g, '$1').replace(/[-_\s]+/g, '-').toLowerCase()
+		a.tab(href = "##{tab.url}", title=tab.title, class=classNames)= tab.title
+			if tab.icon
+				| &nbsp;
+				+getIcon(tab.icon, tab.title)
+			if block
+				block
+
+mixin getTabContentPane(title, url)
+	section.tab-panel(id="#{url}")
+		if title
+			header
+				h1= title
+		if block
+			block
+
+
+mixin getAlert(title)
+	if attributes.class
+		if attributes.class == "alert-alert"
+			- attributes.class = "alert"
+	div(class!=attributes.class, role="alert")
+		if title
+			h1.alert-title= title
+		if block
+				block
+		a.close(title="Close")
+			+getIcon("close", "Close")
+
+
+mixin getDetails(title)
+	details.details&attributes(attributes)
+		if title
+			summary= title
+		if block
+			.details-content
+				block

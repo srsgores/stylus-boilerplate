@@ -1,0 +1,39 @@
+/*
+	stylus-boilerplate
+
+	demo.styl
+
+	Author: Sean Goresht
+
+	Created on 2015-01-04 by PhpStorm
+*/
+
+$fontPath = "../../assets/fonts/"
+@require "../../styles/stylus-boilerplate"
+
+.demo
+	@extend $normal-padding
+	&-content
+		> ol, > ul
+			padding 0 $padding 0 ($padding * 2)
+			margin $margin 0
+		> ol
+			list-style-type decimal
+		> ul
+			list-style-type inherit
+.grid-demos
+	.column
+		&, &-padded, &-align-middle
+			@extend $text-align-center
+			line-height 3
+			color luminosity($textColour) > 0.5 ? black : white
+			background color-fallback(transparentify($primaryColour, 0.7))
+			&:nth-child(odd)
+				background color-fallback(transparentify($primaryColour, 0.55))
+			justify-content center
+		sup
+			@extend $block
+	.row-padded
+		@extend $normal-margin-bottom
+	.row, .row-padded
+		justify-content space-between

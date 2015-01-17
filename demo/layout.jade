@@ -1,0 +1,31 @@
+doctype html
+html.no-js(lang = "en")
+	head
+		block head
+			block header-meta
+				meta(charset = "utf-8")
+				meta(http-equiv = "X-UA-Compatible", content = "IE=edge,chrome=1")
+				title Stylus Boilerplate Demos and Styleguide - #{title}
+				meta(name = "description", content = description)
+				meta(name = "viewport", content = "width=device-width, initial-scale=1")
+			block header-styles
+				link(rel = "stylesheet", href = "../../demo/styles/demo.css")
+			block header-scripts
+				<!--[if lt IE 9]>
+				script(src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js")
+				script(src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js")
+				<![endif]-->
+	body(role="document")
+		.container
+			header(role="banner")
+				block navigation
+					- navItems = [{title: "Home", icon: "home2", url: "../index.html"},{title: "Components...", icon: "list2", url: "#", nestedMenu: [{title: "Alerts", icon: "warning2", url: "alerts.html"}, {title: "Badges", icon: "price-tags", url: "badges.html"}, {title: "Buttons", icon: "bullhorn", url: "buttons.html"},{title: "Callouts", icon: "bubbles", url: "callouts.html"},{title: "Forms", icon: "stack", url: "forms.html"},{title: "Grid", icon: "table2", url: "grid.html"}, {title: "Icons", icon: "accessibility", url: "../../app/assets/fonts/icomoon/demo.html"}, {title: "Loaders", icon: "spinner", url: "loaders.html"}, {title: "Navbars", icon: "menu2", url: "nav.html"}, {title: "Tables", icon: "table", url: "tables.html"}, {title: "Tabs", icon: "tab", url: "tabs.html"}]}]
+					+renderNavBar(navItems, "horizontal")
+			main(role = "main")
+				block content
+			block footer
+				footer.footer(role = "contentinfo")
+					.footer-container
+						small By&nbsp;
+							a(href="http://seangoresht.com", title="Sean Goresht") Sean Goresht
+			block scripts

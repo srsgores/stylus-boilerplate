@@ -1,0 +1,28 @@
+include ../mixins/mixins.jade
+
+extends ../layout
+- title = "Alert Demos"
+
+block content
+	+demoSection("Alerts")
+		- var alertTypes = ["alert", "success", "warning", "info", "error"]
+		p Use alerts sparingly, as they are blocking for the screen-reader
+		table.table.table-bordered.table-striped
+			caption Class names for alerts
+			thead
+				tr
+					th Preview
+					th Class Name
+			tbody
+				each alertType in alertTypes
+					tr
+						td
+							+getAlert()(class="alert-" + alertType)
+								p= alertType
+						td
+							code= alertType
+		+demoSection("Alerts with Titles")
+			p You can add a title for an alert if you want:
+			each alertType in alertTypes
+				+getAlert("Alert title!")(class="alert-" + alertType)
+					p An alert for the type #{alertType} is being used

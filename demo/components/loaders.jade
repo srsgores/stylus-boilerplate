@@ -1,0 +1,44 @@
+include ../mixins/mixins.jade
+
+extends ../layout
+- title = "Loader Demos"
+
+block content
+	+demoSection("Progress Bars")
+		p When dealing with asynchronous applications, it's useful to indicate to the user the progress on those operations.
+		p HTML5 provides a number of useful tools to provide this user feedback:
+		ol
+			li
+				code progress
+				| &nbsp;element
+			li
+				code meter
+				| &nbsp;element
+		p For displaying the progress on an asynchronous operation,
+			code progress
+			| &nbsp;will suit most cases.
+		p Progress bars are native to most modern browsers, and fall back to simple text.  The following example demonstrates the usage of the progress element:
+		.example.row-padded
+			.column
+				pre
+					code.
+						progress(max="100", title="Loading... please wait")
+							p (Fallback text)
+			.column-align-middle
+				progress(max="100", title="Loading... please wait")
+					p (Fallback text)
+	+demoSection("Loader Element")
+		p The loader element is simply a centre-justified container for housing loading information:
+		.example.row-padded
+			.column
+				pre
+					code.
+						article.loader
+							span.loading-text Loading
+							progress.loader-bar
+								span Please Wait
+			.column
+				article.loader
+					span.loading-text Loading
+					progress.loader-bar
+						span Please Wait

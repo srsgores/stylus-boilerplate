@@ -1,4 +1,4 @@
-include mixins/mixins
+include demo/mixins/mixins
 
 extends layout
 - title = "Demos"
@@ -48,6 +48,6 @@ block content
 	article.description
 		section.intro
 			.header
-				+getHeaderIcon("switch2")
+				+getHeaderIcon("switch")
 				h2 Kickstart your next project.  See the demos for yourself.
-			a.button(href="demos/index.html", title="View the Demos") View the Demos
+			a.button(href="demo/index.html", title="View the Demos") View the Demos

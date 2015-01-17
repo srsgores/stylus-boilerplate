@@ -1,0 +1,140 @@
+include ../mixins/mixins.jade
+
+extends ../layout
+- title = "Grid Demos"
+
+mixin generateColumns(amount, classNames)
+	if amount > 0
+		- var i = 0
+		- var columns = []
+		while i < amount
+			- columns.push({classNames: classNames})
+			- i++
+		+generateGrid(columns)(class!=attributes.class)
+mixin generateGrid(columns)
+	if columns.length
+		.row(class!=attributes.class)
+			for column, index in columns
+				.column(class!=column.classNames)
+					sup #{index+1}
+
+block content
+	article.grid-demos
+		+demoSection("Grid Overview")
+			p Stylus Boilerplate ships with two types of grid systems:
+			ol
+				li Traditional float-style grid on fixed columns
+				li Flexible, flex-box/table-based grid with unlimited columns
+			+demoSection("Traditional Float Grid")
+				p To use the traditional "float-style" grid, simply
+					code @extend
+					| the&nbsp;
+					code col-{number}
+					| &nbsp;class, where&nbsp;
+					code number
+					| &nbspcorresponds with the amount of columns to span.  For example, to achieve half a row on a grid with 12 columns, use the class&nbsp;
+					code @extend $col-6
+
+		+demoSection("Flexible Grid")
+			p Because flexbox isn't yet supported in older browsers, and is less performant than table layouts, I adapted a grid based off of mdo's&nbsp;
+				a(href="http://mdo.github.io/table-grid/") table grid
+				|.
+			p To use the grid system, simply wrap your elements in a&nbsp;
+				code .row
+				| &nbsp;class, followed by any column elements within a&nbsp;
+				code .column
+				| &nbsp;class.
+			+demoSection("Column Sizes")
+				p You can set column sizes in normal English, as you might expect:
+				table.table.table-bordered(summary="Stylus Boilerplate grid width classes")
+					caption Grid width classes
+					thead
+						tr
+							th Class
+							th Width
+					tbody
+						tr
+							td
+								code .column
+							td 100%
+						tr
+							td
+								code .column .one-half
+							td 50%
+						tr
+							td
+								code .column .one-fourth
+							td 25%
+						tr
+							td
+								code .column .one-third
+							td 33%
+						tr
+							td(colspan="2") ... etc.
+				article.row
+					section.column.three-fourths
+						code .three-fourths
+					section.column-align-middle
+						p (Doesn't need a class.  This will fold over.)
+				article.row
+					section.column.one-third
+						code .one-third
+					section.column-align-middle
+						p (Doesn't need a class.  This will fold over.)
+				article.row
+					section.column-align-middle
+						p (Doesn't need a class.  This will fold over.)
+					section.column.one-fourth
+						code .one-fourth
+
+				+demoSection("Auto-distributed column widths")
+					+generateColumns(16, "")
+					+generateColumns(12, "")
+					+generateColumns(8, "")
+					+generateColumns(4, "")
+					+generateColumns(2, "")
+					+generateColumns(1, "")
+				+demoSection("Nested Grids")
+					p You can nest grids, using the same markup as a normal grid:
+					article.row
+						section.column
+							article.row
+								section.column
+									p Single Column that's nested
+							article.row
+								section.column
+									p Nested column 1
+								section.column
+									p Nested column 2
+						section.column-align-middle
+							p Unnested column
+			+demoSection("Grids with Gutters")
+				p You can add spacing between the columns with the
+					code .row-padded
+					| &nbsp;class:
+				+generateColumns(3)(class="row-padded")
+				+generateColumns(2)(class="row-padded")
+			+demoSection("Vertically-Aligned Columns")
+				p Simply use the class
+					code .column-align-middle
+					|:
+				+generateColumns(5, "column-align-middle")(class="row-padded")
+				+generateColumns(2, "column-align-middle")(class="row-padded")
+			+demoSection("Distributed Row")
+				p You can "distribute" the contents of a row, such that content is aligned left and right with space between:
+				.row-padded.distributed
+					.column.one-third
+						code .column.one-third
+					.column.one-fifth
+						code .column.one-fifth
+				.row.distributed
+					.column.one-half
+						code .column.one-half
+					.column.one-third
+						code .column.one-third
+				+getAlert()(class="alert-warning")
+					p Note that using&nbsp;
+						code .row.distributed
+						|  only works on browsers that support&nbsp;
+						code display: flex
+						| .

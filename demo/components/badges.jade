@@ -1,0 +1,22 @@
+include ../mixins/mixins.jade
+
+extends ../layout
+- title = "Badge Demos"
+
+block content
+	+demoSection("Badges")
+		- var badgeTypes = ["badge", "success", "warning", "info", "error"]
+		p Badges are great for showing statuses in tables
+		table.table.table-bordered.table-striped
+			caption Class names for badges
+			thead
+				tr
+					th Preview
+					th Class Name
+			tbody
+				each badgeType in badgeTypes
+					tr
+						td
+							+getBadge(badgeType, badgeType)(class="badge-" + badgeType)
+						td
+							code= badgeType

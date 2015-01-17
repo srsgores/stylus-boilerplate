@@ -1,0 +1,50 @@
+include ../mixins/mixins.jade
+
+extends ../layout
+- title = "Navigation Demos"
+
+block content
+	+demoSection("Basic Horizontal Navigation")
+		p Use the class&nbsp;
+			code .nav
+			|  to create a navigation menu:
+		pre
+			code.
+				nav.nav-horizontal
+					ul.nav-list
+						li.nav-item
+							a.nav-item-link...
+		- navItems = [{title: "Store", icon: "cart2"},{title: "Settings", icon: "cogs"},{title: "Profile", icon: "user2"},{title: "Messages", icon: "bubble"},{title: "Logout", icon: "exit"}]
+		+renderNavBar(navItems, "horizontal")
+
+	+demoSection("Basic Horizontal Navigation with Dropdowns")
+		p You can easily integrate the&nbsp;
+			strong dropdown
+			|  component with navigation:
+		pre
+			code.
+				nav.nav-horizontal
+					ul.nav-list
+						li.nav-item.dropdown
+							a.nav-item-link
+							ul.dropdown-menu
+								li.nav-item.dropdown-menu-item
+									a.dropdown-menu-link.nav-item-link... // notice how navigation and dropdown classes are combined -- this is because they are both separate components
+		- navItems = [{title: "Home", icon: "home2"},{title: "Docs", icon: "book"},{title: "Tutorials", icon: "books", nestedMenu: [{title: "Messages", icon: "bubble"},{title: "Logout", icon: "exit"}]}]
+		+renderNavBar(navItems, "horizontal")
+	+demoSection("Vertical Navigation", "vertical")
+		p For vertical navigation, simply use the class&nbsp;
+			code .nav-vertical
+			|:
+		- navItems = [{title: "Store", icon: "cart2"},{title: "Settings", icon: "cogs"},{title: "Profile", icon: "user2"},{title: "Messages", icon: "bubble"},{title: "Logout", icon: "exit"}]
+		+renderNavBar(navItems, "vertical")
+	+demoSection("Responsive Navigation")
+		p If responsive navigation is enabled, any&nbsp;
+			code .nav-horizontal
+			|  navbars will turn to&nbsp;
+			code .nav-vertical
+			|  navbars at the given breakpoint.
+		p You can enable/disable responsive navigation by disabling the&nbsp;
+			code $navResponsive
+			| &nbsp;flag, and setting it to&nbsp;
+			code false

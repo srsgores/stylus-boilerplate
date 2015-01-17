@@ -1,13 +1,12 @@
 /*
 	stylus-boilerplate
 
-	stylus-boilerplate.styl
+	demo.styl
 
 	Author: Sean Goresht
 
-	Created on 2014-08-23 by PhpStorm
+	Created on 2015-01-04 by PhpStorm
 */
-/* Imports */
 html,
 body,
 div,
@@ -147,13 +146,15 @@ h3,
 h2,
 h1,
 p,
-pre {
+pre,
+.grid-demos .row-padded {
   margin-bottom: 1em;
 }
 pre {
   padding: 0.666666666666667em;
 }
-.footer-container {
+.footer-container,
+.demo {
   padding: 1em;
 }
 textarea,
@@ -186,6 +187,9 @@ pre {
 main[href],
 footer[href] {
   border-bottom: 1px solid rgba(0,0,0,0.4);
+}
+.grid-demos .column sup {
+  display: block;
 }
 .table {
   display: table;
@@ -224,7 +228,10 @@ input[type="file"] {
 .alert >:first-child:before {
   float: left;
 }
-.footer-container {
+.footer-container,
+.grid-demos .column,
+.grid-demos .column-padded,
+.grid-demos .column-align-middle {
   text-align: center;
 }
 a {
@@ -943,8 +950,8 @@ body {
   font-family: "icomoon";
   font-weight: normal;
   font-style: normal;
-  src: url("../assets/fonts/icomoon/fonts/icomoon.eot");
-  src: url("../assets/fonts/icomoon/fonts/icomoon.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/icomoon/fonts/icomoon.woff") format("woff"), url("../assets/fonts/icomoon/fonts/icomoon.ttf") format("truetype"), url("../assets/fonts/icomoon/fonts/icomoon.svg#icomoon") format("svg");
+  src: url("../../assets/fonts/icomoon/fonts/icomoon.eot");
+  src: url("../../assets/fonts/icomoon/fonts/icomoon.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/icomoon/fonts/icomoon.woff") format("woff"), url("../../assets/fonts/icomoon/fonts/icomoon.ttf") format("truetype"), url("../../assets/fonts/icomoon/fonts/icomoon.svg#icomoon") format("svg");
 }
 .icon-home,
 .icon-house,
@@ -4360,8 +4367,8 @@ main {
 }
 @font-face {
   font-family: "Segoe UI Light";
-  src: url("../assets/fonts/Segoe UI Light/Segoe UI Light.eot");
-  src: url("../assets/fonts/Segoe UI Light/Segoe UI Light.eot?#iefix") format("embedded-opentype"), url("../assets/fonts/Segoe UI Light/Segoe UI Light.woff") format("woff"), url("../assets/fonts/Segoe UI Light/Segoe UI Light.ttf") format("truetype");
+  src: url("../../assets/fonts/Segoe UI Light/Segoe UI Light.eot");
+  src: url("../../assets/fonts/Segoe UI Light/Segoe UI Light.eot?#iefix") format("embedded-opentype"), url("../../assets/fonts/Segoe UI Light/Segoe UI Light.woff") format("woff"), url("../../assets/fonts/Segoe UI Light/Segoe UI Light.ttf") format("truetype");
 }
 h6,
 h5,
@@ -4479,4 +4486,40 @@ footer[href]:visited {
   h3 {
     page-break-after: avoid;
   }
+}
+.demo-content > ol,
+.demo-content > ul {
+  padding: 0 1em 0 2em;
+  margin: 1em 0;
+}
+.demo-content > ol {
+  list-style-type: decimal;
+}
+.demo-content > ul {
+  list-style-type: inherit;
+}
+.grid-demos .column,
+.grid-demos .column-padded,
+.grid-demos .column-align-middle {
+  line-height: 3;
+  color: #fff;
+  background: #0077d1;
+  background: rgba(0,119,209,0.7);
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+}
+.grid-demos .column:nth-child(odd),
+.grid-demos .column-padded:nth-child(odd),
+.grid-demos .column-align-middle:nth-child(odd) {
+  background: #0052c5;
+  background: rgba(0,82,197,0.55);
+}
+.grid-demos .row,
+.grid-demos .row-padded {
+  -webkit-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -o-justify-content: space-between;
+  justify-content: space-between;
 }

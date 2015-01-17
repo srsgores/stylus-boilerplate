@@ -1,0 +1,18 @@
+include ../mixins/mixins.jade
+
+extends ../layout
+- title = "Callout Demos"
+
+block content
+	+demoSection("Callouts")
+		- var calloutXPositions = ["left", "middle", "right"]
+		- var calloutYPositions = ["top", "middle", "bottom"]
+		p Callouts are probably most useful when doing a
+			code blockquote
+			|.  Other uses include interactive tours, testimonials (blockquote), and comments
+		p Callouts can be customized to your liking:
+		for x in calloutXPositions
+			for y in calloutYPositions
+				- calloutClass = "callout-" + y + "-" + x
+				+demoSection(calloutClass)
+					+getCallout(calloutClass)(class=calloutClass)

@@ -1,9 +1,9 @@
-include ../../mixins/mixins.jade
+include ../mixins/mixins.jade
 
-extends ../../layout
+extends ../layout
 - title = "Buttons"
 block content
-	- buttonTypes = ["success", "warning", "info", "error"]
+	- buttonTypes = ["button", "success", "warning", "info", "error"]
 	- buttonSizes = ["small", "medium", "large", "extra-large"]
 	+demoSection("Basic Buttons")
 		for buttonType in buttonTypes
