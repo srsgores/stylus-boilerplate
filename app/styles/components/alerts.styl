@@ -1,0 +1,83 @@
+/*
+	stylus-boilerplate
+
+	alerts.styl
+
+	Author: Sean Goresht
+
+	Alerts UI component
+*/
+
+$alertPadding ?= 1rem
+$alertIconMargin ?= 1rem
+$alertMargin ?= 1rem
+
+$alertCloseButtonFontSize ?= 1em
+
+alertTypes ?= {
+	success: {
+		colour: #45a900
+		icon: checkmark
+		position: left
+	}
+	warning: {
+		colour: #f5ff60
+		icon: warning2
+		position: left
+	}
+	info: {
+		colour: #00abcc
+		icon: information
+		position: left
+	}
+	error: {
+		colour: #FF3A3A
+		animation: shake
+		icon: warning
+		position: left
+	}
+}
+
+.close
+	position absolute
+	top 0
+	right $alertPadding
+	color inherit
+	font-size $alertCloseButtonFontSize
+	cursor pointer
+$alert
+	padding $alertPadding
+	margin $alertMargin
+	box-sizing border-box
+	position relative
+	> *
+		margin 0
+		& + *
+			margin-top $alertMargin
+
+getAlert(colour, icon, position)
+	@extend $alert
+	background colour
+	color luminosity(colour) > 0.5 ? black : white
+	>:first-child
+		if position is left
+			&:before
+				content: lookup("$icon-" + icon)
+				@extend $icomoon, $float-left
+				line-height 1.7
+				margin-right $alertIconMargin
+		if position is right
+			&:after
+				content: lookup("$icon-" + icon)
+				@extend $icomoon, $float-right
+				margin-left $alertIconMargin
+				line-height 1.7
+for alertType, type in alertTypes
+	.alert-{alertType}
+		getAlert(type["colour"], type["icon"], type["position"])
+.alert
+	getAlert(rgba(0, 0, 0, 0.15), warning2, left)
+	&-title
+		font-size 1.2em
+		font-family font-stack("Segoe UI")
+		font-weight bold

@@ -111,7 +111,7 @@ block content
 			+demoSection("Grids with Gutters")
 				p You can add spacing between the columns with the
 					code .row-padded
-					| class:
+					| &nbsp;class:
 				+generateColumns(3)(class="row-padded")
 				+generateColumns(2)(class="row-padded")
 			+demoSection("Vertically-Aligned Columns")
@@ -120,3 +120,21 @@ block content
 					|:
 				+generateColumns(5, "column-align-middle")(class="row-padded")
 				+generateColumns(2, "column-align-middle")(class="row-padded")
+			+demoSection("Distributed Row")
+				p You can "distribute" the contents of a row, such that content is aligned left and right with space between:
+				.row-padded.distributed
+					.column.one-third
+						code .column.one-third
+					.column.one-fifth
+						code .column.one-fifth
+				.row.distributed
+					.column.one-half
+						code .column.one-half
+					.column.one-third
+						code .column.one-third
+				+getAlert()(class="alert-warning")
+					p Note that using&nbsp;
+						code .row.distributed
+						|  only works on browsers that support&nbsp;
+						code display: flex
+						| .

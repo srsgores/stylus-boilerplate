@@ -34,15 +34,15 @@ block content
 			form.form(action="/", method="post")
 				+renderFieldset(addressForm)
 		+demoSection("Appended Controls")
-			- var currencyForm = {name: "Expenses", fields: [{type: "number", min: 0, step: "any", name: "Cash Flow", appended: {before: {icon: "coin"}}}, {type: "number", min: 0, max: 100, step: "any", name: "Balance", appended: {after: {icon: "coin"}}}, {type: "number", name: "Annual Interest (%)", min: 0, max: 100, step: "any", appended: {after: {text: "%"}}}, {type: "file", name: "Annual Report", appended: {after: {icon: "upload", classNames: "button"}}}], actions: [{name: "File Report", title: "Submit this report for analysis", icon: "disk2"}]}
-			- var socialForm = {name: "Share and Tell", fields: [{type: "text", name: "Twitter Username", appended: {before: {text: "@"}}}, {type: "text", name: "GitHub Username", appended: {before: {icon: "github"}}}]}
+			- var currencyForm = {name: "Expenses", fields: [{type: "number", min: 0, step: "any", name: "Cash Flow", appended: {before: {icon: "coin-dollar"}}}, {type: "number", min: 0, max: 100, step: "any", name: "Balance", appended: {after: {icon: "coin-dollar"}}}, {type: "number", name: "Annual Interest (%)", min: 0, max: 100, step: "any", appended: {after: {text: "%"}}}, {type: "file", name: "Annual Report", appended: {after: {icon: "upload", classNames: "button"}}}], actions: [{name: "File Report", title: "Submit this report for analysis", icon: "disk2"}]}
+			- var socialForm = {name: "Share and Tell", fields: [{type: "text", name: "Twitter Username", appended: {before: {text: "@"}}}, {type: "text", name: "github2 Username", appended: {before: {icon: "github2"}}}]}
 			form.form(action="/", method="post")
 				+renderFieldset(currencyForm)
 				+renderFieldset(socialForm)
 		+demoSection("Grid Form")
-			p You can use the
+			p You can use the&nbsp;
 				a(href="../grids.html") grid-system component
-				| to build any type of form layout.  Simply use the grid classes:
+				| &nbsp;to build any type of form layout.  Simply use the grid classes:
 			form(action="#", method="POST")
 				+getFormSection("Grid Form", "grid")
 					section.form-field.row

@@ -63,6 +63,9 @@ $grid-row
 				display block
 .row
 	@extend $grid-row
+	&.distributed
+		align-content space-between
+		align-items center
 	&-padded
 		@extend $grid-row
 		if $flexGrid

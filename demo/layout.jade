@@ -19,7 +19,7 @@ html.no-js(lang = "en")
 		.container
 			header(role="banner")
 				block navigation
-					- navItems = [{title: "Home", icon: "home2", url: "../index.html"},{title: "Badges", icon: "radio-checked", url: "badges.html"}, {title: "Buttons", icon: "bullhorn", url: "buttons.html"},{title: "Callouts", icon: "bubbles", url: "callouts.html"},{title: "Forms", icon: "stack", url: "forms.html"},{title: "Grid", icon: "table2", url: "grid.html"}, {title: "Icons", icon: "IcoMoon", url: "../../app/assets/fonts/icomoon/demo.html"}, {title: "Navbars", icon: "menu2", url: "nav.html"}, {title: "Tables", icon: "table", url: "tables.html"}]
+					- navItems = [{title: "Home", icon: "home2", url: "../index.html"},{title: "Components...", icon: "list2", url: "#", nestedMenu: [{title: "Alerts", icon: "warning2", url: "alerts.html"}, {title: "Badges", icon: "price-tags", url: "badges.html"}, {title: "Buttons", icon: "bullhorn", url: "buttons.html"},{title: "Callouts", icon: "bubbles", url: "callouts.html"},{title: "Forms", icon: "stack", url: "forms.html"},{title: "Grid", icon: "table2", url: "grid.html"}, {title: "Icons", icon: "accessibility", url: "../../app/assets/fonts/icomoon/demo.html"}, {title: "Loaders", icon: "spinner", url: "loaders.html"}, {title: "Navbars", icon: "menu2", url: "nav.html"}, {title: "Tables", icon: "table", url: "tables.html"}, {title: "Tabs", icon: "tab", url: "tabs.html"}]}]
 					+renderNavBar(navItems, "horizontal")
 			main(role = "main")
 				block content

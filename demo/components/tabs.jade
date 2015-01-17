@@ -1,0 +1,41 @@
+include ../mixins/mixins.jade
+
+extends ../layout
+- title = "Tab Demos"
+
+block content
+	+demoSection("Basic Horizontal Tabs")
+		- var tabTypes = ["vertical", "horizontal"]
+		- var tabs = [{title: "Profile", content: "Profile tab here", selected: true}, {title: "Settings", content: "Settings tab here"}, {title: "Social Connections", content: "Social connections tab here"}]
+		+getTabs(tabs)
+		p Use the class&nbsp;
+			code .tab-container
+			|  to house all your tabs
+		pre
+			code.
+				article.tab-container
+					nav.tab-nav
+						li.tab-nav-item
+							a.tab
+						// ...
+					.tab-panel-container
+						section.tab-panel#hash
+						// ...
+
+	+demoSection("Basic Horizontal Tabs with Icons")
+		p You can easily integrate the&nbsp;
+			strong icons
+			|  component with tabs:
+
+		- var tabs = [{title: "Profile", icon: "user", content: "Profile tab here", selected: true}, {title: "Settings", icon: "cogs", content: "Settings tab here"}, {title: "Social Connections", icon: "facebook2", content: "Social connections tab here"}]
+		+getTabs(tabs)
+	+demoSection("Vertical Tabs", "vertical")
+		p For vertical tabs, simply use the class&nbsp;
+			code .tab-nav-vertical
+			|:
+		- var tabs = [{title: "Profile", icon: "user", content: "Profile tab here", selected: true}, {title: "Settings", icon: "cogs", content: "Settings tab here"}, {title: "Social Connections", icon: "facebook2", content: "Social connections tab here"}]
+		+getTabs(tabs)(class="tab-nav-vertical")
+	+demoSection("Grid-Based Tabs")
+		p You can easily combine tabs with the existing grid system:
+		- var tabs = [{title: "Profile", icon: "user", content: "Profile tab here", selected: true}, {title: "Settings", icon: "cogs", content: "Settings tab here"}, {title: "Social Connections", icon: "facebook2", content: "Social connections tab here"}]
+		+getTabs(tabs)(class="tab-nav-vertical", containerClass="row")

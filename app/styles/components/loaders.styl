@@ -1,0 +1,56 @@
+/*
+	stylus-boilerplate
+
+	loaders.styl
+
+	Author: Sean Goresht
+
+	Centred <progress> styles and loader layout styles
+*/
+$loaderTextColour ?= #FFF
+$loaderTextFontSize ?= 1.5em
+$loaderTextMargin ?= 0 0 0.5em 0
+
+.loader
+	&-container
+		flex 1
+		display flex
+		box-orient horizontal
+		flex-direction column
+		align-items center
+		justify-content center
+	color $loaderTextColour
+	display flex
+	justify-content center
+	flex 1
+	flex-direction column
+	align-items center
+	&-bar
+		cursor wait
+	&-text
+		font-weight 100
+		font-size $loaderTextFontSize
+		margin-bottom $loaderTextMargin
+
+// legacy loaders
+@keyframes spin
+	0%
+		left 50%
+		transform rotate(0deg)
+	25%
+		left 45%
+		font-size 3.5em
+		opacity 1
+	50%
+		left 40%
+	75%
+		left 45%
+		font-size 1em
+		opacity 0.1
+	100%
+		transform rotate(360deg)
+		left 50%
+
+progress
+	margin 0 auto
+	cursor wait

@@ -1,5 +1,5 @@
 //
-	stylus-boilerplate
+	axiom-template
 	File Name: mixins
 	Author: _admin
 	Date: 2014-12-23
@@ -68,7 +68,7 @@ mixin getFormField(name)
 		- classNames = "form-field-" + attributes.class
 	else
 		- classNames = "form-field"
-	- var labelID = name.trim().replace(/([A-Z])/g, '-$1').replace(/[-_\s]+/g, '-').toLowerCase()
+	- var labelID = name.trim().replace(/([A-Z])/g, '$1').replace(/[-_\s]+/g, '-').toLowerCase()
 	section(class=classNames)
 		label.form-field-label(for=labelID) #{name}
 		.form-field-controls
@@ -82,7 +82,7 @@ mixin getFormField(name)
 mixin getFormInput(name, type, id, options)
 	- message = "Please enter " + name
 	if !id
-		- id = name.trim().replace(/([A-Z])/g, '-$1').replace(/[-_\s]+/g, '-').toLowerCase()
+		- id = name.trim().replace(/([A-Z])/g, '$1').replace(/[-_\s]+/g, '-').toLowerCase()
 	if type == "select"
 		select(class!=attributes.class, id=id)
 			for option in options
@@ -123,11 +123,12 @@ mixin getAppendedControls(field, id, hasAppended)
 	if field.appended
 		if field.appended.after
 			+getAppendedControl(field.appended.after, id)(class!=attributes.class)
+
 mixin renderFieldset(form)
 	+getFormSection(form.name)(class!=form.layout)
 		if form.fields.length
 			for field in form.fields
-				- id = field.name.trim().replace(/([A-Z])/g, '-$1').replace(/[-_\s]+/g, '-').toLowerCase()
+				- id = field.name.trim().replace(/([A-Z])/g, '$1').replace(/[-_\s]+/g, '-').toLowerCase()
 				if field.appended
 					- appended = true
 				else
@@ -158,3 +159,63 @@ mixin getBadge(text, title, icon)
 mixin getCallout(text)
 	blockquote(class!=attributes.class)
 		q= text
+
+// tabs
+mixin getTabs(tabData)
+	article.tab-container(class!=attributes.containerClass)
+		nav.tab-nav(class!=attributes.class)
+			each tab, index in tabData
+				- tab.index = index
+				+getTab(tab)
+		div.tab-panel-container
+			each tab in tabData
+				+getTabContentPane(tab.title, tab.url)
+					if tab.content
+						p= tab.content
+			if block
+				block
+
+mixin getTab(tab)
+	li.tab-nav-item
+		- var classNames = ["tab"]
+		if tab.index || tab.selected
+			if tab.index == 0 || tab.selected
+				- classNames.push("active")
+		if !tab.url
+			- tab.url = tab.title.trim().replace(/([A-Z])/g, '$1').replace(/[-_\s]+/g, '-').toLowerCase()
+		a.tab(href = "##{tab.url}", title=tab.title, class=classNames)= tab.title
+			if tab.icon
+				| &nbsp;
+				+getIcon(tab.icon, tab.title)
+			if block
+				block
+
+mixin getTabContentPane(title, url)
+	section.tab-panel(id="#{url}")
+		if title
+			header
+				h1= title
+		if block
+			block
+
+
+mixin getAlert(title)
+	if attributes.class
+		if attributes.class == "alert-alert"
+			- attributes.class = "alert"
+	div(class!=attributes.class, role="alert")
+		if title
+			h1.alert-title= title
+		if block
+				block
+		a.close(title="Close")
+			+getIcon("close", "Close")
+
+
+mixin getDetails(title)
+	details.details&attributes(attributes)
+		if title
+			summary= title
+		if block
+			.details-content
+				block

@@ -1,5 +1,5 @@
 /*
-	stylus-boilerplate
+	axiom-template
 
 	helpers.styl
 
@@ -31,6 +31,7 @@ rules = {
 	position: fixed absolute static relative
 	box-sizing: content-box padding-box border-box
 	prefixed: {
+		float: left right
 		flex-direction: column column-reverse row row-reverse
 		text-align: center left right
 		vertical-align: top middle bottom
@@ -55,6 +56,10 @@ for property in properties
 		for direction in directions
 			${proportion}-{property}-{direction} // $small-margin-top
 				{property}-{direction} lookup("$" + property + camelize(proportion)) // small-margin-top
+			for direction2 in directions // $normal-margin-top-bottom, etc.
+				${proportion}-{property}-{direction}-{direction2}
+					{property}-{direction} lookup("$" + property + camelize(proportion))
+					{property}-{direction2} lookup("$" + property + camelize(proportion))
 			${property}-{$direction}-none
 				${property}-{direction} 0
 
@@ -66,7 +71,8 @@ $bordered-none
 for direction in directions
 	$bordered-{direction}
 		border-{direction} $border
-
+	$bordered-{direction}-none
+		border-{direction} 0
 // generate property placeholders
 for property, value in rules
 	if property is "prefixed"
@@ -85,6 +91,9 @@ $clearfix
 
 $hide-text
 	hide-text()
+
+$hidden
+	display none
 
 $transition-all
 	transition all $transitionTime $transitionFunction
@@ -124,3 +133,15 @@ $delayed
 	for index in (1..$delayElemCount)
 		&:nth-child({index})
 			animation-delay (($animationDuration / 7) * index)
+
+// media query placeholders
+$show-phone
+	display none
+
++media-query($breakpointMain)
+	$hide-phone
+		display none
+	$show-phone
+		display block
+	$show-phone-inline
+		display inline

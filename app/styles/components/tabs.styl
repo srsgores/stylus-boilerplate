@@ -1,0 +1,84 @@
+/*
+	stylus-boilerplate
+
+	tabs.styl
+
+	Author: Sean Goresht
+
+	Tab component
+*/
+
+$tabContainerPadding ?= 1em
+$tabContainerMargin ?= 1em
+
+$tabPanelBackground ?= white
+$tabPanelPadding ?= 1em
+
+$tabBorderWidth ?= 1px
+$tabBorderStyle ?= solid
+$tabBorderColour ?= transparentify((luminosity($tabPanelBackground) > 0.5 ? $tabPanelBackground - 20 : $tabPanelBackground + 20), 0.6)
+$tabBackground ?= luminosity($tabPanelBackground) > 0.5 ? $tabPanelBackground - 5 : $tabPanelBackground + 5
+
+$tabColour ?= luminosity($tabBackground) > 0.5 ? black:white
+$tabPadding ?= 0.6em
+$tabHighlightColour ?= #00abcc
+$tabFontSize ?= 1.3em
+$tabMargin ?= 1em
+
+$tabResponsive ?= true
+
+$tabTransitionDuration ?= 0.2s
+$tabTransitionFunction ?= easing("in-quad")
+
+.tab
+	// basic horizontal tab styles
+	font-size $tabFontSize
+	background color-fallback($tabBackground)
+	padding $tabPadding ($tabPadding * 1.5)
+	opacity 0.6
+	border $tabBorderStyle $tabBorderColour
+	border-width $tabBorderWidth $tabBorderWidth 0 $tabBorderWidth
+	transition $tabTransitionDuration $tabTransitionFunction box-shadow, $tabTransitionDuration $tabTransitionFunction opacity, $tabTransitionDuration $tabTransitionFunction background, $tabTransitionDuration $tabTransitionFunction border-width
+	display block
+	color $tabColour
+	margin 0 $tabMargin 0 0
+	&:hover
+		opacity 1
+	&:active, &.active, &.selected
+		opacity 1
+		background color-fallback($tabPanelBackground)
+		margin-bottom $tabBorderWidth * -2
+		box-shadow inset 0 ($tabBorderWidth * 3) $tabHighlightColour
+	&.disabled, &[disabled]
+		cursor not-allowed
+		opacity 0.5
+	if $tabResponsive
+		+media-query($breakpointMain)
+			font-size 1.4em
+	&-container // container for tabs
+		padding $tabContainerPadding
+		box-sizing border-box
+		margin $tabContainerMargin
+		background color-fallback($tabPanelBackground)
+	&-panel // inner panel for the content on the displayed tab
+		&-container
+			padding $tabPanelPadding
+			border $tabBorderWidth $tabBorderStyle $tabBorderColour
+	&-nav
+		// border $tabBorderWidth $tabBorderStyle $tabBorderColour
+		&-item
+			display inline-block
+			&:first-child
+				margin-left 0
+		&-vertical
+			border-width 0 0 0 $tabBorderWidth // place border to the right
+			.tab, .tab-nav-item
+				display block
+			.tab
+				margin ($tabBorderWidth * -1) 0 0 0
+				[class^="icon-"] // icons should all float to the right on vertical tabs
+					&:before, &:after
+						float right
+				&:active, &.active, &.selected
+					box-shadow none
+					border-right ($tabBorderWidth * 3) $tabBorderStyle $tabHighlightColour
